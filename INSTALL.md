@@ -35,3 +35,26 @@ true).first'`
 You should see the output:
 
     aardsda01,2010,AL,SEA,53,0,0,0,0,0,0,0,0,0
+
+## Step 2: Get The Right Ruby
+
+I did this exercise using ruby 2.1.1 with rvm2 as my ruby manager and
+Bundler as my gemset manager. Install rvm2 at http://rvm.io, or update
+it by typing `rvm get head`, then install ruby with `rvm install
+ruby-2.1.1`. If rvm does not automagically create the gemset for you,
+you can do it manually with `rvm gemset create baseball_stats; rvm
+gemset use baseball_stats`.
+
+## Step 3: Bundle Up, It's Cold Out There
+
+You can install all necessary gem dependencies with bundler, which
+comes with ruby. Just type `bundle` and it will install the gem
+dependencies (RSpec, etc).
+
+## Step 4: Test To See If We're Alive
+
+At this point you should be good to go. Run the specs with
+
+    bundle exec rspec
+
+And you should have green dots across the board.

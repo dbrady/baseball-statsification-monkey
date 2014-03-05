@@ -1,3 +1,30 @@
 #!/usr/bin/env ruby
 
+puts "Welcome to the Baseball Statsification Monkey!"
+puts "----------------------------------------------"
+
+puts "Most improved batter 2009->2010:"
+puts "*** NO CLUE ***"
+puts
+
+puts "2007 Slugging percentages for Oakland A's:"
+puts "*** WHO KNOWS ***"
+puts
+
+puts "2011 AL Triple Crown Winner:"
+puts "*** PROBABLY NOT BABE RUTH ***"
+puts
+
+puts "2011 NL Triple Crown Winner:"
+puts "*** PROBABLY ALSO NOT BABE RUTH ***"
+puts
+
+puts "2012 AL Triple Crown Winner:"
+puts "*** UNLESS NECROMANCY IS PERMITTED ***"
+puts
+
+puts "2012 NL Triple Crown Winner:"
+puts "*** WAIT, IS NECROMANCY PERMITTED? BECAUSE THAT CHANGES THINGS ***"
+puts
+
 puts "All done."

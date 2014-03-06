@@ -21,14 +21,14 @@ describe Batboy do
 
       it "assumes writing to $stdout" do
         Batboy.new.report_all_done
-        buffer.should have_been_written_to_with "All done.\n"
+        buffer.string.should include("All done.\n")
       end
     end
 
     context "with target buffer" do
       it "accepts buffer to display to" do
         Batboy.new(buffer).report_all_done
-        buffer.should have_been_written_to_with "All done.\n"
+        buffer.string.should include("All done.\n")
       end
     end
   end

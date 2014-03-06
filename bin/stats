@@ -6,11 +6,7 @@ puts "----------------------------------------------"
 
 batboy = Batboy.new $stdout # connection information could go here if we import to a db later
 
-
-puts "Most improved batter 2009->2010:"
-# batboy.display_most_improved_batter_in 2010
-puts "*** NO CLUE ***"
-puts
+batboy.report_most_improved_batter_in 2010
 
 puts "2007 Slugging percentages for Oakland A's:"
 puts "*** WHO KNOWS ***"

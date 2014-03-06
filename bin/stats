@@ -1,9 +1,14 @@
 #!/usr/bin/env ruby
+require_relative '../lib/batboy'
 
 puts "Welcome to the Baseball Statsification Monkey!"
 puts "----------------------------------------------"
 
+batboy = Batboy.new $stdout # connection information could go here if we import to a db later
+
+
 puts "Most improved batter 2009->2010:"
+# batboy.display_most_improved_batter_in 2010
 puts "*** NO CLUE ***"
 puts
 
@@ -27,4 +32,4 @@ puts "2012 NL Triple Crown Winner:"
 puts "*** WAIT, IS NECROMANCY PERMITTED? BECAUSE THAT CHANGES THINGS ***"
 puts
 
-puts "All done."
+batboy.report_all_done

@@ -1,6 +1,24 @@
 require 'spec_helper'
 require_relative '../../lib/batter'
 
+def spec_stats_for(description, varname, stats)
+  context "#{description} stats" do
+    let(:subject) { instance_eval "#{varname}" }
+
+    its(:games) { should == stats[:games] }
+    its(:at_bats) { should == stats[:at_bats] }
+    its(:runs) { should == stats[:runs] }
+    its(:hits) { should == stats[:hits] }
+    its(:doubles) { should == stats[:doubles] }
+    its(:triples) { should == stats[:triples] }
+    its(:home_runs) { should == stats[:home_runs] }
+    its(:runs_batted_in) { should == stats[:runs_batted_in] }
+    its(:stolen_bases) { should == stats[:stolen_bases] }
+    its(:caught_stealing) { should == stats[:caught_stealing] }
+    its(:batting_average) { should be_within(0.0005).of(stats[:batting_average]) }
+  end
+end
+
 describe Batter do
   context "with autoloaded data" do
     # Josh Wilson played 345 games for 6 teams in both leagues. He
@@ -31,6 +49,23 @@ describe Batter do
       end
     end
 
+    describe ".find_all_by_year" do
+      let(:batters_2010) { Batter.find_all_by_year(2010).sort_by {|b| [b.last_name, b.first_name]} }
+
+      it "finds batters by year" do
+        batters_2010.size.should == 1157
+        batters_2010.first.name.should == "David Aardsma"
+        batters_2010.last.name.should == "Jorge de la Rosa"
+      end
+    end
+
+    describe "#played_any_games_in?(year)" do
+      it "returns truthy if batter played that year" do
+        kimby.played_any_games_in?(2007).should be_true
+        kimby.played_any_games_in?(2008).should be_false
+      end
+    end
+
     describe "#years" do
       it "returns years played" do
         kimby.years.should == [2007]
@@ -38,103 +73,89 @@ describe Batter do
     end
 
     describe "BattingData interface" do
+      spec_stats_for("Josh Wilson lifetime stats", "wilson", {
+                       games: 345,
+                       at_bats: 920,
+                       runs: 82,
+                       hits: 210,
+                       doubles: 45,
+                       triples: 6,
+                       home_runs: 9,
+                       runs_batted_in: 67,
+                       stolen_bases: 13,
+                       caught_stealing: 4,
+                       batting_average: 0.228
+                     })
 
-      describe "#games" do
-        it "returns total games played" do
-          wilson.games.should == 345
-          kimby.games.should == 28
-          accardo.games.should == 134
-        end
-      end
+      spec_stats_for("Jeremy Accardo lifetime stats", "accardo", {
+                       games: 134,
+                       at_bats: 0,
+                       runs: 0,
+                       hits: 0,
+                       doubles: 0,
+                       triples: 0,
+                       home_runs: 0,
+                       runs_batted_in: 0,
+                       stolen_bases: 0,
+                       caught_stealing: 0,
+                       batting_average: 0.0
+                     })
 
-      describe "#at_bats" do
-        it "returns total at_bats" do
-          accardo.at_bats.should == 0
-          wilson.at_bats.should == 920
-          kimby.at_bats.should == 33
-        end
-      end
+      spec_stats_for("Kim Byung-Hyun lifetime stats", "kimby", {
+                       games: 28,
+                       at_bats: 33,
+                       runs: 0,
+                       hits: 2,
+                       doubles: 1,
+                       triples: 0,
+                       home_runs: 0,
+                       runs_batted_in: 1,
+                       stolen_bases: 0,
+                       caught_stealing: 0,
+                       batting_average: 0.061
+                     })
 
-      describe "#runs" do
-        it "returns total runs" do
-          accardo.runs.should == 0
-          wilson.runs.should == 0
-          kimby.runs.should == 0
-        end
-      end
-
-      describe "#hits" do
-        it "returns total hits" do
-          accardo.hits.should == 0
-          wilson.hits.should == 210
-          kimby.hits.should == 2
-        end
-      end
-
-      describe "#doubles" do
-        it "returns total doubles" do
-          accardo.doubles.should == 0
-          wilson.doubles.should == 45
-          kimby.doubles.should == 1
-        end
-      end
-
-      describe "#triples" do
-        it "returns total triples" do
-          accardo.triples.should == 0
-          wilson.triples.should == 6
-          kimby.triples.should == 0
-        end
-      end
-
-      describe "#home_runs" do
-        it "returns total home_runs" do
-          accardo.home_runs.should == 0
-          wilson.home_runs.should == 9
-          kimby.home_runs.should == 0
-        end
-      end
-
-      describe "#runs_batted_in" do
-        it "returns total runs_batted_in" do
-          accardo.runs_batted_in.should == 0
-          wilson.runs_batted_in.should == 67
-          kimby.runs_batted_in.should == 1
-        end
-      end
-
-      describe "#stolen_bases" do
-        it "returns total stolen_bases" do
-          accardo.stolen_bases.should == 0
-          wilson.stolen_bases.should == 13
-          kimby.stolen_bases.should == 0
-        end
-      end
-
-      describe "#caught_stealing" do
-        it "returns total caught_stealing" do
-          accardo.caught_stealing.should == 0
-          wilson.caught_stealing.should == 4
-          kimby.caught_stealing.should == 0
-        end
-      end
-
-      describe "#batting_average" do
-        it "returns lifetime batting average" do
-          accardo.batting_average.should be_within(0.0005).of(0.000)
-          wilson.batting_average.should be_within(0.0005).of(0.228)
-          kimby.batting_average.should be_within(0.0005).of(0.061)
-        end
-      end
     end
 
     describe "#stats_for_year" do
-      let(:stats) { kimby.stats_for_year(2007) }
-      it "returns BattingData for year" do
-        stats.should be_a(BattingData)
-        stats.games.should == 28
-        stats.at_bats.should == 33
-        stats.batting_average.should be_within(0.0005).of(0.061)
+      let(:kimby_2007_stats) { kimby.stats_for_year(2007) }
+      let(:wilson_2011_stats) { wilson.stats_for_year(2011) }
+
+      spec_stats_for("Kim Byung-Hyun 2007 stats", "kimby_2007_stats", {
+                       games: 28,
+                       at_bats: 33,
+                       runs: 0,
+                       hits: 2,
+                       doubles: 1,
+                       triples: 0,
+                       home_runs: 0,
+                       runs_batted_in: 1,
+                       stolen_bases: 0,
+                       caught_stealing: 0,
+                       batting_average: 0.061
+                     })
+
+      spec_stats_for("Josh Wilson 2011 stats", "wilson_2011_stats", {
+                       games: 60,
+                       at_bats: 85,
+                       runs: 13,
+                       hits: 19,
+                       doubles: 5,
+                       triples: 0,
+                       home_runs: 2,
+                       runs_batted_in: 5,
+                       stolen_bases: 1,
+                       caught_stealing: 0,
+                       batting_average: 0.224
+                     })
+
+      context "with empty year" do
+        let(:empty_stats) { wilson.stats_for_year(1966) }
+        it "returns nil" do
+          # HATE returning nil, but I've designed West-facing code,
+          # so it's unavoidable until I repent :'-(
+          empty_stats.should be_nil
+        end
       end
     end
   end

@@ -12,6 +12,7 @@ describe "stats" do
 
     it "emits 'Most improved batter 2009->2010:'" do
       program_output.should include("Most improved batter 2009->2010:")
+      program_output.should include("Josh Hamilton")
     end
 
     it "emits 'Slugging percentage for all players on the Oakland A's in 2007:'" do

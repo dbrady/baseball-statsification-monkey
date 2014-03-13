@@ -32,7 +32,7 @@ class Batboy
   def report_most_improved_batter_in(year)
     from, to = year-1, year
     ostream.puts "Most improved batter #{from}->#{to}:"
-    batter_name = stats_grinder.most_improved_batter(from, to)
-    ostream.puts batter_name
+    batter = stats_grinder.most_improved_batter(from, to)
+    ostream.puts batter.name
   end
 end

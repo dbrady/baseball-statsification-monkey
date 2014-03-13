@@ -6,7 +6,7 @@ class BattingData
 
     @year, @league, @team = data[:year].to_i, data[:league], data[:team]
 
-    @games, @at_bats, @run, @hits, @doubles, @triples, @home_runs, @runs_batted_in, @stolen_bases, @caught_stealing = data[:games].to_i, data[:at_bats].to_i, data[:runs].to_i, data[:hits].to_i, data[:doubles].to_i, data[:triples].to_i, data[:home_runs].to_i, data[:runs_batted_in].to_i, data[:stolen_bases].to_i, data[:caught_stealing].to_i
+    @games, @at_bats, @runs, @hits, @doubles, @triples, @home_runs, @runs_batted_in, @stolen_bases, @caught_stealing = data[:games].to_i, data[:at_bats].to_i, data[:runs].to_i, data[:hits].to_i, data[:doubles].to_i, data[:triples].to_i, data[:home_runs].to_i, data[:runs_batted_in].to_i, data[:stolen_bases].to_i, data[:caught_stealing].to_i
   end
 
   def games; @games || 0; end

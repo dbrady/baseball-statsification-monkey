@@ -2,6 +2,7 @@ require_relative "batter_csv_reader"
 require_relative "batting_csv_reader"
 require_relative "batting_data"
 require_relative "patches"
+require 'pp'
 
 class Batter
   extend Forwardable
@@ -20,22 +21,10 @@ class Batter
     end
   end
 
-  def name
-    "%s %s" % [first_name, last_name]
-  end
-
-  def years
-    batting_data.keys
-  end
-
   def_delegators :all_batting_data_ever, :games, :at_bats, :runs,
                  :hits, :doubles, :triples, :home_runs,
                  :runs_batted_in, :stolen_bases, :caught_stealing,
                  :batting_average
-
-  def stats_for_year(year)
-    all_batting_data_for_year batting_data[year]
-  end
 
   # Selectors -- similar to ActiveRecord, we can find the first batter
   # or find by id.
@@ -47,12 +36,31 @@ class Batter
     batter_data[id]
   end
 
+  def self.find_all_by_year(year)
+    batter_data.reject {|id, batter| !batter.played_any_games_in? year }.map(&:last)
+  end
+
   # Internal caching method so we only ever load batter data once per
   # program run
   def self.batter_data
     @@batter_data ||= load_batter_data
   end
 
+  def name
+    "%s %s" % [first_name, last_name]
+  end
+
+  def years
+    batting_data.keys
+  end
+
+  def stats_for_year(year)
+    all_batting_data_for_year batting_data[year]
+  end
+
+  def played_any_games_in?(year)
+    years.include? year
+  end
 
   # Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please
   # give me a reason other than "I suck". Okay, fine: "I suck until I

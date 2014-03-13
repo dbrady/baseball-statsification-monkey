@@ -41,7 +41,8 @@ describe Batboy do
 
   describe "#report_most_improved_batter_in(year)" do
     before(:each) do
-      stats_grinder.stub(:most_improved_batter).and_return("Hank Aaron")
+      batter = double("Batter", name: "Hank Aaron")
+      stats_grinder.stub(:most_improved_batter).and_return batter
     end
 
     it "emits 'Most improved batter [year-1]->[year]:'" do
@@ -51,7 +52,8 @@ describe Batboy do
     end
 
     it "asks StatsGrinder to find most improved batter" do
-      stats_grinder.should_receive(:most_improved_batter).with(1998, 1999).and_return("Hank Aaronfeld")
+      batter = double("Batter", name: "Hank Aaron")
+      stats_grinder.should_receive(:most_improved_batter).with(1998, 1999).and_return batter
       batboy.report_most_improved_batter_in 1999
       output.should include("Most improved batter 1998->1999:")
       output.should include("Hank Aaron")

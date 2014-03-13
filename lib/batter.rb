@@ -27,6 +27,13 @@ class Batter
   end
 
   # lifetime stats
+  # TODO: Why not just return a BattingData object? Demeter violations
+  # aside, all of our stats questions begin with refining the
+  # collection of BattingData objects and then squashing them down to
+  # a single BattingData object with :+. Do we really want to proxy
+  # that all over the place? Can we force the caller to know and
+  # understand that we're going to return something with an IStats
+  # interface or somesuch?
   def games; all_batting_data_ever.games; end
   def at_bats; all_batting_data_ever.at_bats; end
   def runs; all_batting_data_ever.runs; end
@@ -38,6 +45,7 @@ class Batter
   def stolen_bases; all_batting_data_ever.stolen_bases; end
   def caught_stealing; all_batting_data_ever.caught_stealing; end
 
+  # ...batting average is part of the stats class/interface, too
   def batting_average
     if hits > 0 && at_bats > 0
       hits / at_bats.to_f
@@ -46,6 +54,8 @@ class Batter
     end
   end
 
+  # Selectors -- similar to ActiveRecord, we can find the first batter
+  # or find by id.
   def self.first
     batter_data.first.last
   end
@@ -54,10 +64,16 @@ class Batter
     batter_data[id]
   end
 
+  # Internal caching method so we only ever load batter data once per
+  # program run
   def self.batter_data
     @@batter_data ||= load_batter_data
   end
 
+
+  # Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please
+  # give me a reason other than "I suck". Okay, fine: "I suck until I
+  # refactor."
   def self.load_batter_data
     # Refactor me: hardcodey much? [SPIKE]
     batters = BatterCsvReader.new("./data/Master-small.csv").all.map {|row|
@@ -68,7 +84,24 @@ class Batter
     batters
   end
 
-  # FIXME: I *REALLY* belong in a data conversion class!!!!
+  # FIXME: I *REALLY* belong in a data conversion class!!!! These are
+  # the CSV header identifiers keyed by our internal data columns. Why
+  # not use what's in the CSV, you ask? Let me answer that question by
+  # stating authoritatively that if you are asking that question you
+  # obviously have no clue what's IN that frickin' CSV file. You wanna
+  # know what's in that file? Do you? DO YOU REALLY? MADNESS! MADNESS
+  # I SAY! MADNESS IS WHAT IS IN THAT FILE! When Nietzche famously
+  # wrote "If you gaze long into the Abyss, the Abyss gazes also into
+  # you," HE WAS TALKING ABOUT THIS CSV FILE. IT'S BAT-POO CRAZY IS
+  # WHAT I AM TRYING TO TELL YOU--NO, DON'T LOOK, DON'T LOOK IN THE
+  # FILE, DON'T OPEN THE...
+  #
+  # You looked, didn't you.
+  #
+  # Well. Welcome to my madness. Make yourself comfortable; THERE IS
+  # NO WAY BACK.
+  #
+  # I did try to warn you.
   def self.batting_data_keys
     { id: "playerID",
       year: "yearID",
@@ -87,6 +120,8 @@ class Batter
     }
   end
 
+  # Internal caching method. See earlier note about the technical
+  # depth and temporal breadth within which I suck.
   def self.load_batting_data
     BattingCsvReader.new("./data/Batting-07-12.csv").all.map {|row|
       data = {}
@@ -102,26 +137,45 @@ class Batter
     }
   end
 
+  # I hate methods like this, but whatchagonnado. Basically this
+  # method lets us cram a line of data from the CSV file into the
+  # Batter and the Batter will init a new record with it, or add it to
+  # any existing stats for that year/league/team (the data file has
+  # over 550 entries that are same player/year, and often same
+  # player/year/league/team. And often same player/year but different
+  # team, and occasionally different league. The fact is this data is
+  # SUPER messy and we gotta live with it, because the reality it's
+  # tracking is also super messy
   def add_batting_data(bd)
     @batting_data[bd.year][bd.league][bd.team] += bd
   end
 
   private
 
-  # Consolidate all my batting data across all years, leagues, teams, etc.
+  # Consolidate all my batting data across all years, leagues, teams,
+  # etc.
   def all_batting_data_ever
     batting_data.map {|year, league_data|
       all_batting_data_for_year league_data
     }.reduce :+
   end
 
+  # Helper: given a subtree of BattingDatas for a given year, dive
+  # into each league. Private method because it accepts a subtree of
+  # the batting_data structure. Knows too much about our internals.
   def all_batting_data_for_year(data)
     data.map {|league, team_data|
-      all_batting_data_for_team team_data
+      all_batting_data_for_league team_data
     }.reduce :+
   end
 
-  def all_batting_data_for_team(data)
+  # Helper: given a subtree of BattingDatas for a given league, dive
+  # into each team. Private method because it accepts a subtree of the
+  # batting_data structure. Knows too much about our internals.
+  def all_batting_data_for_league(data)
+    # We could extract all_batting_data_for_team here, but Hash#values
+    # gives us the same thing at this point. Private methods FTW--no
+    # using this method, you public-API-using knuckledraggers!
     data.values.reduce :+
   end
 end

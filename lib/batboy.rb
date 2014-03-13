@@ -19,8 +19,6 @@ class Batboy
   # StatsGrinder.new(StatsData.parse_csv("./data/Master-small.csv")))
   # etc
 
-
-
   def report_all_done
     ostream.puts "All done."
   end
@@ -40,5 +38,6 @@ class Batboy
     ostream.puts "Most improved batter #{from}->#{to}:"
     batter = stats_grinder.most_improved_batter(from, to)
     ostream.puts batter.name
+    ostream.puts
   end
 end

@@ -20,6 +20,14 @@ class BattingData
   def stolen_bases; @stolen_bases || 0; end
   def caught_stealing; @caught_stealing || 0; end
 
+  def batting_average
+    if hits > 0 && at_bats > 0
+      hits / at_bats.to_f
+    else
+      0.0
+    end
+  end
+
   # Add BattingData to another and return a new BattingData containing
   # the sums of the stats.
   def +(other)

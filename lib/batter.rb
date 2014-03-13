@@ -4,6 +4,8 @@ require_relative "batting_data"
 require_relative "patches"
 
 class Batter
+  extend Forwardable
+
   attr_reader :id, :last_name, :first_name
   private_attr_reader :batting_data
 
@@ -26,32 +28,13 @@ class Batter
     batting_data.keys
   end
 
-  # lifetime stats
-  # TODO: Why not just return a BattingData object? Demeter violations
-  # aside, all of our stats questions begin with refining the
-  # collection of BattingData objects and then squashing them down to
-  # a single BattingData object with :+. Do we really want to proxy
-  # that all over the place? Can we force the caller to know and
-  # understand that we're going to return something with an IStats
-  # interface or somesuch?
-  def games; all_batting_data_ever.games; end
-  def at_bats; all_batting_data_ever.at_bats; end
-  def runs; all_batting_data_ever.runs; end
-  def hits; all_batting_data_ever.hits; end
-  def doubles; all_batting_data_ever.doubles; end
-  def triples; all_batting_data_ever.triples; end
-  def home_runs; all_batting_data_ever.home_runs; end
-  def runs_batted_in; all_batting_data_ever.runs_batted_in; end
-  def stolen_bases; all_batting_data_ever.stolen_bases; end
-  def caught_stealing; all_batting_data_ever.caught_stealing; end
+  def_delegators :all_batting_data_ever, :games, :at_bats, :runs,
+                 :hits, :doubles, :triples, :home_runs,
+                 :runs_batted_in, :stolen_bases, :caught_stealing,
+                 :batting_average
 
-  # ...batting average is part of the stats class/interface, too
-  def batting_average
-    if hits > 0 && at_bats > 0
-      hits / at_bats.to_f
-    else
-      0.0
-    end
+  def stats_for_year(year)
+    all_batting_data_for_year batting_data[year]
   end
 
   # Selectors -- similar to ActiveRecord, we can find the first batter

@@ -29,6 +29,12 @@ class Batboy
   # caption, get answer, display answer or default
   # Note: StatsGrinder gives back nil or a batter name. There's no
   # reason for Batboy to have access to Batter objects yet.
+  #
+  # Refactor me: I don't like Batboy knowing that Batter has a
+  # name, but the alternative is to have Batter know how to write its
+  # name to a stream, e.g. batter.write_name_to(ostream). This is very
+  # Smalltalk-y, and might improve testability. Will think some on
+  # this.
   def report_most_improved_batter_in(year)
     from, to = year-1, year
     ostream.puts "Most improved batter #{from}->#{to}:"

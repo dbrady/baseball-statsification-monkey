@@ -59,6 +59,17 @@ describe Batter do
       end
     end
 
+    describe ".find_all_by_team_and_year" do
+      let(:seattle_2008) { Batter.find_all_by_team_and_year('SEA', 2008).sort_by {|b| [b.last_name, b.first_name]} }
+
+      it "finds batters by team and year" do
+        seattle_2008.size.should == 44
+        seattle_2008.first.name.should == "Cha Seung Baek"
+        seattle_2008.last.name.should == "Jake Woods"
+      end
+    end
+
+
     describe "#played_any_games_in?(year)" do
       it "returns truthy if batter played that year" do
         kimby.played_any_games_in?(2007).should be_true

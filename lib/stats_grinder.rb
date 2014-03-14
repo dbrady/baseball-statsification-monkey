@@ -1,5 +1,17 @@
 require_relative "batter"
 
+# StatsGrinder is a class that is aware of BattingData from a higher
+# level than BattingData itself; specifically it is able to compare
+# BattingData objects to each other to determine improvement, identify
+# triple crown winners, etc. It also knows how to search for relevant
+# Batters to satisfy a given query.
+#
+# It may be possible to offload some of the stats to BattingData. For
+# example, BattingData#batting_average_improvement(other_batting_data)
+# but for now the purpose of StatsGrinder is to satisfy our curiosity
+# about various baseball statistics that are fussy and hand-tweaked
+# (like only considering batters with a certain number of at-bats for
+# a given report)
 class StatsGrinder
   def most_improved_batter(from, to)
     batters1 = Batter.find_all_by_year from
@@ -10,6 +22,13 @@ class StatsGrinder
     batters = common_batters(batters1, batters2)
 
     most_improved(batters, from, to)
+  end
+
+  # So far Batboy has only ever needed to talk to StatsGrinder. No
+  # need for it to talk directly to Batter just yet--let's proxy this
+  # for now and get an intention-revealing name in the bargain.
+  def team_members_for_year(team, year)
+    Batter.find_all_by_team_and_year(team, year)
   end
 
   private

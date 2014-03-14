@@ -1,8 +1,11 @@
+require_relative 'batter'
+
 class BattingData
-  attr_reader :player, :year, :league, :team, :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :runs_batted_in, :stolen_bases, :caught_stealing
+  attr_reader :player_id, :player, :year, :league, :team, :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :runs_batted_in, :stolen_bases, :caught_stealing
 
   def initialize(data={})
-    @player = Batter.find_by_id(data[:id])
+    @player_id = data.fetch(:player_id)
+    @player = Batter.find_by_id(data.fetch(:player_id))
 
     @year, @league, @team = data[:year].to_i, data[:league], data[:team]
 
@@ -21,11 +24,13 @@ class BattingData
   def caught_stealing; @caught_stealing || 0; end
 
   def batting_average
-    if hits > 0 && at_bats > 0
-      hits / at_bats.to_f
-    else
-      0.0
-    end
+    return 0.0 unless at_bats > 0
+    hits / at_bats.to_f
+  end
+
+  def slugging_percentage
+    return 0.0 unless at_bats > 0
+    ((hits - (doubles+triples+home_runs)) + 2*doubles + 3*triples + 4*home_runs) / at_bats.to_f
   end
 
   # Add BattingData to another and return a new BattingData containing
@@ -35,6 +40,7 @@ class BattingData
     # be adding a valid BattingData to a player's empty BattingData,
     # and if so we want to return the valid one.
     BattingData.new({
+                      player_id: player_id || other.player_id,
                       player: player || other.player,
                       year: year || other.year,
                       league: league || other.league,

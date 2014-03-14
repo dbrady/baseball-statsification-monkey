@@ -16,7 +16,11 @@ describe "stats" do
     end
 
     it "emits 'Slugging percentage for all players on the Oakland A's in 2007:'" do
-      program_output.should include("2007 Slugging percentages for Oakland A's:")
+      program_output.should include("2007 Slugging percentages for OAK:")
+      program_output.should include("Joe Kennedy:  0.667")
+      program_output.should include("Daric Barton:  0.639")
+      program_output.should include("Milton Bradley:  0.545")
+      program_output.should include("Jerry Blevins:  0.000")
     end
 
     it "emits AL triple-crown winner for 2011" do

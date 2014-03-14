@@ -2,7 +2,6 @@ require_relative "batter_csv_reader"
 require_relative "batting_csv_reader"
 require_relative "batting_data"
 require_relative "patches"
-require 'pp'
 
 class Batter
   extend Forwardable
@@ -15,7 +14,7 @@ class Batter
     @batting_data = Hash.new do |hash, year|
       hash[year] = Hash.new do |hash2, league_id|
         hash2[league_id] = Hash.new do |hash3, team_id|
-          hash3[team_id] = BattingData.new
+          hash3[team_id] = BattingData.new player_id: id
         end
       end
     end
@@ -37,7 +36,13 @@ class Batter
   end
 
   def self.find_all_by_year(year)
-    batter_data.reject {|id, batter| !batter.played_any_games_in? year }.map(&:last)
+    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&:last)
+  end
+
+  def self.find_all_by_team_and_year(team, year)
+    batter_data.reject {|id, batter|
+        !batter.played_any_games_for_team_in?(team, year)
+    }.map(&:last)
   end
 
   # Internal caching method so we only ever load batter data once per
@@ -62,14 +67,26 @@ class Batter
     years.include? year
   end
 
+  def played_any_games_for_team_in?(team, year)
+    played_any_games_in?(year) && batting_data[year].any? {|league, team_data|
+      team_data.keys.include?(team)
+    }
+  end
+
   # Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please
   # give me a reason other than "I suck". Okay, fine: "I suck until I
   # refactor."
   def self.load_batter_data
     # Refactor me: hardcodey much? [SPIKE]
-    batters = BatterCsvReader.new("./data/Master-small.csv").all.map {|row|
-      Batter.new(row["playerID"], row["nameLast"], row["nameFirst"])
-    }.each_with_object({}) {|batter, hash| hash[batter.id] = batter }
+    batters = BatterCsvReader.new("./data/Master-small.csv").
+      all.
+      reject {|row| row["playerID"].nil? }.
+      map {|row|
+        Batter.new(row["playerID"], row["nameLast"], row["nameFirst"])
+      }.
+      each_with_object({}) {|batter, hash| hash[batter.id] = batter }
+
+
     @@batter_data = batters
     load_batting_data
     batters
@@ -94,9 +111,9 @@ class Batter
   #
   # I did try to warn you.
   def self.batting_data_keys
-    { id: "playerID",
+    { player_id: "playerID",
       year: "yearID",
-      league: "leaugeID",
+      league: "league",
       team: "teamID",
       games: "G",
       at_bats: "AB",
@@ -120,10 +137,10 @@ class Batter
         data[new_key] = row[old_key]
       end
 
-      if batter = Batter.find_by_id(data[:id])
+      if batter = Batter.find_by_id(data[:player_id])
         batter.add_batting_data(BattingData.new(data))
       else
-        raise "Unable to find batter by id '%s'; all batter should be loaded" % row["playerID"]
+        raise "Unable to find batter by id '%s'; all batters should be loaded" % row["playerID"]
       end
     }
   end

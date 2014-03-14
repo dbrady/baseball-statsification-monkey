@@ -8,9 +8,8 @@ batboy = Batboy.new $stdout # connection information could go here if we import 
 
 batboy.report_most_improved_batter_in 2010
 
-puts "2007 Slugging percentages for Oakland A's:"
-puts "*** WHO KNOWS ***"
-puts
+batboy.report_slugging_percentage_roster_for "OAK", 2007
+# batboy.report_slugging_percentage_roster_for "SEA", 2008
 
 puts "2011 AL Triple Crown Winner:"
 puts "*** PROBABLY NOT BABE RUTH ***"

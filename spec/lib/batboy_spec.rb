@@ -59,6 +59,36 @@ describe Batboy do
       output.should include("Hank Aaron")
     end
 
+    # TODO: As I move forward with slugging percentages, I see a
+    # distinct need for "display a Batter with slugging percentage";
+    # did I gloss over the need to display a Batter with batting
+    # average improvement? Maybe. Circle back to this later -- what we
+    # have now is pretty and shippable.
+
+    describe "#report_slugging_percentage_roster_for('SEA', 2008)" do
+      it "asks StatsGrinder for 2008 Seattle team roster" do
+        batting_data = double("BattingData", slugging_percentage: 0.5)
+        batter1 = double("Batter", name: "Sluggo McLongball",
+                         stats_for_year: batting_data)
+        batter2 = double("Batter", name: "Ballsmack O'Hittem",
+                         stats_for_year: batting_data)
+        team = [batter1, batter2]
+
+        stats_grinder.should_receive(:team_members_for_year).with('SEA', 2008).and_return team
+
+        batboy.report_slugging_percentage_roster_for("SEA", 2008)
+
+        output.should include("2008 Slugging percentages for SEA:")
+        output.should include("Sluggo McLongball:  0.500")
+        output.should include("Ballsmack O'Hittem:  0.500")
+      end
+    end
+
+    describe "#report_triple_crown_winner_in(league, year)" do
+      # half tempted to script this as a google query instead of using
+      # the data provided, but that's breaking the rules. :-)
+    end
+
     # it "emits 'Slugging percentage for all players on the Oakland A's in 2007:'" do
     #   program_output.should include("2007 Slugging percentages for Oakland A's:")
     # end

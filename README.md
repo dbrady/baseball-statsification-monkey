@@ -8,7 +8,17 @@ later), you should be able to just do
     bundle
     bundle exec bin/stats
 
-and see the output.
+and see the output. You can run the simple spec suite with
+
+    bundle exec rspec
+
+And the more detailed, documentation-oriented specs with
+
+    bundle exec rspec -f d
+
+There's a decent chance that just `bin/stats` may work without `bundle
+exec`, as may `rspec` but when in doubt, `bundle exec`.
+
 
 # OVERVIEW
 

@@ -33,18 +33,22 @@ describe "stats" do
 
     it "emits AL triple-crown winner for 2011" do
       program_output.should include("2011 AL Triple Crown Winner:")
+      program_output.should include("(No winner)")
     end
 
     it "emits NL triple-crown winner for 2011" do
       program_output.should include("2011 NL Triple Crown Winner:")
+      program_output.should include("(No winner)")
     end
 
     it "emits AL triple-crown winner for 2012" do
       program_output.should include("2012 AL Triple Crown Winner:")
+      program_output.should include("(No winner)")
     end
 
     it "emits NL triple-crown winner for 2012" do
       program_output.should include("2012 NL Triple Crown Winner:")
+      program_output.should include("(No winner)")
     end
   end
 

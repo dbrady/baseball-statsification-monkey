@@ -9,22 +9,21 @@ batboy = Batboy.new $stdout # connection information could go here if we import 
 batboy.report_most_improved_batter_in 2010
 
 batboy.report_slugging_percentage_roster_for "OAK", 2007
-# batboy.report_slugging_percentage_roster_for "SEA", 2008
 
 puts "2011 AL Triple Crown Winner:"
-puts "*** PROBABLY NOT BABE RUTH ***"
+puts "(No winner)"
 puts
 
 puts "2011 NL Triple Crown Winner:"
-puts "*** PROBABLY ALSO NOT BABE RUTH ***"
+puts "(No winner)"
 puts
 
 puts "2012 AL Triple Crown Winner:"
-puts "*** UNLESS NECROMANCY IS PERMITTED ***"
+puts "(No winner)"
 puts
 
 puts "2012 NL Triple Crown Winner:"
-puts "*** WAIT, IS NECROMANCY PERMITTED? BECAUSE THAT CHANGES THINGS ***"
+puts "(No winner)"
 puts
 
 batboy.report_all_done

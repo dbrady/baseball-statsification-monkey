@@ -1,6 +1,8 @@
 # README
 
-Baseball Statsification Monkey
+## Baseball Statsification Monkey
+
+[![Code Climate](https://codeclimate.com/github/dbrady/baseball-statsification-monkey.png)](https://codeclimate.com/github/dbrady/baseball-statsification-monkey)
 
 If you're cloning this repo and you have a recent ruby (2.1.1 or
 later), you should be able to just do

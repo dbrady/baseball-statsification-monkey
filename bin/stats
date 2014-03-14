@@ -10,20 +10,9 @@ batboy.report_most_improved_batter_in 2010
 
 batboy.report_slugging_percentage_roster_for "OAK", 2007
 
-puts "2011 AL Triple Crown Winner:"
-puts "(No winner)"
-puts
-
-puts "2011 NL Triple Crown Winner:"
-puts "(No winner)"
-puts
-
-puts "2012 AL Triple Crown Winner:"
-puts "(No winner)"
-puts
-
-puts "2012 NL Triple Crown Winner:"
-puts "(No winner)"
-puts
+batboy.report_triple_crown_winner_in_league_for "AL", 2011
+batboy.report_triple_crown_winner_in_league_for "NL", 2011
+batboy.report_triple_crown_winner_in_league_for "AL", 2012
+batboy.report_triple_crown_winner_in_league_for "NL", 2012
 
 batboy.report_all_done

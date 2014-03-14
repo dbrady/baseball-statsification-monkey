@@ -2,7 +2,7 @@ require 'spec_helper'
 require_relative '../../lib/batter'
 
 def spec_stats_for(description, varname, stats)
-  context "#{description} stats" do
+  context "#{description}" do
     let(:subject) { instance_eval "#{varname}" }
 
     its(:games) { should == stats[:games] }
@@ -69,6 +69,16 @@ describe Batter do
       end
     end
 
+    describe ".find_all_by_league_and_year" do
+      let(:al_2008) { Batter.find_all_by_league_and_year("AL", 2008).sort_by {|b| [b.last_name, b.first_name]} }
+
+      it "finds batters by league and year" do
+        al_2008.size.should == 624
+        al_2008.all? {|batter| batter.played_any_games_in_league_in_year?("AL", 2008) }.should be_true
+        al_2008.first.name.should == "David Aardsma"
+        al_2008.last.name.should == "Joel Zumaya"
+      end
+    end
 
     describe "#played_any_games_in?(year)" do
       it "returns truthy if batter played that year" do
@@ -168,6 +178,23 @@ describe Batter do
           empty_stats.should be_nil
         end
       end
+    end
+
+    describe "#stats_for_league_and_year" do
+      let(:wilson_al_2009_stats) { wilson.stats_for_league_and_year("AL", 2009) }
+      spec_stats_for("Josh Wilson 2009 AL stats", "wilson_al_2009_stats", {
+                       games: 45,
+                       at_bats: 128,
+                       runs: 16,
+                       hits: 32,
+                       doubles: 8,
+                       triples: 1,
+                       home_runs: 3,
+                       runs_batted_in: 10,
+                       stolen_bases: 1,
+                       caught_stealing: 2,
+                       batting_average: 0.250
+                       })
     end
   end
 end

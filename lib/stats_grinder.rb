@@ -31,6 +31,44 @@ class StatsGrinder
     Batter.find_all_by_team_and_year(team, year)
   end
 
+  def triple_crown_winner_in_league_for(league, year)
+    # BattingData already has everything we need here -- just need to
+    # teach Batter to cobble up and return BattingDatas that only
+    # include data from the desired league and year. Then ask each
+    # batter for stats_for_league_and_year, and see if the max_by
+    # :home_runs, :runs_batted_in, and :batting_average are all the
+    # same person.
+    contenders = Batter.find_all_by_league_and_year(league, year)
+    contenders.reject! {|batter|
+      # FIXME: there's code below to filter batters with fewer than
+      # 200 at bats. Seems like a good potential re-use case
+      #
+      # I'm not sayin', I'm just sayin'
+      batter.stats_for_league_and_year(league, year).at_bats < 400
+    }
+
+    homer = contenders.max_by {|batter|
+      batter.stats_for_league_and_year(league, year).home_runs
+    }
+    run_batter_inner = contenders.max_by {|batter|
+      batter.stats_for_league_and_year(league, year).runs_batted_in
+    }
+    # optimization: return nil early here unless homer ==
+    # run_batter_inner because BA doesn't matter--we do not have a
+    # triple crown winner this year in this league. Not doing any
+    # optimization until/unless the program gets too slow, however,
+    # because optimizing correct code is easy, but correcting
+    # optimized code is a bear.
+    best_hitter = contenders.max_by {|batter|
+      batter.stats_for_league_and_year(league, year).batting_average
+    }
+    if homer == run_batter_inner && homer == best_hitter
+      homer
+    else
+      nil # ;-)
+    end
+  end
+
   private
 
   # Isolating this method because the coding exercise does not

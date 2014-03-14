@@ -41,7 +41,13 @@ class Batter
 
   def self.find_all_by_team_and_year(team, year)
     batter_data.reject {|id, batter|
-        !batter.played_any_games_for_team_in?(team, year)
+      !batter.played_any_games_for_team_in?(team, year)
+    }.map(&:last)
+  end
+
+  def self.find_all_by_league_and_year(league, year)
+    batter_data.reject {|id, batter|
+      !batter.played_any_games_in_league_in_year?(league, year)
     }.map(&:last)
   end
 
@@ -63,6 +69,15 @@ class Batter
     all_batting_data_for_year batting_data[year]
   end
 
+  def stats_for_league_and_year(league, year)
+    return nil unless batting_data.key?(year) && batting_data[year] && batting_data[year].key?(league)
+    # FIXME: dis nasty. Have to pass in a key with the hash, which
+    # means having to lump on the league key again here. Mai ow--do
+    # not want. Is it really necessary? Need to revisit the method
+    # breakdown and see if it can't be cleaned up
+    all_batting_data_for_year({ league => batting_data[year][league] })
+  end
+
   def played_any_games_in?(year)
     years.include? year
   end
@@ -70,6 +85,12 @@ class Batter
   def played_any_games_for_team_in?(team, year)
     played_any_games_in?(year) && batting_data[year].any? {|league, team_data|
       team_data.keys.include?(team)
+    }
+  end
+
+  def played_any_games_in_league_in_year?(league, year)
+    played_any_games_in?(year) && batting_data[year].any? {|league_name, team_data|
+      league == league_name
     }
   end
 

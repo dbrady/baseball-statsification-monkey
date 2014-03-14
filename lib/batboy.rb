@@ -50,4 +50,13 @@ class Batboy
     end
     ostream.puts
   end
+
+  def report_triple_crown_winner_in_league_for(league, year)
+    ostream.puts "#{year} #{league} Triple Crown Winner:"
+    if winner = stats_grinder.triple_crown_winner_in_league_for(league, year)
+      ostream.puts winner.name
+    else
+      ostream.puts "(No winner)"
+    end
+  end
 end

@@ -85,8 +85,18 @@ describe Batboy do
     end
 
     describe "#report_triple_crown_winner_in(league, year)" do
-      # half tempted to script this as a google query instead of using
-      # the data provided, but that's breaking the rules. :-)
+      it "asks StatsGrinder for 2011 NL triple crown winner" do
+        stats_grinder.should_receive(:triple_crown_winner_in_league_for).at_least(:once).with("NL", 2011).and_return nil
+        batboy.report_triple_crown_winner_in_league_for("NL", 2011)
+        output.should include("2011 NL Triple Crown Winner:\n(No winner)")
+      end
+
+      it "asks StatsGrinder for 2012 AL triple crown winner" do
+        batter = double("Batter", name: "Sluggo McLongball")
+        stats_grinder.should_receive(:triple_crown_winner_in_league_for).at_least(:once).with("AL", 2012).and_return batter
+        batboy.report_triple_crown_winner_in_league_for("AL", 2012)
+        output.should include("2012 AL Triple Crown Winner:\nSluggo McLongball")
+      end
     end
 
     # it "emits 'Slugging percentage for all players on the Oakland A's in 2007:'" do

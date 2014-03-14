@@ -2,9 +2,17 @@ require 'spec_helper'
 
 describe "stats" do
   describe "when run" do
-    def program_output
-      `bin/stats`
+
+    # Since we're not passing in any arguments to bin/stats, we don't
+    # need to test said arguments; we can also cache the output of the
+    # program instead of running ruby in a new subshell process for
+    # every spec. On my machine this shortens the spec suite from
+    # 13.79s (unacceptable interruption of attention, IMO) to 2.01s
+    # (MUCH nicer!)
+    before(:all) do
+      @program_output = `bin/stats`
     end
+    let(:program_output) { @program_output }
 
     it "emits 'All done.'" do
       program_output.should include("All done.")

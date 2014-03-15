@@ -1,6 +1,7 @@
 require 'csv'
 
-class BatterCsvReader
+# Load CSV file and read it
+class CsvReader
   def initialize(filename)
     @filename = filename
   end

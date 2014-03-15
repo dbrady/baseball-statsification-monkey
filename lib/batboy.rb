@@ -1,9 +1,9 @@
-# Main Batboy Stats Reporting App
-# This is the app-loading and startup lib file. You should be able to
-# require 'batboy' and then do Batboy.new and get what you want.
 require_relative "../patches/scoped_attr_accessors"
 require_relative "stats_grinder"
 
+# Main Batboy Stats Reporting App
+# This is the app-loading and startup lib file. You should be able to
+# require 'batboy' and then do Batboy.new and get what you want.
 class Batboy
   private_attr_reader :ostream, :stats_grinder
 

@@ -1,8 +1,10 @@
-require_relative "batter_csv_reader"
-require_relative "batting_csv_reader"
+require_relative "csv_reader"
 require_relative "batting_data"
 require_relative "patches"
 
+# Representation of a player. Class-level finders search the dataset
+# while instance methods provide stats and convenience lookup into
+# player demographic data
 class Batter
   extend Forwardable
 
@@ -131,7 +133,7 @@ class Batter
   # refactor."
   private_class_method def self.load_batter_data
     # Refactor me: hardcodey much? [SPIKE]
-    batters = BatterCsvReader.new("./data/Master-small.csv").
+    batters = CsvReader.new("./data/Master-small.csv").
       all.
       reject {|row| row["playerID"].nil? }.
       map {|row|
@@ -185,7 +187,7 @@ class Batter
   # Internal caching method. See earlier note about the technical
   # depth and temporal breadth within which I suck.
   private_class_method def self.load_batting_data
-    BattingCsvReader.new("./data/Batting-07-12.csv").all.map {|row|
+    CsvReader.new("./data/Batting-07-12.csv").all.map {|row|
       data = {}
       batting_data_keys.each_pair do |new_key, old_key|
         data[new_key] = row[old_key]

@@ -222,24 +222,12 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>NestedIterators - contains iterators nested 3 deep &raquo; reek</li>
-               
-                 <li>UncommunicativeVariableName - has the variable name 'hash2' &raquo; reek</li>
-               
-                 <li>UncommunicativeVariableName - has the variable name 'hash3' &raquo; reek</li>
-               
-                 <li>Score of 11.24 &raquo; flog</li>
-               
-                 <li>Complexity 4 &raquo; saikuro</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span class="keyword">def</span> <span class="function">initialize</span>(id, last_name, first_name)
+  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="key">id</span>:, <span class="key">last_name</span>:, <span class="key">first_name</span>:)
 </pre></div>
 </div>
 
@@ -522,11 +510,7 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>Score of 3.90 &raquo; flog</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
@@ -590,16 +574,12 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>Score of 2.40 &raquo; flog</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n34" name="n34">34</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_by_id</span>(id)
+  <div class="code"><pre><span class="line-numbers"><a href="#n34" name="n34">34</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find</span>(<span class="key">id</span>:)
 </pre></div>
 </div>
 
@@ -615,7 +595,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n35" name="n35">35</a></span>    batter_data[id]
+  <div class="code"><pre><span class="line-numbers"><a href="#n35" name="n35">35</a></span>    batter_data.fetch id
 </pre></div>
 </div>
 
@@ -658,16 +638,12 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>Score of 9.59 &raquo; flog</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n38" name="n38">38</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_all_by_year</span>(year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n38" name="n38">38</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_all</span>(<span class="key">year</span>: <span class="predefined-constant">nil</span>, <span class="key">league</span>: <span class="predefined-constant">nil</span>, <span class="key">team</span>: <span class="predefined-constant">nil</span>)
 </pre></div>
 </div>
 
@@ -683,7 +659,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n39" name="n39">39</a></span>    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&amp;<span class="symbol">:last</span>)
+  <div class="code"><pre><span class="line-numbers"><a href="#n39" name="n39">39</a></span>    <span class="keyword">return</span> batter_data.map(&amp;<span class="symbol">:last</span>) <span class="keyword">unless</span> year
 </pre></div>
 </div>
 
@@ -699,7 +675,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>    <span class="keyword">return</span> find_all_by_year(year) <span class="keyword">unless</span> league || team
 </pre></div>
 </div>
 
@@ -715,27 +691,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 9.59 &raquo; flog</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n42" name="n42">42</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_all_by_team_and_year</span>(team, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>    <span class="comment"># subtle: if you supply both league and team, ignore league</span>
 </pre></div>
 </div>
 
@@ -751,7 +707,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n43" name="n43">43</a></span>    batter_data.reject {|id, batter|
+  <div class="code"><pre><span class="line-numbers"><a href="#n42" name="n42">42</a></span>    <span class="keyword">return</span> find_all_by_league_and_year(league, year) <span class="keyword">unless</span> team
 </pre></div>
 </div>
 
@@ -767,7 +723,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n44" name="n44">44</a></span>      !batter.played_any_games_for_team_in?(team, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n43" name="n43">43</a></span>    find_all_by_team_and_year(team, year)
 </pre></div>
 </div>
 
@@ -783,7 +739,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n45" name="n45">45</a></span>    }.map(&amp;<span class="symbol">:last</span>)
+  <div class="code"><pre><span class="line-numbers"><a href="#n44" name="n44">44</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -799,7 +755,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n46" name="n46">46</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n45" name="n45">45</a></span>
 </pre></div>
 </div>
 
@@ -815,27 +771,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n47" name="n47">47</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 9.59 &raquo; flog</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n48" name="n48">48</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_all_by_league_and_year</span>(league, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n46" name="n46">46</a></span>  <span class="keyword">def</span> <span class="function">name</span>
 </pre></div>
 </div>
 
@@ -851,7 +787,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n49" name="n49">49</a></span>    batter_data.reject {|id, batter|
+  <div class="code"><pre><span class="line-numbers"><a href="#n47" name="n47">47</a></span>    <span class="string"><span class="delimiter">&quot;</span><span class="content">%s %s</span><span class="delimiter">&quot;</span></span> % [first_name, last_name]
 </pre></div>
 </div>
 
@@ -867,7 +803,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>      !batter.played_any_games_in_league_in_year?(league, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n48" name="n48">48</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -883,7 +819,39 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n51" name="n51">51</a></span>    }.map(&amp;<span class="symbol">:last</span>)
+  <div class="code"><pre><span class="line-numbers"><a href="#n49" name="n49">49</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>  <span class="keyword">def</span> <span class="function">sortable_name</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n51" name="n51">51</a></span>    <span class="string"><span class="delimiter">&quot;</span><span class="content">%s, %s</span><span class="delimiter">&quot;</span></span> % [last_name, first_name]
 </pre></div>
 </div>
 
@@ -931,7 +899,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n54" name="n54">54</a></span>  <span class="comment"># Internal caching method so we only ever load batter data once per</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n54" name="n54">54</a></span>  <span class="keyword">def</span> <span class="function">years</span>
 </pre></div>
 </div>
 
@@ -947,27 +915,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n55" name="n55">55</a></span>  <span class="comment"># program run</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n56" name="n56">56</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">batter_data</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n55" name="n55">55</a></span>    batting_data.keys
 </pre></div>
 </div>
 
@@ -983,7 +931,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n57" name="n57">57</a></span>    <span class="class-variable">@@batter_data</span> ||= load_batter_data
+  <div class="code"><pre><span class="line-numbers"><a href="#n56" name="n56">56</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -999,7 +947,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n58" name="n58">58</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n57" name="n57">57</a></span>
 </pre></div>
 </div>
 
@@ -1015,29 +963,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n59" name="n59">59</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 3.70 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span>  <span class="keyword">def</span> <span class="function">name</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n58" name="n58">58</a></span>  <span class="keyword">def</span> <span class="function">stats_for_year</span>(year)
 </pre></div>
 </div>
 
@@ -1053,7 +979,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n61" name="n61">61</a></span>    <span class="string"><span class="delimiter">&quot;</span><span class="content">%s %s</span><span class="delimiter">&quot;</span></span> % [first_name, last_name]
+  <div class="code"><pre><span class="line-numbers"><a href="#n59" name="n59">59</a></span>    all_batting_data_for_year batting_data[year]
 </pre></div>
 </div>
 
@@ -1069,7 +995,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n62" name="n62">62</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -1085,29 +1011,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n63" name="n63">63</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 2.40 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n64" name="n64">64</a></span>  <span class="keyword">def</span> <span class="function">years</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n61" name="n61">61</a></span>
 </pre></div>
 </div>
 
@@ -1123,7 +1027,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n65" name="n65">65</a></span>    batting_data.keys
+  <div class="code"><pre><span class="line-numbers"><a href="#n62" name="n62">62</a></span>  <span class="keyword">def</span> <span class="function">stats_for_league_and_year</span>(league, year)
 </pre></div>
 </div>
 
@@ -1139,7 +1043,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n66" name="n66">66</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n63" name="n63">63</a></span>    <span class="keyword">return</span> <span class="predefined-constant">nil</span> <span class="keyword">unless</span> batting_data.key?(year) &amp;&amp; batting_data[year] &amp;&amp; batting_data[year].key?(league)
 </pre></div>
 </div>
 
@@ -1155,29 +1059,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n67" name="n67">67</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 3.90 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n68" name="n68">68</a></span>  <span class="keyword">def</span> <span class="function">stats_for_year</span>(year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n64" name="n64">64</a></span>    <span class="comment"># FIXME: dis nasty. Have to pass in a key with the hash, which</span>
 </pre></div>
 </div>
 
@@ -1193,7 +1075,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n69" name="n69">69</a></span>    all_batting_data_for_year batting_data[year]
+  <div class="code"><pre><span class="line-numbers"><a href="#n65" name="n65">65</a></span>    <span class="comment"># means having to lump on the league key again here. Mai ow--do</span>
 </pre></div>
 </div>
 
@@ -1209,7 +1091,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n70" name="n70">70</a></strong></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n66" name="n66">66</a></span>    <span class="comment"># not want. Is it really necessary? Need to revisit the method</span>
 </pre></div>
 </div>
 
@@ -1225,31 +1107,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n71" name="n71">71</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>DuplicateMethodCall - calls batting_data[year] 3 times &raquo; reek</li>
-               
-                 <li>Score of 15.87 &raquo; flog</li>
-               
-                 <li>Complexity 2 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n72" name="n72">72</a></span>  <span class="keyword">def</span> <span class="function">stats_for_league_and_year</span>(league, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n67" name="n67">67</a></span>    <span class="comment"># breakdown and see if it can't be cleaned up</span>
 </pre></div>
 </div>
 
@@ -1265,7 +1123,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n73" name="n73">73</a></span>    <span class="keyword">return</span> <span class="predefined-constant">nil</span> <span class="keyword">unless</span> batting_data.key?(year) &amp;&amp; batting_data[year] &amp;&amp; batting_data[year].key?(league)
+  <div class="code"><pre><span class="line-numbers"><a href="#n68" name="n68">68</a></span>    all_batting_data_for_year({ league =&gt; batting_data[year][league] })
 </pre></div>
 </div>
 
@@ -1281,7 +1139,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n74" name="n74">74</a></span>    <span class="comment"># FIXME: dis nasty. Have to pass in a key with the hash, which</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n69" name="n69">69</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -1297,7 +1155,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n75" name="n75">75</a></span>    <span class="comment"># means having to lump on the league key again here. Mai ow--do</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n70" name="n70">70</a></strong></span>
 </pre></div>
 </div>
 
@@ -1313,7 +1171,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n76" name="n76">76</a></span>    <span class="comment"># not want. Is it really necessary? Need to revisit the method</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n71" name="n71">71</a></span>  <span class="keyword">def</span> <span class="function">played_any_games_in?</span>(year)
 </pre></div>
 </div>
 
@@ -1329,7 +1187,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n77" name="n77">77</a></span>    <span class="comment"># breakdown and see if it can't be cleaned up</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n72" name="n72">72</a></span>    years.include? year
 </pre></div>
 </div>
 
@@ -1345,7 +1203,87 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n78" name="n78">78</a></span>    all_batting_data_for_year({ league =&gt; batting_data[year][league] })
+  <div class="code"><pre><span class="line-numbers"><a href="#n73" name="n73">73</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n74" name="n74">74</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n75" name="n75">75</a></span>  <span class="keyword">def</span> <span class="function">played_any_games_for_team_in?</span>(team, year)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n76" name="n76">76</a></span>    played_any_games_in?(year) &amp;&amp; batting_data[year].any? {|league, team_data|
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n77" name="n77">77</a></span>      team_data.keys.include?(team)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n78" name="n78">78</a></span>    }
 </pre></div>
 </div>
 
@@ -1388,18 +1326,12 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>Score of 2.40 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n81" name="n81">81</a></span>  <span class="keyword">def</span> <span class="function">played_any_games_in?</span>(year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n81" name="n81">81</a></span>  <span class="keyword">def</span> <span class="function">played_any_games_in_league_in_year?</span>(league, year)
 </pre></div>
 </div>
 
@@ -1415,7 +1347,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n82" name="n82">82</a></span>    years.include? year
+  <div class="code"><pre><span class="line-numbers"><a href="#n82" name="n82">82</a></span>    played_any_games_in?(year) &amp;&amp; batting_data[year].any? {|league_name, team_data|
 </pre></div>
 </div>
 
@@ -1431,7 +1363,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n83" name="n83">83</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n83" name="n83">83</a></span>      league == league_name
 </pre></div>
 </div>
 
@@ -1447,29 +1379,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n84" name="n84">84</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 8.52 &raquo; flog</li>
-               
-                 <li>Complexity 2 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n85" name="n85">85</a></span>  <span class="keyword">def</span> <span class="function">played_any_games_for_team_in?</span>(team, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n84" name="n84">84</a></span>    }
 </pre></div>
 </div>
 
@@ -1485,7 +1395,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n86" name="n86">86</a></span>    played_any_games_in?(year) &amp;&amp; batting_data[year].any? {|league, team_data|
+  <div class="code"><pre><span class="line-numbers"><a href="#n85" name="n85">85</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -1501,7 +1411,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n87" name="n87">87</a></span>      team_data.keys.include?(team)
+  <div class="code"><pre><span class="line-numbers"><a href="#n86" name="n86">86</a></span>
 </pre></div>
 </div>
 
@@ -1517,7 +1427,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n88" name="n88">88</a></span>    }
+  <div class="code"><pre><span class="line-numbers"><a href="#n87" name="n87">87</a></span>  <span class="comment"># I hate methods like this, but whatchagonnado. Basically this</span>
 </pre></div>
 </div>
 
@@ -1533,7 +1443,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n89" name="n89">89</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n88" name="n88">88</a></span>  <span class="comment"># method lets us cram a line of data from the CSV file into the</span>
 </pre></div>
 </div>
 
@@ -1549,29 +1459,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n90" name="n90">90</a></strong></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 7.08 &raquo; flog</li>
-               
-                 <li>Complexity 2 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n91" name="n91">91</a></span>  <span class="keyword">def</span> <span class="function">played_any_games_in_league_in_year?</span>(league, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n89" name="n89">89</a></span>  <span class="comment"># Batter and the Batter will init a new record with it, or add it to</span>
 </pre></div>
 </div>
 
@@ -1587,7 +1475,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n92" name="n92">92</a></span>    played_any_games_in?(year) &amp;&amp; batting_data[year].any? {|league_name, team_data|
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n90" name="n90">90</a></strong></span>  <span class="comment"># any existing stats for that year/league/team (the data file has</span>
 </pre></div>
 </div>
 
@@ -1603,7 +1491,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n93" name="n93">93</a></span>      league == league_name
+  <div class="code"><pre><span class="line-numbers"><a href="#n91" name="n91">91</a></span>  <span class="comment"># over 550 entries that are same player/year, and often same</span>
 </pre></div>
 </div>
 
@@ -1619,7 +1507,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n94" name="n94">94</a></span>    }
+  <div class="code"><pre><span class="line-numbers"><a href="#n92" name="n92">92</a></span>  <span class="comment"># player/year/league/team. And often same player/year but different</span>
 </pre></div>
 </div>
 
@@ -1635,7 +1523,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n95" name="n95">95</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n93" name="n93">93</a></span>  <span class="comment"># team, and occasionally different league. The fact is this data is</span>
 </pre></div>
 </div>
 
@@ -1651,7 +1539,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n96" name="n96">96</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n94" name="n94">94</a></span>  <span class="comment"># SUPER messy and we gotta live with it, because the reality it's</span>
 </pre></div>
 </div>
 
@@ -1667,7 +1555,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n97" name="n97">97</a></span>  <span class="comment"># Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n95" name="n95">95</a></span>  <span class="comment"># tracking is also super messy</span>
 </pre></div>
 </div>
 
@@ -1683,7 +1571,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n98" name="n98">98</a></span>  <span class="comment"># give me a reason other than &quot;I suck&quot;. Okay, fine: &quot;I suck until I</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n96" name="n96">96</a></span>  <span class="keyword">def</span> <span class="function">add_batting_data</span>(bd)
 </pre></div>
 </div>
 
@@ -1699,27 +1587,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n99" name="n99">99</a></span>  <span class="comment"># refactor.&quot;</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 19.92 &raquo; flog</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n100" name="n100">100</a></strong></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">load_batter_data</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n97" name="n97">97</a></span>    <span class="instance-variable">@batting_data</span>[bd.year][bd.league][bd.team] += bd
 </pre></div>
 </div>
 
@@ -1735,7 +1603,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n101" name="n101">101</a></span>    <span class="comment"># Refactor me: hardcodey much? [SPIKE]</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n98" name="n98">98</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -1751,7 +1619,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n102" name="n102">102</a></span>    batters = <span class="constant">BatterCsvReader</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">./data/Master-small.csv</span><span class="delimiter">&quot;</span></span>).
+  <div class="code"><pre><span class="line-numbers"> <a href="#n99" name="n99">99</a></span>
 </pre></div>
 </div>
 
@@ -1767,7 +1635,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n103" name="n103">103</a></span>      all.
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n100" name="n100">100</a></strong></span>  <span class="comment">#</span>
 </pre></div>
 </div>
 
@@ -1783,7 +1651,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n104" name="n104">104</a></span>      reject {|row| row[<span class="string"><span class="delimiter">&quot;</span><span class="content">playerID</span><span class="delimiter">&quot;</span></span>].nil? }.
+  <div class="code"><pre><span class="line-numbers"><a href="#n101" name="n101">101</a></span>  <span class="comment"># END OF PUBLIC API</span>
 </pre></div>
 </div>
 
@@ -1799,7 +1667,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n105" name="n105">105</a></span>      map {|row|
+  <div class="code"><pre><span class="line-numbers"><a href="#n102" name="n102">102</a></span>  <span class="comment">#</span>
 </pre></div>
 </div>
 
@@ -1815,7 +1683,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n106" name="n106">106</a></span>        <span class="constant">Batter</span>.new(row[<span class="string"><span class="delimiter">&quot;</span><span class="content">playerID</span><span class="delimiter">&quot;</span></span>], row[<span class="string"><span class="delimiter">&quot;</span><span class="content">nameLast</span><span class="delimiter">&quot;</span></span>], row[<span class="string"><span class="delimiter">&quot;</span><span class="content">nameFirst</span><span class="delimiter">&quot;</span></span>])
+  <div class="code"><pre><span class="line-numbers"><a href="#n103" name="n103">103</a></span>
 </pre></div>
 </div>
 
@@ -1831,7 +1699,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n107" name="n107">107</a></span>      }.
+  <div class="code"><pre><span class="line-numbers"><a href="#n104" name="n104">104</a></span>  private
 </pre></div>
 </div>
 
@@ -1847,7 +1715,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n108" name="n108">108</a></span>      each_with_object({}) {|batter, hash| hash[batter.id] = batter }
+  <div class="code"><pre><span class="line-numbers"><a href="#n105" name="n105">105</a></span>
 </pre></div>
 </div>
 
@@ -1863,7 +1731,55 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n109" name="n109">109</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n106" name="n106">106</a></span>  <span class="comment"># Private Finders</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n107" name="n107">107</a></span>  private_class_method <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_all_by_year</span>(year)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n108" name="n108">108</a></span>    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&amp;<span class="symbol">:last</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n109" name="n109">109</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -1895,7 +1811,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n111" name="n111">111</a></span>    <span class="class-variable">@@batter_data</span> = batters
+  <div class="code"><pre><span class="line-numbers"><a href="#n111" name="n111">111</a></span>  private_class_method <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_all_by_team_and_year</span>(team, year)
 </pre></div>
 </div>
 
@@ -1911,7 +1827,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n112" name="n112">112</a></span>    load_batting_data
+  <div class="code"><pre><span class="line-numbers"><a href="#n112" name="n112">112</a></span>    batter_data.reject {|id, batter|
 </pre></div>
 </div>
 
@@ -1927,7 +1843,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n113" name="n113">113</a></span>    batters
+  <div class="code"><pre><span class="line-numbers"><a href="#n113" name="n113">113</a></span>      !batter.played_any_games_for_team_in?(team, year)
 </pre></div>
 </div>
 
@@ -1943,7 +1859,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n114" name="n114">114</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n114" name="n114">114</a></span>    }.map(&amp;<span class="symbol">:last</span>)
 </pre></div>
 </div>
 
@@ -1959,7 +1875,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n115" name="n115">115</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n115" name="n115">115</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -1975,7 +1891,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n116" name="n116">116</a></span>  <span class="comment"># FIXME: I *REALLY* belong in a data conversion class!!!! These are</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n116" name="n116">116</a></span>
 </pre></div>
 </div>
 
@@ -1991,7 +1907,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n117" name="n117">117</a></span>  <span class="comment"># the CSV header identifiers keyed by our internal data columns. Why</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n117" name="n117">117</a></span>  private_class_method <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">find_all_by_league_and_year</span>(league, year)
 </pre></div>
 </div>
 
@@ -2007,7 +1923,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n118" name="n118">118</a></span>  <span class="comment"># not use what's in the CSV, you ask? Let me answer that question by</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n118" name="n118">118</a></span>    batter_data.reject {|id, batter|
 </pre></div>
 </div>
 
@@ -2023,7 +1939,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n119" name="n119">119</a></span>  <span class="comment"># stating authoritatively that if you are asking that question you</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n119" name="n119">119</a></span>      !batter.played_any_games_in_league_in_year?(league, year)
 </pre></div>
 </div>
 
@@ -2039,7 +1955,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n120" name="n120">120</a></strong></span>  <span class="comment"># obviously have no clue what's IN that frickin' CSV file. You wanna</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n120" name="n120">120</a></strong></span>    }.map(&amp;<span class="symbol">:last</span>)
 </pre></div>
 </div>
 
@@ -2055,7 +1971,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n121" name="n121">121</a></span>  <span class="comment"># know what's in that file? Do you? DO YOU REALLY? MADNESS! MADNESS</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n121" name="n121">121</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -2071,7 +1987,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n122" name="n122">122</a></span>  <span class="comment"># I SAY! MADNESS IS WHAT IS IN THAT FILE! When Nietzche famously</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n122" name="n122">122</a></span>
 </pre></div>
 </div>
 
@@ -2087,7 +2003,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n123" name="n123">123</a></span>  <span class="comment"># wrote &quot;If you gaze long into the Abyss, the Abyss gazes also into</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n123" name="n123">123</a></span>  <span class="comment"># Internal caching method so we only ever load batter data once per</span>
 </pre></div>
 </div>
 
@@ -2103,7 +2019,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n124" name="n124">124</a></span>  <span class="comment"># you,&quot; HE WAS TALKING ABOUT THIS CSV FILE. IT'S BAT-POO CRAZY IS</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n124" name="n124">124</a></span>  <span class="comment"># program run</span>
 </pre></div>
 </div>
 
@@ -2119,7 +2035,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n125" name="n125">125</a></span>  <span class="comment"># WHAT I AM TRYING TO TELL YOU--NO, DON'T LOOK, DON'T LOOK IN THE</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n125" name="n125">125</a></span>  private_class_method <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">batter_data</span>
 </pre></div>
 </div>
 
@@ -2135,7 +2051,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n126" name="n126">126</a></span>  <span class="comment"># FILE, DON'T OPEN THE...</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n126" name="n126">126</a></span>    <span class="class-variable">@@batter_data</span> ||= load_batter_data
 </pre></div>
 </div>
 
@@ -2151,7 +2067,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n127" name="n127">127</a></span>  <span class="comment">#</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n127" name="n127">127</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -2167,7 +2083,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n128" name="n128">128</a></span>  <span class="comment"># You looked, didn't you.</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n128" name="n128">128</a></span>
 </pre></div>
 </div>
 
@@ -2183,7 +2099,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n129" name="n129">129</a></span>  <span class="comment">#</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n129" name="n129">129</a></span>  <span class="comment"># Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please</span>
 </pre></div>
 </div>
 
@@ -2199,7 +2115,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n130" name="n130">130</a></strong></span>  <span class="comment"># Well. Welcome to my madness. Make yourself comfortable; THERE IS</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n130" name="n130">130</a></strong></span>  <span class="comment"># give me a reason other than &quot;I suck&quot;. Okay, fine: &quot;I suck until I</span>
 </pre></div>
 </div>
 
@@ -2215,7 +2131,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n131" name="n131">131</a></span>  <span class="comment"># NO WAY BACK.</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n131" name="n131">131</a></span>  <span class="comment"># refactor.&quot;</span>
 </pre></div>
 </div>
 
@@ -2231,7 +2147,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n132" name="n132">132</a></span>  <span class="comment">#</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n132" name="n132">132</a></span>  private_class_method <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">load_batter_data</span>
 </pre></div>
 </div>
 
@@ -2247,7 +2163,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n133" name="n133">133</a></span>  <span class="comment"># I did try to warn you.</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n133" name="n133">133</a></span>    <span class="comment"># Refactor me: hardcodey much? [SPIKE]</span>
 </pre></div>
 </div>
 
@@ -2263,7 +2179,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n134" name="n134">134</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">batting_data_keys</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n134" name="n134">134</a></span>    batters = <span class="constant">BatterCsvReader</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">./data/Master-small.csv</span><span class="delimiter">&quot;</span></span>).
 </pre></div>
 </div>
 
@@ -2279,7 +2195,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n135" name="n135">135</a></span>    { <span class="key">player_id</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">playerID</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n135" name="n135">135</a></span>      all.
 </pre></div>
 </div>
 
@@ -2295,7 +2211,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n136" name="n136">136</a></span>      <span class="key">year</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">yearID</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n136" name="n136">136</a></span>      reject {|row| row[<span class="string"><span class="delimiter">&quot;</span><span class="content">playerID</span><span class="delimiter">&quot;</span></span>].nil? }.
 </pre></div>
 </div>
 
@@ -2311,7 +2227,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n137" name="n137">137</a></span>      <span class="key">league</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">league</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n137" name="n137">137</a></span>      map {|row|
 </pre></div>
 </div>
 
@@ -2327,7 +2243,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n138" name="n138">138</a></span>      <span class="key">team</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">teamID</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n138" name="n138">138</a></span>      <span class="constant">Batter</span>.new(<span class="key">id</span>: row[<span class="string"><span class="delimiter">&quot;</span><span class="content">playerID</span><span class="delimiter">&quot;</span></span>], <span class="key">last_name</span>: row[<span class="string"><span class="delimiter">&quot;</span><span class="content">nameLast</span><span class="delimiter">&quot;</span></span>], <span class="key">first_name</span>: row[<span class="string"><span class="delimiter">&quot;</span><span class="content">nameFirst</span><span class="delimiter">&quot;</span></span>])
 </pre></div>
 </div>
 
@@ -2343,7 +2259,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n139" name="n139">139</a></span>      <span class="key">games</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">G</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n139" name="n139">139</a></span>    }.
 </pre></div>
 </div>
 
@@ -2359,7 +2275,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n140" name="n140">140</a></strong></span>      <span class="key">at_bats</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AB</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n140" name="n140">140</a></strong></span>      each_with_object({}) {|batter, hash| hash[batter.id] = batter }
 </pre></div>
 </div>
 
@@ -2375,7 +2291,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n141" name="n141">141</a></span>      <span class="key">runs</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">R</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n141" name="n141">141</a></span>
 </pre></div>
 </div>
 
@@ -2391,7 +2307,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n142" name="n142">142</a></span>      <span class="key">hits</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">H</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n142" name="n142">142</a></span>
 </pre></div>
 </div>
 
@@ -2407,7 +2323,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n143" name="n143">143</a></span>      <span class="key">doubles</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2B</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n143" name="n143">143</a></span>    <span class="class-variable">@@batter_data</span> = batters
 </pre></div>
 </div>
 
@@ -2423,7 +2339,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n144" name="n144">144</a></span>      <span class="key">triples</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">3B</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n144" name="n144">144</a></span>    load_batting_data
 </pre></div>
 </div>
 
@@ -2439,7 +2355,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n145" name="n145">145</a></span>      <span class="key">home_runs</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HR</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n145" name="n145">145</a></span>    batters
 </pre></div>
 </div>
 
@@ -2455,7 +2371,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n146" name="n146">146</a></span>      <span class="key">runs_batted_in</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">RBI</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n146" name="n146">146</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -2471,7 +2387,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n147" name="n147">147</a></span>      <span class="key">stolen_bases</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SB</span><span class="delimiter">&quot;</span></span>,
+  <div class="code"><pre><span class="line-numbers"><a href="#n147" name="n147">147</a></span>
 </pre></div>
 </div>
 
@@ -2487,7 +2403,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n148" name="n148">148</a></span>      <span class="key">caught_stealing</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CS</span><span class="delimiter">&quot;</span></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n148" name="n148">148</a></span>  <span class="comment"># FIXME: I *REALLY* belong in a data conversion class!!!! These are</span>
 </pre></div>
 </div>
 
@@ -2503,7 +2419,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n149" name="n149">149</a></span>    }
+  <div class="code"><pre><span class="line-numbers"><a href="#n149" name="n149">149</a></span>  <span class="comment"># the CSV header identifiers keyed by our internal data columns. Why</span>
 </pre></div>
 </div>
 
@@ -2519,7 +2435,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n150" name="n150">150</a></strong></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n150" name="n150">150</a></strong></span>  <span class="comment"># not use what's in the CSV, you ask? Let me answer that question by</span>
 </pre></div>
 </div>
 
@@ -2535,7 +2451,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n151" name="n151">151</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n151" name="n151">151</a></span>  <span class="comment"># stating authoritatively that if you are asking that question you</span>
 </pre></div>
 </div>
 
@@ -2551,7 +2467,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n152" name="n152">152</a></span>  <span class="comment"># Internal caching method. See earlier note about the technical</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n152" name="n152">152</a></span>  <span class="comment"># obviously have no clue what's IN that frickin' CSV file. You wanna</span>
 </pre></div>
 </div>
 
@@ -2567,7 +2483,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n153" name="n153">153</a></span>  <span class="comment"># depth and temporal breadth within which I suck.</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n153" name="n153">153</a></span>  <span class="comment"># know what's in that file? Do you? DO YOU REALLY? MADNESS! MADNESS</span>
 </pre></div>
 </div>
 
@@ -2578,16 +2494,12 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>Score of 19.48 &raquo; flog</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n154" name="n154">154</a></span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">load_batting_data</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n154" name="n154">154</a></span>  <span class="comment"># I SAY! MADNESS IS WHAT IS IN THAT FILE! When Nietzche famously</span>
 </pre></div>
 </div>
 
@@ -2603,7 +2515,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n155" name="n155">155</a></span>    <span class="constant">BattingCsvReader</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">./data/Batting-07-12.csv</span><span class="delimiter">&quot;</span></span>).all.map {|row|
+  <div class="code"><pre><span class="line-numbers"><a href="#n155" name="n155">155</a></span>  <span class="comment"># wrote &quot;If you gaze long into the Abyss, the Abyss gazes also into</span>
 </pre></div>
 </div>
 
@@ -2619,7 +2531,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n156" name="n156">156</a></span>      data = {}
+  <div class="code"><pre><span class="line-numbers"><a href="#n156" name="n156">156</a></span>  <span class="comment"># you,&quot; HE WAS TALKING ABOUT THIS CSV FILE. IT'S BAT-POO CRAZY IS</span>
 </pre></div>
 </div>
 
@@ -2635,7 +2547,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n157" name="n157">157</a></span>      batting_data_keys.each_pair <span class="keyword">do</span> |new_key, old_key|
+  <div class="code"><pre><span class="line-numbers"><a href="#n157" name="n157">157</a></span>  <span class="comment"># WHAT I AM TRYING TO TELL YOU--NO, DON'T LOOK, DON'T LOOK IN THE</span>
 </pre></div>
 </div>
 
@@ -2651,7 +2563,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n158" name="n158">158</a></span>        data[new_key] = row[old_key]
+  <div class="code"><pre><span class="line-numbers"><a href="#n158" name="n158">158</a></span>  <span class="comment"># FILE, DON'T OPEN THE...</span>
 </pre></div>
 </div>
 
@@ -2667,7 +2579,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n159" name="n159">159</a></span>      <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n159" name="n159">159</a></span>  <span class="comment">#</span>
 </pre></div>
 </div>
 
@@ -2683,7 +2595,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n160" name="n160">160</a></strong></span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n160" name="n160">160</a></strong></span>  <span class="comment"># You looked, didn't you.</span>
 </pre></div>
 </div>
 
@@ -2699,7 +2611,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n161" name="n161">161</a></span>      <span class="keyword">if</span> batter = <span class="constant">Batter</span>.find_by_id(data[<span class="symbol">:player_id</span>])
+  <div class="code"><pre><span class="line-numbers"><a href="#n161" name="n161">161</a></span>  <span class="comment">#</span>
 </pre></div>
 </div>
 
@@ -2715,7 +2627,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n162" name="n162">162</a></span>        batter.add_batting_data(<span class="constant">BattingData</span>.new(data))
+  <div class="code"><pre><span class="line-numbers"><a href="#n162" name="n162">162</a></span>  <span class="comment"># Well. Welcome to my madness. Make yourself comfortable; THERE IS</span>
 </pre></div>
 </div>
 
@@ -2731,7 +2643,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n163" name="n163">163</a></span>      <span class="keyword">else</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n163" name="n163">163</a></span>  <span class="comment"># NO WAY BACK.</span>
 </pre></div>
 </div>
 
@@ -2747,7 +2659,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n164" name="n164">164</a></span>        raise <span class="string"><span class="delimiter">&quot;</span><span class="content">Unable to find batter by id '%s'; all batters should be loaded</span><span class="delimiter">&quot;</span></span> % row[<span class="string"><span class="delimiter">&quot;</span><span class="content">playerID</span><span class="delimiter">&quot;</span></span>]
+  <div class="code"><pre><span class="line-numbers"><a href="#n164" name="n164">164</a></span>  <span class="comment">#</span>
 </pre></div>
 </div>
 
@@ -2763,7 +2675,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n165" name="n165">165</a></span>      <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n165" name="n165">165</a></span>  <span class="comment"># I did try to warn you.</span>
 </pre></div>
 </div>
 
@@ -2779,7 +2691,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n166" name="n166">166</a></span>    }
+  <div class="code"><pre><span class="line-numbers"><a href="#n166" name="n166">166</a></span>  private_class_method <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">batting_data_keys</span>
 </pre></div>
 </div>
 
@@ -2795,7 +2707,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n167" name="n167">167</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n167" name="n167">167</a></span>    { <span class="key">player_id</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">playerID</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2811,7 +2723,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n168" name="n168">168</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n168" name="n168">168</a></span>      <span class="key">year</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">yearID</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2827,7 +2739,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n169" name="n169">169</a></span>  <span class="comment"># I hate methods like this, but whatchagonnado. Basically this</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n169" name="n169">169</a></span>      <span class="key">league</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">league</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2843,7 +2755,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n170" name="n170">170</a></strong></span>  <span class="comment"># method lets us cram a line of data from the CSV file into the</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n170" name="n170">170</a></strong></span>      <span class="key">team</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">teamID</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2859,7 +2771,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n171" name="n171">171</a></span>  <span class="comment"># Batter and the Batter will init a new record with it, or add it to</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n171" name="n171">171</a></span>      <span class="key">games</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">G</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2875,7 +2787,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n172" name="n172">172</a></span>  <span class="comment"># any existing stats for that year/league/team (the data file has</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n172" name="n172">172</a></span>      <span class="key">at_bats</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AB</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2891,7 +2803,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n173" name="n173">173</a></span>  <span class="comment"># over 550 entries that are same player/year, and often same</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n173" name="n173">173</a></span>      <span class="key">runs</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">R</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2907,7 +2819,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n174" name="n174">174</a></span>  <span class="comment"># player/year/league/team. And often same player/year but different</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n174" name="n174">174</a></span>      <span class="key">hits</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">H</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2923,7 +2835,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n175" name="n175">175</a></span>  <span class="comment"># team, and occasionally different league. The fact is this data is</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n175" name="n175">175</a></span>      <span class="key">doubles</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2B</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2939,7 +2851,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n176" name="n176">176</a></span>  <span class="comment"># SUPER messy and we gotta live with it, because the reality it's</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n176" name="n176">176</a></span>      <span class="key">triples</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">3B</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2955,7 +2867,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n177" name="n177">177</a></span>  <span class="comment"># tracking is also super messy</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n177" name="n177">177</a></span>      <span class="key">home_runs</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HR</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2966,20 +2878,12 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>FeatureEnvy - refers to bd more than self &raquo; reek</li>
-               
-                 <li>Score of 6.30 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n178" name="n178">178</a></span>  <span class="keyword">def</span> <span class="function">add_batting_data</span>(bd)
+  <div class="code"><pre><span class="line-numbers"><a href="#n178" name="n178">178</a></span>      <span class="key">runs_batted_in</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">RBI</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -2995,7 +2899,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n179" name="n179">179</a></span>    <span class="instance-variable">@batting_data</span>[bd.year][bd.league][bd.team] += bd
+  <div class="code"><pre><span class="line-numbers"><a href="#n179" name="n179">179</a></span>      <span class="key">stolen_bases</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SB</span><span class="delimiter">&quot;</span></span>,
 </pre></div>
 </div>
 
@@ -3011,7 +2915,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n180" name="n180">180</a></strong></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n180" name="n180">180</a></strong></span>      <span class="key">caught_stealing</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CS</span><span class="delimiter">&quot;</span></span>
 </pre></div>
 </div>
 
@@ -3027,7 +2931,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n181" name="n181">181</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n181" name="n181">181</a></span>    }
 </pre></div>
 </div>
 
@@ -3043,7 +2947,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n182" name="n182">182</a></span>  private
+  <div class="code"><pre><span class="line-numbers"><a href="#n182" name="n182">182</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -3075,7 +2979,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n184" name="n184">184</a></span>  <span class="comment"># Consolidate all my batting data across all years, leagues, teams,</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n184" name="n184">184</a></span>
 </pre></div>
 </div>
 
@@ -3091,29 +2995,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n185" name="n185">185</a></span>  <span class="comment"># etc.</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 5.46 &raquo; flog</li>
-               
-                 <li>Complexity 2 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n186" name="n186">186</a></span>  <span class="keyword">def</span> <span class="function">all_batting_data_ever</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n185" name="n185">185</a></span>  <span class="comment"># Internal caching method. See earlier note about the technical</span>
 </pre></div>
 </div>
 
@@ -3129,7 +3011,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n187" name="n187">187</a></span>    batting_data.map {|year, league_data|
+  <div class="code"><pre><span class="line-numbers"><a href="#n186" name="n186">186</a></span>  <span class="comment"># depth and temporal breadth within which I suck.</span>
 </pre></div>
 </div>
 
@@ -3145,7 +3027,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n188" name="n188">188</a></span>      all_batting_data_for_year league_data
+  <div class="code"><pre><span class="line-numbers"><a href="#n187" name="n187">187</a></span>  private_class_method <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">load_batting_data</span>
 </pre></div>
 </div>
 
@@ -3161,7 +3043,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n189" name="n189">189</a></span>    }.reduce <span class="symbol">:+</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n188" name="n188">188</a></span>    <span class="constant">BattingCsvReader</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">./data/Batting-07-12.csv</span><span class="delimiter">&quot;</span></span>).all.map {|row|
 </pre></div>
 </div>
 
@@ -3177,7 +3059,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n190" name="n190">190</a></strong></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n189" name="n189">189</a></span>      data = {}
 </pre></div>
 </div>
 
@@ -3193,7 +3075,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n191" name="n191">191</a></span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n190" name="n190">190</a></strong></span>      batting_data_keys.each_pair <span class="keyword">do</span> |new_key, old_key|
 </pre></div>
 </div>
 
@@ -3209,7 +3091,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n192" name="n192">192</a></span>  <span class="comment"># Helper: given a subtree of BattingDatas for a given year, dive</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n191" name="n191">191</a></span>        data[new_key] = row[old_key]
 </pre></div>
 </div>
 
@@ -3225,7 +3107,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n193" name="n193">193</a></span>  <span class="comment"># into each league. Private method because it accepts a subtree of</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n192" name="n192">192</a></span>      <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -3241,29 +3123,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n194" name="n194">194</a></span>  <span class="comment"># the batting_data structure. Knows too much about our internals.</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 4.02 &raquo; flog</li>
-               
-                 <li>Complexity 2 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n195" name="n195">195</a></span>  <span class="keyword">def</span> <span class="function">all_batting_data_for_year</span>(data)
+  <div class="code"><pre><span class="line-numbers"><a href="#n193" name="n193">193</a></span>
 </pre></div>
 </div>
 
@@ -3279,7 +3139,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n196" name="n196">196</a></span>    data.map {|league, team_data|
+  <div class="code"><pre><span class="line-numbers"><a href="#n194" name="n194">194</a></span>      <span class="constant">Batter</span>.find(<span class="key">id</span>: data[<span class="symbol">:player_id</span>]).add_batting_data(<span class="constant">BattingData</span>.new(data))
 </pre></div>
 </div>
 
@@ -3295,7 +3155,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n197" name="n197">197</a></span>      all_batting_data_for_league team_data
+  <div class="code"><pre><span class="line-numbers"><a href="#n195" name="n195">195</a></span>    }
 </pre></div>
 </div>
 
@@ -3311,7 +3171,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n198" name="n198">198</a></span>    }.reduce <span class="symbol">:+</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n196" name="n196">196</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -3327,7 +3187,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n199" name="n199">199</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n197" name="n197">197</a></span>
 </pre></div>
 </div>
 
@@ -3343,7 +3203,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n200" name="n200">200</a></strong></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n198" name="n198">198</a></span>  <span class="comment"># Consolidate all my batting data across all years, leagues, teams,</span>
 </pre></div>
 </div>
 
@@ -3359,7 +3219,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n201" name="n201">201</a></span>  <span class="comment"># Helper: given a subtree of BattingDatas for a given league, dive</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n199" name="n199">199</a></span>  <span class="comment"># etc.</span>
 </pre></div>
 </div>
 
@@ -3375,7 +3235,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n202" name="n202">202</a></span>  <span class="comment"># into each team. Private method because it accepts a subtree of the</span>
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n200" name="n200">200</a></strong></span>  <span class="keyword">def</span> <span class="function">all_batting_data_ever</span>
 </pre></div>
 </div>
 
@@ -3391,33 +3251,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n203" name="n203">203</a></span>  <span class="comment"># batting_data structure. Knows too much about our internals.</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>UtilityFunction - doesn't depend on instance state &raquo; reek</li>
-               
-                 <li>FeatureEnvy - refers to data more than self &raquo; reek</li>
-               
-                 <li>Score of 2.40 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n204" name="n204">204</a></span>  <span class="keyword">def</span> <span class="function">all_batting_data_for_league</span>(data)
+  <div class="code"><pre><span class="line-numbers"><a href="#n201" name="n201">201</a></span>    batting_data.map {|year, league_data|
 </pre></div>
 </div>
 
@@ -3433,7 +3267,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n205" name="n205">205</a></span>    <span class="comment"># We could extract all_batting_data_for_team here, but Hash#values</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n202" name="n202">202</a></span>      all_batting_data_for_year league_data
 </pre></div>
 </div>
 
@@ -3449,7 +3283,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n206" name="n206">206</a></span>    <span class="comment"># gives us the same thing at this point. Private methods FTW--no</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n203" name="n203">203</a></span>    }.reduce <span class="symbol">:+</span>
 </pre></div>
 </div>
 
@@ -3465,7 +3299,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n207" name="n207">207</a></span>    <span class="comment"># using this method, you public-API-using knuckledraggers!</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n204" name="n204">204</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -3481,7 +3315,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n208" name="n208">208</a></span>    data.values.reduce <span class="symbol">:+</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n205" name="n205">205</a></span>
 </pre></div>
 </div>
 
@@ -3497,7 +3331,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n209" name="n209">209</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n206" name="n206">206</a></span>  <span class="comment"># Helper: given a subtree of BattingDatas for a given year, dive</span>
 </pre></div>
 </div>
 
@@ -3513,7 +3347,279 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n210" name="n210">210</a></strong></span><span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n207" name="n207">207</a></span>  <span class="comment"># into each league. Private method because it accepts a subtree of</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n208" name="n208">208</a></span>  <span class="comment"># the batting_data structure. Knows too much about our internals.</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n209" name="n209">209</a></span>  <span class="keyword">def</span> <span class="function">all_batting_data_for_year</span>(data)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n210" name="n210">210</a></strong></span>    data.map {|league, team_data|
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n211" name="n211">211</a></span>      all_batting_data_for_league team_data
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n212" name="n212">212</a></span>    }.reduce <span class="symbol">:+</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n213" name="n213">213</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n214" name="n214">214</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n215" name="n215">215</a></span>  <span class="comment"># Helper: given a subtree of BattingDatas for a given league, dive</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n216" name="n216">216</a></span>  <span class="comment"># into each team. Private method because it accepts a subtree of the</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n217" name="n217">217</a></span>  <span class="comment"># batting_data structure. Knows too much about our internals.</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n218" name="n218">218</a></span>  <span class="keyword">def</span> <span class="function">all_batting_data_for_league</span>(data)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n219" name="n219">219</a></span>    <span class="comment"># We could extract all_batting_data_for_team here, but Hash#values</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n220" name="n220">220</a></strong></span>    <span class="comment"># gives us the same thing at this point. Private methods FTW--no</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n221" name="n221">221</a></span>    <span class="comment"># using this method, you public-API-using knuckledraggers!</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n222" name="n222">222</a></span>    data.values.reduce <span class="symbol">:+</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n223" name="n223">223</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n224" name="n224">224</a></span><span class="keyword">end</span>
 </pre></div>
 </div>
 

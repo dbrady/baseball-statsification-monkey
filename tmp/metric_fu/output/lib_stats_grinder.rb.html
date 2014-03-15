@@ -319,7 +319,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>    batters1 = <span class="constant">Batter</span>.find_all_by_year from
+  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>    batters1 = <span class="constant">Batter</span>.find_all <span class="key">year</span>: from
 </pre></div>
 </div>
 
@@ -351,7 +351,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n19" name="n19">19</a></span>    batters2 = <span class="constant">Batter</span>.find_all_by_year to
+  <div class="code"><pre><span class="line-numbers"><a href="#n19" name="n19">19</a></span>    batters2 = <span class="constant">Batter</span>.find_all <span class="key">year</span>: to
 </pre></div>
 </div>
 
@@ -549,7 +549,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n31" name="n31">31</a></span>    <span class="constant">Batter</span>.find_all_by_team_and_year(team, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n31" name="n31">31</a></span>    <span class="constant">Batter</span>.find_all(<span class="key">team</span>: team, <span class="key">year</span>: year)
 </pre></div>
 </div>
 
@@ -729,7 +729,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>    contenders = <span class="constant">Batter</span>.find_all_by_league_and_year(league, year)
+  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>    contenders = <span class="constant">Batter</span>.find_all <span class="key">league</span>: league, <span class="key">year</span>: year
 </pre></div>
 </div>
 

@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-14T16:12:39-06:00">2014-03-14T16:12:39-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-15T14:55:08-06:00">2014-03-15T14:55:08-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">99.72%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2643.6
+         2964.1
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>12</b> files in total.
-    <b>356</b> relevant lines. 
-    <span class="green"><b>355</b> lines covered</span> and
-    <span class="red"><b>1</b> lines missed </span>
+    <b>398</b> relevant lines. 
+    <span class="green"><b>398</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#fa7d2b979ec5fc07b0fe7337dd7897c2a16ee6fc" class="src_link" title="lib/batter.rb">lib/batter.rb</a></td>
-        <td class="green strong">98.67 %</td>
-        <td>210</td>
-        <td>75</td>
-        <td>74</td>
-        <td>1</td>
-        <td>8774.0</td>
+        <td class="green strong">100.0 %</td>
+        <td>224</td>
+        <td>80</td>
+        <td>80</td>
+        <td>0</td>
+        <td>8374.3</td>
       </tr>
       
       <tr>
@@ -93,11 +93,11 @@
       <tr>
         <td class="strong"><a href="#d72b5b5aab9998f96917064530750ee3e711dc73" class="src_link" title="lib/batting_data.rb">lib/batting_data.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>60</td>
-        <td>26</td>
-        <td>26</td>
+        <td>43</td>
+        <td>22</td>
+        <td>22</td>
         <td>0</td>
-        <td>10625.5</td>
+        <td>22941.0</td>
       </tr>
       
       <tr>
@@ -143,21 +143,21 @@
       <tr>
         <td class="strong"><a href="#2ead5eeb6edf6dae01f18ead72fd52b8d8eac279" class="src_link" title="spec/lib/batter_spec.rb">spec/lib/batter_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>200</td>
-        <td>69</td>
-        <td>69</td>
+        <td>248</td>
+        <td>88</td>
+        <td>88</td>
         <td>0</td>
-        <td>40.9</td>
+        <td>11.9</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#513521cde59c7bcbd3b5f85daeb3df7373f016cc" class="src_link" title="spec/lib/batting_data_spec.rb">spec/lib/batting_data_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>14</td>
-        <td>14</td>
+        <td>60</td>
+        <td>36</td>
+        <td>36</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>1.4</td>
       </tr>
       
       <tr>
@@ -579,11 +579,11 @@
         <div class="source_table" id="fa7d2b979ec5fc07b0fe7337dd7897c2a16ee6fc">
   <div class="header">
     <h3>lib/batter.rb</h3>
-    <h4><span class="green">98.67 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>75</b> relevant lines. 
-      <span class="green"><b>74</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <b>80</b> relevant lines. 
+      <span class="green"><b>80</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -659,17 +659,17 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  def initialize(id, last_name, first_name)</code>
+          <code class="ruby">  def initialize(id:, last_name:, first_name:)</code>
         </li>
       
-        <li class="covered" data-hits="17946" data-linenumber="13">
-          <span class="hits">17946</span>
+        <li class="covered" data-hits="17949" data-linenumber="13">
+          <span class="hits">17949</span>
           
           <code class="ruby">    @id, @last_name, @first_name = id, last_name, first_name</code>
         </li>
       
-        <li class="covered" data-hits="17946" data-linenumber="14">
-          <span class="hits">17946</span>
+        <li class="covered" data-hits="17949" data-linenumber="14">
+          <span class="hits">17949</span>
           
           <code class="ruby">    @batting_data = Hash.new do |hash, year|</code>
         </li>
@@ -791,13 +791,13 @@
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.find_by_id(id)</code>
+          <code class="ruby">  def self.find(id:)</code>
         </li>
       
-        <li class="covered" data-hits="32123" data-linenumber="35">
-          <span class="hits">32123</span>
+        <li class="covered" data-hits="32125" data-linenumber="35">
+          <span class="hits">32125</span>
           
-          <code class="ruby">    batter_data[id]</code>
+          <code class="ruby">    batter_data.fetch id</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="36">
@@ -815,85 +815,85 @@
         <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.find_all_by_year(year)</code>
+          <code class="ruby">  def self.find_all(year: nil, league: nil, team: nil)</code>
         </li>
       
-        <li class="covered" data-hits="53838" data-linenumber="39">
-          <span class="hits">53838</span>
+        <li class="covered" data-hits="6" data-linenumber="39">
+          <span class="hits">6</span>
           
-          <code class="ruby">    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&amp;:last)</code>
+          <code class="ruby">    return batter_data.map(&amp;:last) unless year</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="covered" data-hits="5" data-linenumber="40">
+          <span class="hits">5</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    return find_all_by_year(year) unless league || team</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    # subtle: if you supply both league and team, ignore league</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="2" data-linenumber="42">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    return find_all_by_league_and_year(league, year) unless team</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.find_all_by_team_and_year(team, year)</code>
+          <code class="ruby">    find_all_by_team_and_year(team, year)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby">    batter_data.reject {|id, batter|</code>
-        </li>
-      
-        <li class="covered" data-hits="17945" data-linenumber="44">
-          <span class="hits">17945</span>
-          
-          <code class="ruby">      !batter.played_any_games_for_team_in?(team, year)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="45">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    }.map(&amp;:last)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="48">
+        <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.find_all_by_league_and_year(league, year)</code>
+          <code class="ruby">  def name</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="47">
+          <span class="hits">12</span>
+          
+          <code class="ruby">    &quot;%s %s&quot; % [first_name, last_name]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">    batter_data.reject {|id, batter|</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="17945" data-linenumber="50">
-          <span class="hits">17945</span>
-          
-          <code class="ruby">      !batter.played_any_games_in_league_in_year?(league, year)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
-          <code class="ruby">    }.map(&amp;:last)</code>
+          <code class="ruby">  def sortable_name</code>
+        </li>
+      
+        <li class="covered" data-hits="19771" data-linenumber="51">
+          <span class="hits">19771</span>
+          
+          <code class="ruby">    &quot;%s, %s&quot; % [last_name, first_name]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
@@ -908,154 +908,154 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
-          <code class="ruby">  # Internal caching method so we only ever load batter data once per</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
-          
-          
-          <code class="ruby">  # program run</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="56">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def self.batter_data</code>
-        </li>
-      
-        <li class="covered" data-hits="32129" data-linenumber="57">
-          <span class="hits">32129</span>
-          
-          <code class="ruby">    @@batter_data ||= load_batter_data</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="59">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="60">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def name</code>
-        </li>
-      
-        <li class="covered" data-hits="9" data-linenumber="61">
-          <span class="hits">9</span>
-          
-          <code class="ruby">    &quot;%s %s&quot; % [first_name, last_name]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="64">
+        <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
           <code class="ruby">  def years</code>
         </li>
       
-        <li class="covered" data-hits="90352" data-linenumber="65">
+        <li class="covered" data-hits="90352" data-linenumber="55">
           <span class="hits">90352</span>
           
           <code class="ruby">    batting_data.keys</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
+        <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
           <code class="ruby">  def stats_for_year(year)</code>
         </li>
       
-        <li class="covered" data-hits="2929" data-linenumber="69">
+        <li class="covered" data-hits="2929" data-linenumber="59">
           <span class="hits">2929</span>
           
           <code class="ruby">    all_batting_data_for_year batting_data[year]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">  def stats_for_league_and_year(league, year)</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="73">
+        <li class="covered" data-hits="11" data-linenumber="63">
           <span class="hits">11</span>
           
           <code class="ruby">    return nil unless batting_data.key?(year) &amp;&amp; batting_data[year] &amp;&amp; batting_data[year].key?(league)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">    # FIXME: dis nasty. Have to pass in a key with the hash, which</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby">    # means having to lump on the league key again here. Mai ow--do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="66">
           
           
           <code class="ruby">    # not want. Is it really necessary? Need to revisit the method</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">    # breakdown and see if it can&#39;t be cleaned up</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="78">
+        <li class="covered" data-hits="11" data-linenumber="68">
           <span class="hits">11</span>
           
           <code class="ruby">    all_batting_data_for_year({ league =&gt; batting_data[year][league] })</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="71">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def played_any_games_in?(year)</code>
+        </li>
+      
+        <li class="covered" data-hits="90351" data-linenumber="72">
+          <span class="hits">90351</span>
+          
+          <code class="ruby">    years.include? year</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="75">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def played_any_games_for_team_in?(team, year)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby">    played_any_games_in?(year) &amp;&amp; batting_data[year].any? {|league, team_data|</code>
+        </li>
+      
+        <li class="covered" data-hits="1341" data-linenumber="77">
+          <span class="hits">1341</span>
+          
+          <code class="ruby">      team_data.keys.include?(team)</code>
+        </li>
+      
+        <li class="covered" data-hits="17945" data-linenumber="78">
+          <span class="hits">17945</span>
+          
+          <code class="ruby">    }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="79">
@@ -1073,175 +1073,175 @@
         <li class="covered" data-hits="1" data-linenumber="81">
           <span class="hits">1</span>
           
-          <code class="ruby">  def played_any_games_in?(year)</code>
-        </li>
-      
-        <li class="covered" data-hits="90351" data-linenumber="82">
-          <span class="hits">90351</span>
-          
-          <code class="ruby">    years.include? year</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="85">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def played_any_games_for_team_in?(team, year)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="86">
-          
-          
-          <code class="ruby">    played_any_games_in?(year) &amp;&amp; batting_data[year].any? {|league, team_data|</code>
-        </li>
-      
-        <li class="covered" data-hits="1341" data-linenumber="87">
-          <span class="hits">1341</span>
-          
-          <code class="ruby">      team_data.keys.include?(team)</code>
-        </li>
-      
-        <li class="covered" data-hits="17945" data-linenumber="88">
-          <span class="hits">17945</span>
-          
-          <code class="ruby">    }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="91">
-          <span class="hits">1</span>
-          
           <code class="ruby">  def played_any_games_in_league_in_year?(league, year)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby">    played_any_games_in?(year) &amp;&amp; batting_data[year].any? {|league_name, team_data|</code>
         </li>
       
-        <li class="covered" data-hits="1955" data-linenumber="93">
+        <li class="covered" data-hits="1955" data-linenumber="83">
           <span class="hits">1955</span>
           
           <code class="ruby">      league == league_name</code>
         </li>
       
-        <li class="covered" data-hits="18569" data-linenumber="94">
+        <li class="covered" data-hits="18569" data-linenumber="84">
           <span class="hits">18569</span>
           
           <code class="ruby">    }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="95">
+        <li class="never" data-hits="" data-linenumber="85">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="96">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
-          <code class="ruby">  # Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please</code>
+          <code class="ruby">  # I hate methods like this, but whatchagonnado. Basically this</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby">  # method lets us cram a line of data from the CSV file into the</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="89">
+          
+          
+          <code class="ruby">  # Batter and the Batter will init a new record with it, or add it to</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
+          
+          
+          <code class="ruby">  # any existing stats for that year/league/team (the data file has</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby">  # over 550 entries that are same player/year, and often same</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">  # player/year/league/team. And often same player/year but different</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby">  # team, and occasionally different league. The fact is this data is</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby">  # SUPER messy and we gotta live with it, because the reality it&#39;s</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">  # tracking is also super messy</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="96">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def add_batting_data(bd)</code>
+        </li>
+      
+        <li class="covered" data-hits="7910" data-linenumber="97">
+          <span class="hits">7910</span>
+          
+          <code class="ruby">    @batting_data[bd.year][bd.league][bd.team] += bd</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="98">
           
           
-          <code class="ruby">  # give me a reason other than &quot;I suck&quot;. Okay, fine: &quot;I suck until I</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="99">
           
           
-          <code class="ruby">  # refactor.&quot;</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="100">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="100">
           
-          <code class="ruby">  def self.load_batter_data</code>
+          
+          <code class="ruby">  #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="101">
           
           
-          <code class="ruby">    # Refactor me: hardcodey much? [SPIKE]</code>
+          <code class="ruby">  # END OF PUBLIC API</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="102">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="102">
           
-          <code class="ruby">    batters = BatterCsvReader.new(&quot;./data/Master-small.csv&quot;).</code>
+          
+          <code class="ruby">  #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="103">
           
           
-          <code class="ruby">      all.</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="18125" data-linenumber="104">
-          <span class="hits">18125</span>
+        <li class="covered" data-hits="1" data-linenumber="104">
+          <span class="hits">1</span>
           
-          <code class="ruby">      reject {|row| row[&quot;playerID&quot;].nil? }.</code>
+          <code class="ruby">  private</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="105">
           
           
-          <code class="ruby">      map {|row|</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="17946" data-linenumber="106">
-          <span class="hits">17946</span>
+        <li class="never" data-hits="" data-linenumber="106">
           
-          <code class="ruby">        Batter.new(row[&quot;playerID&quot;], row[&quot;nameLast&quot;], row[&quot;nameFirst&quot;])</code>
+          
+          <code class="ruby">  # Private Finders</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="107">
+        <li class="covered" data-hits="1" data-linenumber="107">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      }.</code>
+          <code class="ruby">  private_class_method def self.find_all_by_year(year)</code>
         </li>
       
-        <li class="covered" data-hits="17946" data-linenumber="108">
-          <span class="hits">17946</span>
+        <li class="covered" data-hits="53838" data-linenumber="108">
+          <span class="hits">53838</span>
           
-          <code class="ruby">      each_with_object({}) {|batter, hash| hash[batter.id] = batter }</code>
+          <code class="ruby">    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&amp;:last)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="109">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="110">
@@ -1253,433 +1253,433 @@
         <li class="covered" data-hits="1" data-linenumber="111">
           <span class="hits">1</span>
           
-          <code class="ruby">    @@batter_data = batters</code>
+          <code class="ruby">  private_class_method def self.find_all_by_team_and_year(team, year)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="112">
+          
+          
+          <code class="ruby">    batter_data.reject {|id, batter|</code>
+        </li>
+      
+        <li class="covered" data-hits="17945" data-linenumber="113">
+          <span class="hits">17945</span>
+          
+          <code class="ruby">      !batter.played_any_games_for_team_in?(team, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="114">
           <span class="hits">1</span>
           
-          <code class="ruby">    load_batting_data</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="113">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    batters</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="114">
-          
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    }.map(&amp;:last)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="115">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="116">
           
           
-          <code class="ruby">  # FIXME: I *REALLY* belong in a data conversion class!!!! These are</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="covered" data-hits="1" data-linenumber="117">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # the CSV header identifiers keyed by our internal data columns. Why</code>
+          <code class="ruby">  private_class_method def self.find_all_by_league_and_year(league, year)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="118">
           
           
-          <code class="ruby">  # not use what&#39;s in the CSV, you ask? Let me answer that question by</code>
+          <code class="ruby">    batter_data.reject {|id, batter|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="covered" data-hits="17945" data-linenumber="119">
+          <span class="hits">17945</span>
           
-          
-          <code class="ruby">  # stating authoritatively that if you are asking that question you</code>
+          <code class="ruby">      !batter.played_any_games_in_league_in_year?(league, year)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="covered" data-hits="1" data-linenumber="120">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # obviously have no clue what&#39;s IN that frickin&#39; CSV file. You wanna</code>
+          <code class="ruby">    }.map(&amp;:last)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="121">
           
           
-          <code class="ruby">  # know what&#39;s in that file? Do you? DO YOU REALLY? MADNESS! MADNESS</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="122">
           
           
-          <code class="ruby">  # I SAY! MADNESS IS WHAT IS IN THAT FILE! When Nietzche famously</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="123">
           
           
-          <code class="ruby">  # wrote &quot;If you gaze long into the Abyss, the Abyss gazes also into</code>
+          <code class="ruby">  # Internal caching method so we only ever load batter data once per</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="124">
           
           
-          <code class="ruby">  # you,&quot; HE WAS TALKING ABOUT THIS CSV FILE. IT&#39;S BAT-POO CRAZY IS</code>
+          <code class="ruby">  # program run</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="125">
+        <li class="covered" data-hits="1" data-linenumber="125">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # WHAT I AM TRYING TO TELL YOU--NO, DON&#39;T LOOK, DON&#39;T LOOK IN THE</code>
+          <code class="ruby">  private_class_method def self.batter_data</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="covered" data-hits="32132" data-linenumber="126">
+          <span class="hits">32132</span>
           
-          
-          <code class="ruby">  # FILE, DON&#39;T OPEN THE...</code>
+          <code class="ruby">    @@batter_data ||= load_batter_data</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="127">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="128">
           
           
-          <code class="ruby">  # You looked, didn&#39;t you.</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="129">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">  # Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="130">
           
           
-          <code class="ruby">  # Well. Welcome to my madness. Make yourself comfortable; THERE IS</code>
+          <code class="ruby">  # give me a reason other than &quot;I suck&quot;. Okay, fine: &quot;I suck until I</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="131">
           
           
-          <code class="ruby">  # NO WAY BACK.</code>
+          <code class="ruby">  # refactor.&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="covered" data-hits="1" data-linenumber="132">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #</code>
+          <code class="ruby">  private_class_method def self.load_batter_data</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="133">
           
           
-          <code class="ruby">  # I did try to warn you.</code>
+          <code class="ruby">    # Refactor me: hardcodey much? [SPIKE]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="134">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.batting_data_keys</code>
+          <code class="ruby">    batters = BatterCsvReader.new(&quot;./data/Master-small.csv&quot;).</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="135">
           
           
-          <code class="ruby">    { player_id: &quot;playerID&quot;,</code>
+          <code class="ruby">      all.</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="136">
+        <li class="covered" data-hits="18125" data-linenumber="136">
+          <span class="hits">18125</span>
           
-          
-          <code class="ruby">      year: &quot;yearID&quot;,</code>
+          <code class="ruby">      reject {|row| row[&quot;playerID&quot;].nil? }.</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="137">
           
           
-          <code class="ruby">      league: &quot;league&quot;,</code>
+          <code class="ruby">      map {|row|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="138">
+        <li class="covered" data-hits="17946" data-linenumber="138">
+          <span class="hits">17946</span>
           
-          
-          <code class="ruby">      team: &quot;teamID&quot;,</code>
+          <code class="ruby">      Batter.new(id: row[&quot;playerID&quot;], last_name: row[&quot;nameLast&quot;], first_name: row[&quot;nameFirst&quot;])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="139">
           
           
-          <code class="ruby">      games: &quot;G&quot;,</code>
+          <code class="ruby">    }.</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="140">
+        <li class="covered" data-hits="17946" data-linenumber="140">
+          <span class="hits">17946</span>
           
-          
-          <code class="ruby">      at_bats: &quot;AB&quot;,</code>
+          <code class="ruby">      each_with_object({}) {|batter, hash| hash[batter.id] = batter }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="141">
           
           
-          <code class="ruby">      runs: &quot;R&quot;,</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="142">
           
           
-          <code class="ruby">      hits: &quot;H&quot;,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="143">
+        <li class="covered" data-hits="1" data-linenumber="143">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      doubles: &quot;2B&quot;,</code>
+          <code class="ruby">    @@batter_data = batters</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="144">
+        <li class="covered" data-hits="1" data-linenumber="144">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      triples: &quot;3B&quot;,</code>
+          <code class="ruby">    load_batting_data</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="145">
+        <li class="covered" data-hits="1" data-linenumber="145">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      home_runs: &quot;HR&quot;,</code>
+          <code class="ruby">    batters</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="146">
           
           
-          <code class="ruby">      runs_batted_in: &quot;RBI&quot;,</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="147">
           
           
-          <code class="ruby">      stolen_bases: &quot;SB&quot;,</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="148">
           
           
-          <code class="ruby">      caught_stealing: &quot;CS&quot;</code>
+          <code class="ruby">  # FIXME: I *REALLY* belong in a data conversion class!!!! These are</code>
         </li>
       
-        <li class="covered" data-hits="7910" data-linenumber="149">
-          <span class="hits">7910</span>
+        <li class="never" data-hits="" data-linenumber="149">
           
-          <code class="ruby">    }</code>
+          
+          <code class="ruby">  # the CSV header identifiers keyed by our internal data columns. Why</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="150">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # not use what&#39;s in the CSV, you ask? Let me answer that question by</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="151">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # stating authoritatively that if you are asking that question you</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="152">
           
           
-          <code class="ruby">  # Internal caching method. See earlier note about the technical</code>
+          <code class="ruby">  # obviously have no clue what&#39;s IN that frickin&#39; CSV file. You wanna</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="153">
           
           
-          <code class="ruby">  # depth and temporal breadth within which I suck.</code>
+          <code class="ruby">  # know what&#39;s in that file? Do you? DO YOU REALLY? MADNESS! MADNESS</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="154">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="154">
           
-          <code class="ruby">  def self.load_batting_data</code>
+          
+          <code class="ruby">  # I SAY! MADNESS IS WHAT IS IN THAT FILE! When Nietzche famously</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="155">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="155">
           
-          <code class="ruby">    BattingCsvReader.new(&quot;./data/Batting-07-12.csv&quot;).all.map {|row|</code>
+          
+          <code class="ruby">  # wrote &quot;If you gaze long into the Abyss, the Abyss gazes also into</code>
         </li>
       
-        <li class="covered" data-hits="7910" data-linenumber="156">
-          <span class="hits">7910</span>
+        <li class="never" data-hits="" data-linenumber="156">
           
-          <code class="ruby">      data = {}</code>
+          
+          <code class="ruby">  # you,&quot; HE WAS TALKING ABOUT THIS CSV FILE. IT&#39;S BAT-POO CRAZY IS</code>
         </li>
       
-        <li class="covered" data-hits="7910" data-linenumber="157">
-          <span class="hits">7910</span>
+        <li class="never" data-hits="" data-linenumber="157">
           
-          <code class="ruby">      batting_data_keys.each_pair do |new_key, old_key|</code>
+          
+          <code class="ruby">  # WHAT I AM TRYING TO TELL YOU--NO, DON&#39;T LOOK, DON&#39;T LOOK IN THE</code>
         </li>
       
-        <li class="covered" data-hits="110740" data-linenumber="158">
-          <span class="hits">110740</span>
+        <li class="never" data-hits="" data-linenumber="158">
           
-          <code class="ruby">        data[new_key] = row[old_key]</code>
+          
+          <code class="ruby">  # FILE, DON&#39;T OPEN THE...</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="159">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">  #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="160">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # You looked, didn&#39;t you.</code>
         </li>
       
-        <li class="covered" data-hits="7910" data-linenumber="161">
-          <span class="hits">7910</span>
+        <li class="never" data-hits="" data-linenumber="161">
           
-          <code class="ruby">      if batter = Batter.find_by_id(data[:player_id])</code>
+          
+          <code class="ruby">  #</code>
         </li>
       
-        <li class="covered" data-hits="7910" data-linenumber="162">
-          <span class="hits">7910</span>
+        <li class="never" data-hits="" data-linenumber="162">
           
-          <code class="ruby">        batter.add_batting_data(BattingData.new(data))</code>
+          
+          <code class="ruby">  # Well. Welcome to my madness. Make yourself comfortable; THERE IS</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="163">
           
           
-          <code class="ruby">      else</code>
+          <code class="ruby">  # NO WAY BACK.</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="164">
+        <li class="never" data-hits="" data-linenumber="164">
           
           
-          <code class="ruby">        raise &quot;Unable to find batter by id &#39;%s&#39;; all batters should be loaded&quot; % row[&quot;playerID&quot;]</code>
+          <code class="ruby">  #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="165">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">  # I did try to warn you.</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="166">
+        <li class="covered" data-hits="1" data-linenumber="166">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    }</code>
+          <code class="ruby">  private_class_method def self.batting_data_keys</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="167">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    { player_id: &quot;playerID&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="168">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      year: &quot;yearID&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="169">
           
           
-          <code class="ruby">  # I hate methods like this, but whatchagonnado. Basically this</code>
+          <code class="ruby">      league: &quot;league&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="170">
           
           
-          <code class="ruby">  # method lets us cram a line of data from the CSV file into the</code>
+          <code class="ruby">      team: &quot;teamID&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="171">
           
           
-          <code class="ruby">  # Batter and the Batter will init a new record with it, or add it to</code>
+          <code class="ruby">      games: &quot;G&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="172">
           
           
-          <code class="ruby">  # any existing stats for that year/league/team (the data file has</code>
+          <code class="ruby">      at_bats: &quot;AB&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="173">
           
           
-          <code class="ruby">  # over 550 entries that are same player/year, and often same</code>
+          <code class="ruby">      runs: &quot;R&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="174">
           
           
-          <code class="ruby">  # player/year/league/team. And often same player/year but different</code>
+          <code class="ruby">      hits: &quot;H&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="175">
           
           
-          <code class="ruby">  # team, and occasionally different league. The fact is this data is</code>
+          <code class="ruby">      doubles: &quot;2B&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="176">
           
           
-          <code class="ruby">  # SUPER messy and we gotta live with it, because the reality it&#39;s</code>
+          <code class="ruby">      triples: &quot;3B&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="177">
           
           
-          <code class="ruby">  # tracking is also super messy</code>
+          <code class="ruby">      home_runs: &quot;HR&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="178">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="178">
           
-          <code class="ruby">  def add_batting_data(bd)</code>
+          
+          <code class="ruby">      runs_batted_in: &quot;RBI&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="7910" data-linenumber="179">
-          <span class="hits">7910</span>
+        <li class="never" data-hits="" data-linenumber="179">
           
-          <code class="ruby">    @batting_data[bd.year][bd.league][bd.team] += bd</code>
+          
+          <code class="ruby">      stolen_bases: &quot;SB&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="180">
           
           
+          <code class="ruby">      caught_stealing: &quot;CS&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="7910" data-linenumber="181">
+          <span class="hits">7910</span>
+          
+          <code class="ruby">    }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="182">
+          
+          
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="181">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="182">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  private</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="183">
@@ -1691,160 +1691,244 @@
         <li class="never" data-hits="" data-linenumber="184">
           
           
-          <code class="ruby">  # Consolidate all my batting data across all years, leagues, teams,</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="185">
           
           
-          <code class="ruby">  # etc.</code>
+          <code class="ruby">  # Internal caching method. See earlier note about the technical</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="186">
+        <li class="never" data-hits="" data-linenumber="186">
+          
+          
+          <code class="ruby">  # depth and temporal breadth within which I suck.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="187">
           <span class="hits">1</span>
           
-          <code class="ruby">  def all_batting_data_ever</code>
+          <code class="ruby">  private_class_method def self.load_batting_data</code>
         </li>
       
-        <li class="covered" data-hits="33" data-linenumber="187">
-          <span class="hits">33</span>
+        <li class="covered" data-hits="1" data-linenumber="188">
+          <span class="hits">1</span>
           
-          <code class="ruby">    batting_data.map {|year, league_data|</code>
+          <code class="ruby">    BattingCsvReader.new(&quot;./data/Batting-07-12.csv&quot;).all.map {|row|</code>
         </li>
       
-        <li class="covered" data-hits="110" data-linenumber="188">
-          <span class="hits">110</span>
+        <li class="covered" data-hits="7910" data-linenumber="189">
+          <span class="hits">7910</span>
           
-          <code class="ruby">      all_batting_data_for_year league_data</code>
+          <code class="ruby">      data = {}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="189">
+        <li class="covered" data-hits="7910" data-linenumber="190">
+          <span class="hits">7910</span>
           
-          
-          <code class="ruby">    }.reduce :+</code>
+          <code class="ruby">      batting_data_keys.each_pair do |new_key, old_key|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="190">
+        <li class="covered" data-hits="110740" data-linenumber="191">
+          <span class="hits">110740</span>
           
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="191">
-          
-          
-          <code class="ruby"></code>
+          <code class="ruby">        data[new_key] = row[old_key]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="192">
           
           
-          <code class="ruby">  # Helper: given a subtree of BattingDatas for a given year, dive</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="193">
           
           
-          <code class="ruby">  # into each league. Private method because it accepts a subtree of</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="194">
+        <li class="covered" data-hits="7910" data-linenumber="194">
+          <span class="hits">7910</span>
           
-          
-          <code class="ruby">  # the batting_data structure. Knows too much about our internals.</code>
+          <code class="ruby">      Batter.find(id: data[:player_id]).add_batting_data(BattingData.new(data))</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="195">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="195">
           
-          <code class="ruby">  def all_batting_data_for_year(data)</code>
+          
+          <code class="ruby">    }</code>
         </li>
       
-        <li class="covered" data-hits="3050" data-linenumber="196">
-          <span class="hits">3050</span>
-          
-          <code class="ruby">    data.map {|league, team_data|</code>
-        </li>
-      
-        <li class="covered" data-hits="3193" data-linenumber="197">
-          <span class="hits">3193</span>
-          
-          <code class="ruby">      all_batting_data_for_league team_data</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="198">
-          
-          
-          <code class="ruby">    }.reduce :+</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="199">
+        <li class="never" data-hits="" data-linenumber="196">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="200">
+        <li class="never" data-hits="" data-linenumber="197">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="201">
+        <li class="never" data-hits="" data-linenumber="198">
           
           
-          <code class="ruby">  # Helper: given a subtree of BattingDatas for a given league, dive</code>
+          <code class="ruby">  # Consolidate all my batting data across all years, leagues, teams,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="202">
+        <li class="never" data-hits="" data-linenumber="199">
           
           
-          <code class="ruby">  # into each team. Private method because it accepts a subtree of the</code>
+          <code class="ruby">  # etc.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="200">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def all_batting_data_ever</code>
+        </li>
+      
+        <li class="covered" data-hits="33" data-linenumber="201">
+          <span class="hits">33</span>
+          
+          <code class="ruby">    batting_data.map {|year, league_data|</code>
+        </li>
+      
+        <li class="covered" data-hits="110" data-linenumber="202">
+          <span class="hits">110</span>
+          
+          <code class="ruby">      all_batting_data_for_year league_data</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="203">
           
           
-          <code class="ruby">  # batting_data structure. Knows too much about our internals.</code>
+          <code class="ruby">    }.reduce :+</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="204">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def all_batting_data_for_league(data)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="205">
-          
-          
-          <code class="ruby">    # We could extract all_batting_data_for_team here, but Hash#values</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="206">
-          
-          
-          <code class="ruby">    # gives us the same thing at this point. Private methods FTW--no</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="207">
-          
-          
-          <code class="ruby">    # using this method, you public-API-using knuckledraggers!</code>
-        </li>
-      
-        <li class="covered" data-hits="3193" data-linenumber="208">
-          <span class="hits">3193</span>
-          
-          <code class="ruby">    data.values.reduce :+</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="209">
+        <li class="never" data-hits="" data-linenumber="204">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="210">
+        <li class="never" data-hits="" data-linenumber="205">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="206">
+          
+          
+          <code class="ruby">  # Helper: given a subtree of BattingDatas for a given year, dive</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="207">
+          
+          
+          <code class="ruby">  # into each league. Private method because it accepts a subtree of</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="208">
+          
+          
+          <code class="ruby">  # the batting_data structure. Knows too much about our internals.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="209">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def all_batting_data_for_year(data)</code>
+        </li>
+      
+        <li class="covered" data-hits="3050" data-linenumber="210">
+          <span class="hits">3050</span>
+          
+          <code class="ruby">    data.map {|league, team_data|</code>
+        </li>
+      
+        <li class="covered" data-hits="3193" data-linenumber="211">
+          <span class="hits">3193</span>
+          
+          <code class="ruby">      all_batting_data_for_league team_data</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="212">
+          
+          
+          <code class="ruby">    }.reduce :+</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="213">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="214">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="215">
+          
+          
+          <code class="ruby">  # Helper: given a subtree of BattingDatas for a given league, dive</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="216">
+          
+          
+          <code class="ruby">  # into each team. Private method because it accepts a subtree of the</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="217">
+          
+          
+          <code class="ruby">  # batting_data structure. Knows too much about our internals.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="218">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def all_batting_data_for_league(data)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="219">
+          
+          
+          <code class="ruby">    # We could extract all_batting_data_for_team here, but Hash#values</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="220">
+          
+          
+          <code class="ruby">    # gives us the same thing at this point. Private methods FTW--no</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="221">
+          
+          
+          <code class="ruby">    # using this method, you public-API-using knuckledraggers!</code>
+        </li>
+      
+        <li class="covered" data-hits="3193" data-linenumber="222">
+          <span class="hits">3193</span>
+          
+          <code class="ruby">    data.values.reduce :+</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="223">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="224">
           
           
           <code class="ruby">end</code>
@@ -2075,8 +2159,8 @@
     <h3>lib/batting_data.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>26</b> relevant lines. 
-      <span class="green"><b>26</b> lines covered</span> and
+      <b>22</b> relevant lines. 
+      <span class="green"><b>22</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2090,76 +2174,76 @@
           <code class="ruby">require_relative &#39;batter&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="2">
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &#39;patches&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"># Stats aggregation/integration class</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
           <code class="ruby">class BattingData</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
           <code class="ruby">  attr_reader :player_id, :player, :year, :league, :team, :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :runs_batted_in, :stolen_bases, :caught_stealing</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private_attr_writer :player_id, :player, :year, :league, :team, :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :runs_batted_in, :stolen_bases, :caught_stealing</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">  def initialize(data={})</code>
         </li>
       
-        <li class="covered" data-hits="24145" data-linenumber="7">
-          <span class="hits">24145</span>
+        <li class="covered" data-hits="24148" data-linenumber="10">
+          <span class="hits">24148</span>
           
           <code class="ruby">    @player_id = data.fetch(:player_id)</code>
         </li>
       
-        <li class="covered" data-hits="24145" data-linenumber="8">
-          <span class="hits">24145</span>
+        <li class="covered" data-hits="24148" data-linenumber="11">
+          <span class="hits">24148</span>
           
-          <code class="ruby">    @player = Batter.find_by_id(data.fetch(:player_id))</code>
+          <code class="ruby">    @player = Batter.find(id: player_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="24145" data-linenumber="10">
-          <span class="hits">24145</span>
+        <li class="covered" data-hits="24148" data-linenumber="13">
+          <span class="hits">24148</span>
           
-          <code class="ruby">    @year, @league, @team = data[:year].to_i, data[:league], data[:team]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="24145" data-linenumber="12">
-          <span class="hits">24145</span>
-          
-          <code class="ruby">    @games, @at_bats, @runs, @hits, @doubles, @triples, @home_runs, @runs_batted_in, @stolen_bases, @caught_stealing = data[:games].to_i, data[:at_bats].to_i, data[:runs].to_i, data[:hits].to_i, data[:doubles].to_i, data[:triples].to_i, data[:home_runs].to_i, data[:runs_batted_in].to_i, data[:stolen_bases].to_i, data[:caught_stealing].to_i</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="13">
-          
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    @league, @team = data[:league], data[:team]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -2168,277 +2252,175 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="16657" data-linenumber="15">
-          <span class="hits">16657</span>
+        <li class="covered" data-hits="289776" data-linenumber="15">
+          <span class="hits">289776</span>
           
-          <code class="ruby">  def games; @games || 0; end</code>
+          <code class="ruby">    %i(year games at_bats runs hits doubles triples home_runs runs_batted_in stolen_bases caught_stealing).each {|key| send &quot;#{key}=&quot;, data[key].to_i }</code>
         </li>
       
-        <li class="covered" data-hits="20036" data-linenumber="16">
-          <span class="hits">20036</span>
+        <li class="never" data-hits="" data-linenumber="16">
           
-          <code class="ruby">  def at_bats; @at_bats || 0; end</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="16657" data-linenumber="17">
-          <span class="hits">16657</span>
-          
-          <code class="ruby">  def runs; @runs || 0; end</code>
-        </li>
-      
-        <li class="covered" data-hits="17122" data-linenumber="18">
-          <span class="hits">17122</span>
-          
-          <code class="ruby">  def hits; @hits || 0; end</code>
-        </li>
-      
-        <li class="covered" data-hits="16659" data-linenumber="19">
-          <span class="hits">16659</span>
-          
-          <code class="ruby">  def doubles; @doubles || 0; end</code>
-        </li>
-      
-        <li class="covered" data-hits="16659" data-linenumber="20">
-          <span class="hits">16659</span>
-          
-          <code class="ruby">  def triples; @triples || 0; end</code>
-        </li>
-      
-        <li class="covered" data-hits="16659" data-linenumber="21">
-          <span class="hits">16659</span>
-          
-          <code class="ruby">  def home_runs; @home_runs || 0; end</code>
-        </li>
-      
-        <li class="covered" data-hits="16657" data-linenumber="22">
-          <span class="hits">16657</span>
-          
-          <code class="ruby">  def runs_batted_in; @runs_batted_in || 0; end</code>
-        </li>
-      
-        <li class="covered" data-hits="16657" data-linenumber="23">
-          <span class="hits">16657</span>
-          
-          <code class="ruby">  def stolen_bases; @stolen_bases || 0; end</code>
-        </li>
-      
-        <li class="covered" data-hits="16657" data-linenumber="24">
-          <span class="hits">16657</span>
-          
-          <code class="ruby">  def caught_stealing; @caught_stealing || 0; end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">  def batting_average</code>
         </li>
       
-        <li class="covered" data-hits="465" data-linenumber="27">
+        <li class="covered" data-hits="465" data-linenumber="19">
           <span class="hits">465</span>
           
           <code class="ruby">    return 0.0 unless at_bats &gt; 0</code>
         </li>
       
-        <li class="covered" data-hits="464" data-linenumber="28">
+        <li class="covered" data-hits="464" data-linenumber="20">
           <span class="hits">464</span>
           
           <code class="ruby">    hits / at_bats.to_f</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="31">
+        <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
           <code class="ruby">  def slugging_percentage</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="32">
+        <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
           <code class="ruby">    return 0.0 unless at_bats &gt; 0</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="33">
+        <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">    ((hits - (doubles+triples+home_runs)) + 2*doubles + 3*triples + 4*home_runs) / at_bats.to_f</code>
+          <code class="ruby">    (hits + doubles + 2*triples + 3*home_runs) / at_bats.to_f</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">  # Add BattingData to another and return a new BattingData containing</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">  # the sums of the stats.</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
           <code class="ruby">  def +(other)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">    # It may seem odd to init player, year, league and team here, but we may</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">    # be adding a valid BattingData to a player&#39;s empty BattingData,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">    # and if so we want to return the valid one.</code>
         </li>
       
-        <li class="covered" data-hits="8325" data-linenumber="42">
-          <span class="hits">8325</span>
+        <li class="covered" data-hits="8326" data-linenumber="34">
+          <span class="hits">8326</span>
           
-          <code class="ruby">    BattingData.new({</code>
+          <code class="ruby">    ors = %i(player_id player year league).each_with_object({}) {|key, hash|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="covered" data-hits="33304" data-linenumber="35">
+          <span class="hits">33304</span>
           
-          
-          <code class="ruby">                      player_id: player_id || other.player_id,</code>
+          <code class="ruby">      hash[key] = send(key) || other.send(key)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">                      player: player || other.player,</code>
+          <code class="ruby">    }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="covered" data-hits="8326" data-linenumber="37">
+          <span class="hits">8326</span>
           
-          
-          <code class="ruby">                      year: year || other.year,</code>
+          <code class="ruby">    sums = %i(games at_bats runs hits doubles triples home_runs runs_batted_in stolen_bases caught_stealing).each_with_object({}) {|key, hash|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="covered" data-hits="83260" data-linenumber="38">
+          <span class="hits">83260</span>
           
-          
-          <code class="ruby">                      league: league || other.league,</code>
+          <code class="ruby">      hash[key] = send(key) + other.send(key)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">                      team: team || other.team,</code>
+          <code class="ruby">    }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">                      games: games + other.games,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="covered" data-hits="8326" data-linenumber="41">
+          <span class="hits">8326</span>
           
-          
-          <code class="ruby">                      at_bats: at_bats + other.at_bats,</code>
+          <code class="ruby">    BattingData.new(ors.merge sums)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby">                      runs: runs + other.runs,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
-          <code class="ruby">                      hits: hits + other.hits,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="52">
-          
-          
-          <code class="ruby">                      doubles: doubles + other.doubles,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">                      triples: triples + other.triples,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
-          <code class="ruby">                      home_runs: home_runs + other.home_runs,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
-          
-          
-          <code class="ruby">                      runs_batted_in: runs_batted_in + other.runs_batted_in,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="56">
-          
-          
-          <code class="ruby">                      stolen_bases: stolen_bases + other.stolen_bases,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
-          <code class="ruby">                      caught_stealing: caught_stealing + other.caught_stealing</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">                    })</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">end</code>
@@ -2585,7 +2567,7 @@
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">    batters1 = Batter.find_all_by_year from</code>
+          <code class="ruby">    batters1 = Batter.find_all year: from</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
@@ -2597,7 +2579,7 @@
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">    batters2 = Batter.find_all_by_year to</code>
+          <code class="ruby">    batters2 = Batter.find_all year: to</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
@@ -2669,7 +2651,7 @@
         <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
-          <code class="ruby">    Batter.find_all_by_team_and_year(team, year)</code>
+          <code class="ruby">    Batter.find_all(team: team, year: year)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
@@ -2729,7 +2711,7 @@
         <li class="covered" data-hits="3" data-linenumber="41">
           <span class="hits">3</span>
           
-          <code class="ruby">    contenders = Batter.find_all_by_league_and_year(league, year)</code>
+          <code class="ruby">    contenders = Batter.find_all league: league, year: year</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="42">
@@ -3959,8 +3941,8 @@
     <h3>spec/lib/batter_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>69</b> relevant lines. 
-      <span class="green"><b>69</b> lines covered</span> and
+      <b>88</b> relevant lines. 
+      <span class="green"><b>88</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4127,7 +4109,7 @@
         <li class="covered" data-hits="36" data-linenumber="27">
           <span class="hits">36</span>
           
-          <code class="ruby">    let(:wilson) { Batter.find_by_id &quot;wilsojo03&quot; }</code>
+          <code class="ruby">    let(:wilson) { Batter.find id: &quot;wilsojo03&quot; }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -4154,10 +4136,10 @@
           <code class="ruby">    # entries for a single year--and it&#39;s the only year he played.</code>
         </li>
       
-        <li class="covered" data-hits="25" data-linenumber="32">
-          <span class="hits">25</span>
+        <li class="covered" data-hits="27" data-linenumber="32">
+          <span class="hits">27</span>
           
-          <code class="ruby">    let(:kimby) { Batter.find_by_id &quot;kimby01&quot; }</code>
+          <code class="ruby">    let(:kimby) { Batter.find id: &quot;kimby01&quot; }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
@@ -4193,7 +4175,7 @@
         <li class="covered" data-hits="12" data-linenumber="38">
           <span class="hits">12</span>
           
-          <code class="ruby">    let(:accardo) { Batter.find_by_id &quot;accarje01&quot; }</code>
+          <code class="ruby">    let(:accardo) { Batter.find id: &quot;accarje01&quot; }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
@@ -4241,7 +4223,7 @@
         <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;.find_by_id&quot; do</code>
+          <code class="ruby">    describe &quot;.find&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="47">
@@ -4277,181 +4259,181 @@
         <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;.find_all_by_year&quot; do</code>
+          <code class="ruby">    describe &quot;.find_all&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1159" data-linenumber="53">
-          <span class="hits">1159</span>
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
           
-          <code class="ruby">      let(:batters_2010) { Batter.find_all_by_year(2010).sort_by {|b| [b.last_name, b.first_name]} }</code>
+          <code class="ruby">      context &quot;with no arguments&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        let(:batters) { Batter.find_all.sort_by(&amp;:sortable_name) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="55">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;finds batters by year&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="56">
           <span class="hits">1</span>
           
-          <code class="ruby">        batters_2010.size.should == 1157</code>
+          <code class="ruby">        it &quot;finds all batters&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
-          <code class="ruby">        batters_2010.first.name.should == &quot;David Aardsma&quot;</code>
+          <code class="ruby">          batters.size.should == 17945</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
-          <code class="ruby">        batters_2010.last.name.should == &quot;Jorge de la Rosa&quot;</code>
+          <code class="ruby">          batters.first.name.should == &quot;David Aardsma&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">          batters.last.name.should == &quot;Miguel del Toro&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="62">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    describe &quot;.find_all_by_team_and_year&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="46" data-linenumber="63">
-          <span class="hits">46</span>
-          
-          <code class="ruby">      let(:seattle_2008) { Batter.find_all_by_team_and_year(&#39;SEA&#39;, 2008).sort_by {|b| [b.last_name, b.first_name]} }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
+        <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;finds batters by team and year&quot; do</code>
+          <code class="ruby">      context &quot;with year only&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="64">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        let(:batters_2010) { Batter.find_all(year: 2010).sort_by(&amp;:sortable_name) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
-          <code class="ruby">        seattle_2008.size.should == 44</code>
+          <code class="ruby">        it &quot;finds batters by year&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="67">
           <span class="hits">1</span>
           
-          <code class="ruby">        seattle_2008.first.name.should == &quot;Cha Seung Baek&quot;</code>
+          <code class="ruby">          batters_2010.size.should == 1157</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
-          <code class="ruby">        seattle_2008.last.name.should == &quot;Jake Woods&quot;</code>
+          <code class="ruby">          batters_2010.first.name.should == &quot;David Aardsma&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="covered" data-hits="1" data-linenumber="69">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">          batters_2010.last.name.should == &quot;Jorge de la Rosa&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="70">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="71">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    describe &quot;.find_all_by_league_and_year&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="626" data-linenumber="73">
-          <span class="hits">626</span>
-          
-          <code class="ruby">      let(:al_2008) { Batter.find_all_by_league_and_year(&quot;AL&quot;, 2008).sort_by {|b| [b.last_name, b.first_name]} }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="75">
+        <li class="covered" data-hits="1" data-linenumber="73">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;finds batters by league and year&quot; do</code>
+          <code class="ruby">      context &quot;with team and year&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="74">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        let(:seattle_2008) { Batter.find_all(team: &quot;SEA&quot;, year: 2008).sort_by(&amp;:sortable_name) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="76">
           <span class="hits">1</span>
           
-          <code class="ruby">        al_2008.size.should == 624</code>
+          <code class="ruby">        it &quot;finds batters by team and year&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="625" data-linenumber="77">
-          <span class="hits">625</span>
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
           
-          <code class="ruby">        al_2008.all? {|batter| batter.played_any_games_in_league_in_year?(&quot;AL&quot;, 2008) }.should be_true</code>
+          <code class="ruby">          seattle_2008.size.should == 44</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
-          <code class="ruby">        al_2008.first.name.should == &quot;David Aardsma&quot;</code>
+          <code class="ruby">          seattle_2008.first.name.should == &quot;Cha Seung Baek&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="79">
           <span class="hits">1</span>
           
-          <code class="ruby">        al_2008.last.name.should == &quot;Joel Zumaya&quot;</code>
+          <code class="ruby">          seattle_2008.last.name.should == &quot;Jake Woods&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="81">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="82">
@@ -4463,445 +4445,445 @@
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;#played_any_games_in?(year)&quot; do</code>
+          <code class="ruby">      context &quot;with league and year&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="84">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="84">
+          <span class="hits">2</span>
           
-          <code class="ruby">      it &quot;returns truthy if batter played that year&quot; do</code>
+          <code class="ruby">        let(:al_2008) { Batter.find_all(league: &quot;AL&quot;, year: 2008).sort_by(&amp;:sortable_name) }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="85">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="85">
           
-          <code class="ruby">        kimby.played_any_games_in?(2007).should be_true</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="86">
           <span class="hits">1</span>
           
-          <code class="ruby">        kimby.played_any_games_in?(2008).should be_false</code>
+          <code class="ruby">        it &quot;finds batters by league and year&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="covered" data-hits="1" data-linenumber="87">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">          al_2008.size.should == 624</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="88">
+        <li class="covered" data-hits="625" data-linenumber="88">
+          <span class="hits">625</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">          al_2008.all? {|batter| batter.played_any_games_in_league_in_year?(&quot;AL&quot;, 2008) }.should be_true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="89">
+        <li class="covered" data-hits="1" data-linenumber="89">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">          al_2008.first.name.should == &quot;David Aardsma&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="90">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;#years&quot; do</code>
+          <code class="ruby">          al_2008.last.name.should == &quot;Joel Zumaya&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="91">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="91">
           
-          <code class="ruby">      it &quot;returns years played&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="92">
-          <span class="hits">1</span>
           
-          <code class="ruby">        kimby.years.should == [2007]</code>
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="93">
+        <li class="never" data-hits="" data-linenumber="92">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="94">
+        <li class="never" data-hits="" data-linenumber="93">
           
           
           <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="95">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    # This spec is fairly transient; the API started out totally</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="96">
+        <li class="never" data-hits="" data-linenumber="96">
+          
+          
+          <code class="ruby">    # public and I want to assert that I have locked it down</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby">    # completely</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="98">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;BattingData interface&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="97">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      spec_stats_for(&quot;Josh Wilson lifetime stats&quot;, &quot;wilson&quot;, {</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby">                       games: 345,</code>
+          <code class="ruby">    describe &quot;private class API&quot; do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="99">
           
           
-          <code class="ruby">                       at_bats: 920,</code>
+          <code class="ruby">      %i(</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="100">
           
           
-          <code class="ruby">                       runs: 82,</code>
+          <code class="ruby">         find_all_by_year</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="101">
           
           
-          <code class="ruby">                       hits: 210,</code>
+          <code class="ruby">         find_all_by_team_and_year</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="102">
           
           
-          <code class="ruby">                       doubles: 45,</code>
+          <code class="ruby">         find_all_by_league_and_year</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="103">
           
           
-          <code class="ruby">                       triples: 6,</code>
+          <code class="ruby">         batter_data</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="104">
           
           
-          <code class="ruby">                       home_runs: 9,</code>
+          <code class="ruby">         load_batter_data</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="105">
           
           
-          <code class="ruby">                       runs_batted_in: 67,</code>
+          <code class="ruby">         batting_data_keys</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="106">
           
           
-          <code class="ruby">                       stolen_bases: 13,</code>
+          <code class="ruby">         load_batting_data</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="107">
-          
-          
-          <code class="ruby">                       caught_stealing: 4,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="108">
-          
-          
-          <code class="ruby">                       batting_average: 0.228</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="109">
-          
-          
-          <code class="ruby">                     })</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="111">
+        <li class="covered" data-hits="1" data-linenumber="107">
           <span class="hits">1</span>
           
-          <code class="ruby">      spec_stats_for(&quot;Jeremy Accardo lifetime stats&quot;, &quot;accardo&quot;, {</code>
+          <code class="ruby">         ).each do |private_method|</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="108">
+          <span class="hits">7</span>
+          
+          <code class="ruby">        describe private_method do</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="109">
+          <span class="hits">7</span>
+          
+          <code class="ruby">          it &quot;should be private&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="110">
+          <span class="hits">7</span>
+          
+          <code class="ruby">            expect {</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="111">
+          <span class="hits">7</span>
+          
+          <code class="ruby">              Batter.public_send(private_method)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="112">
           
           
-          <code class="ruby">                       games: 134,</code>
+          <code class="ruby">            }.to raise_error(NoMethodError, /private method/)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="113">
           
           
-          <code class="ruby">                       at_bats: 0,</code>
+          <code class="ruby">          end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="114">
           
           
-          <code class="ruby">                       runs: 0,</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="115">
           
           
-          <code class="ruby">                       hits: 0,</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="116">
           
           
-          <code class="ruby">                       doubles: 0,</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="117">
           
           
-          <code class="ruby">                       triples: 0,</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="118">
           
           
-          <code class="ruby">                       home_runs: 0,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="covered" data-hits="1" data-linenumber="119">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       runs_batted_in: 0,</code>
+          <code class="ruby">    describe &quot;#played_any_games_in?(year)&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="covered" data-hits="1" data-linenumber="120">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       stolen_bases: 0,</code>
+          <code class="ruby">      it &quot;returns truthy if batter played that year&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="121">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       caught_stealing: 0,</code>
+          <code class="ruby">        kimby.played_any_games_in?(2007).should be_true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="122">
+        <li class="covered" data-hits="1" data-linenumber="122">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       batting_average: 0.0</code>
+          <code class="ruby">        kimby.played_any_games_in?(2008).should be_false</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="123">
           
           
-          <code class="ruby">                     })</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="124">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="125">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="125">
+        <li class="covered" data-hits="1" data-linenumber="126">
           <span class="hits">1</span>
           
-          <code class="ruby">      spec_stats_for(&quot;Kim Byung-Hyun lifetime stats&quot;, &quot;kimby&quot;, {</code>
+          <code class="ruby">    describe &quot;#years&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="covered" data-hits="1" data-linenumber="127">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       games: 28,</code>
+          <code class="ruby">      it &quot;returns years played&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="covered" data-hits="1" data-linenumber="128">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       at_bats: 33,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="128">
-          
-          
-          <code class="ruby">                       runs: 0,</code>
+          <code class="ruby">        kimby.years.should == [2007]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="129">
           
           
-          <code class="ruby">                       hits: 2,</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="130">
           
           
-          <code class="ruby">                       doubles: 1,</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="131">
           
           
-          <code class="ruby">                       triples: 0,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="covered" data-hits="1" data-linenumber="132">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       home_runs: 0,</code>
+          <code class="ruby">    describe &quot;#name&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="133">
+        <li class="covered" data-hits="1" data-linenumber="133">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       runs_batted_in: 1,</code>
+          <code class="ruby">      it &quot;returns first_name-space-last_name&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="134">
+        <li class="covered" data-hits="1" data-linenumber="134">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       stolen_bases: 0,</code>
+          <code class="ruby">        kimby.name.should == &quot;Byung-Hyun Kim&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="135">
           
           
-          <code class="ruby">                       caught_stealing: 0,</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="136">
           
           
-          <code class="ruby">                       batting_average: 0.061</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="137">
           
           
-          <code class="ruby">                     })</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="138">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="139">
+        <li class="covered" data-hits="1" data-linenumber="138">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &quot;#sortable_name&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="139">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &quot;returns Schwartzian-sortable version of name&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="140">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        kimby.sortable_name.should == &quot;Kim, Byung-Hyun&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="141">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="142">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="140">
+        <li class="never" data-hits="" data-linenumber="143">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="141">
+        <li class="covered" data-hits="1" data-linenumber="144">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;#stats_for_year&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="12" data-linenumber="142">
-          <span class="hits">12</span>
-          
-          <code class="ruby">      let(:kimby_2007_stats) { kimby.stats_for_year(2007) }</code>
-        </li>
-      
-        <li class="covered" data-hits="12" data-linenumber="143">
-          <span class="hits">12</span>
-          
-          <code class="ruby">      let(:wilson_2011_stats) { wilson.stats_for_year(2011) }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="144">
-          
-          
-          <code class="ruby"></code>
+          <code class="ruby">    describe &quot;BattingData interface&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="145">
           <span class="hits">1</span>
           
-          <code class="ruby">      spec_stats_for(&quot;Kim Byung-Hyun 2007 stats&quot;, &quot;kimby_2007_stats&quot;, {</code>
+          <code class="ruby">      spec_stats_for(&quot;Josh Wilson lifetime stats&quot;, &quot;wilson&quot;, {</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="146">
           
           
-          <code class="ruby">                       games: 28,</code>
+          <code class="ruby">                       games: 345,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="147">
           
           
-          <code class="ruby">                       at_bats: 33,</code>
+          <code class="ruby">                       at_bats: 920,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="148">
           
           
-          <code class="ruby">                       runs: 0,</code>
+          <code class="ruby">                       runs: 82,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="149">
           
           
-          <code class="ruby">                       hits: 2,</code>
+          <code class="ruby">                       hits: 210,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="150">
           
           
-          <code class="ruby">                       doubles: 1,</code>
+          <code class="ruby">                       doubles: 45,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="151">
           
           
-          <code class="ruby">                       triples: 0,</code>
+          <code class="ruby">                       triples: 6,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="152">
           
           
-          <code class="ruby">                       home_runs: 0,</code>
+          <code class="ruby">                       home_runs: 9,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="153">
           
           
-          <code class="ruby">                       runs_batted_in: 1,</code>
+          <code class="ruby">                       runs_batted_in: 67,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="154">
           
           
-          <code class="ruby">                       stolen_bases: 0,</code>
+          <code class="ruby">                       stolen_bases: 13,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="155">
           
           
-          <code class="ruby">                       caught_stealing: 0,</code>
+          <code class="ruby">                       caught_stealing: 4,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="156">
           
           
-          <code class="ruby">                       batting_average: 0.061</code>
+          <code class="ruby">                       batting_average: 0.228</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="157">
@@ -4919,37 +4901,37 @@
         <li class="covered" data-hits="1" data-linenumber="159">
           <span class="hits">1</span>
           
-          <code class="ruby">      spec_stats_for(&quot;Josh Wilson 2011 stats&quot;, &quot;wilson_2011_stats&quot;, {</code>
+          <code class="ruby">      spec_stats_for(&quot;Jeremy Accardo lifetime stats&quot;, &quot;accardo&quot;, {</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="160">
           
           
-          <code class="ruby">                       games: 60,</code>
+          <code class="ruby">                       games: 134,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="161">
           
           
-          <code class="ruby">                       at_bats: 85,</code>
+          <code class="ruby">                       at_bats: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="162">
           
           
-          <code class="ruby">                       runs: 13,</code>
+          <code class="ruby">                       runs: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="163">
           
           
-          <code class="ruby">                       hits: 19,</code>
+          <code class="ruby">                       hits: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="164">
           
           
-          <code class="ruby">                       doubles: 5,</code>
+          <code class="ruby">                       doubles: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="165">
@@ -4961,19 +4943,19 @@
         <li class="never" data-hits="" data-linenumber="166">
           
           
-          <code class="ruby">                       home_runs: 2,</code>
+          <code class="ruby">                       home_runs: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="167">
           
           
-          <code class="ruby">                       runs_batted_in: 5,</code>
+          <code class="ruby">                       runs_batted_in: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="168">
           
           
-          <code class="ruby">                       stolen_bases: 1,</code>
+          <code class="ruby">                       stolen_bases: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="169">
@@ -4985,7 +4967,7 @@
         <li class="never" data-hits="" data-linenumber="170">
           
           
-          <code class="ruby">                       batting_average: 0.224</code>
+          <code class="ruby">                       batting_average: 0.0</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="171">
@@ -5003,166 +4985,454 @@
         <li class="covered" data-hits="1" data-linenumber="173">
           <span class="hits">1</span>
           
-          <code class="ruby">      context &quot;with empty year&quot; do</code>
+          <code class="ruby">      spec_stats_for(&quot;Kim Byung-Hyun lifetime stats&quot;, &quot;kimby&quot;, {</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="174">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="174">
           
-          <code class="ruby">        let(:empty_stats) { wilson.stats_for_year(1966) }</code>
+          
+          <code class="ruby">                       games: 28,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="175">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="175">
           
-          <code class="ruby">        it &quot;returns nil&quot; do</code>
+          
+          <code class="ruby">                       at_bats: 33,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="176">
           
           
-          <code class="ruby">          # HATE returning nil, but I&#39;ve designed West-facing code,</code>
+          <code class="ruby">                       runs: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="177">
           
           
-          <code class="ruby">          # so it&#39;s unavoidable until I repent :&#39;-(</code>
+          <code class="ruby">                       hits: 2,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="178">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="178">
           
-          <code class="ruby">          empty_stats.should be_nil</code>
+          
+          <code class="ruby">                       doubles: 1,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="179">
           
           
-          <code class="ruby">        end</code>
+          <code class="ruby">                       triples: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="180">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">                       home_runs: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="181">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">                       runs_batted_in: 1,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="182">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">                       stolen_bases: 0,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="183">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="183">
           
-          <code class="ruby">    describe &quot;#stats_for_league_and_year&quot; do</code>
+          
+          <code class="ruby">                       caught_stealing: 0,</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="184">
-          <span class="hits">12</span>
+        <li class="never" data-hits="" data-linenumber="184">
           
-          <code class="ruby">      let(:wilson_al_2009_stats) { wilson.stats_for_league_and_year(&quot;AL&quot;, 2009) }</code>
+          
+          <code class="ruby">                       batting_average: 0.061</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="185">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="185">
           
-          <code class="ruby">      spec_stats_for(&quot;Josh Wilson 2009 AL stats&quot;, &quot;wilson_al_2009_stats&quot;, {</code>
+          
+          <code class="ruby">                     })</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="186">
           
           
-          <code class="ruby">                       games: 45,</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="187">
           
           
-          <code class="ruby">                       at_bats: 128,</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="188">
           
           
-          <code class="ruby">                       runs: 16,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="189">
+        <li class="covered" data-hits="1" data-linenumber="189">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       hits: 32,</code>
+          <code class="ruby">    describe &quot;#stats_for_year&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="190">
+        <li class="covered" data-hits="12" data-linenumber="190">
+          <span class="hits">12</span>
           
-          
-          <code class="ruby">                       doubles: 8,</code>
+          <code class="ruby">      let(:kimby_2007_stats) { kimby.stats_for_year(2007) }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="191">
+        <li class="covered" data-hits="12" data-linenumber="191">
+          <span class="hits">12</span>
           
-          
-          <code class="ruby">                       triples: 1,</code>
+          <code class="ruby">      let(:wilson_2011_stats) { wilson.stats_for_year(2011) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="192">
           
           
-          <code class="ruby">                       home_runs: 3,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="193">
+        <li class="covered" data-hits="1" data-linenumber="193">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                       runs_batted_in: 10,</code>
+          <code class="ruby">      spec_stats_for(&quot;Kim Byung-Hyun 2007 stats&quot;, &quot;kimby_2007_stats&quot;, {</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="194">
           
           
-          <code class="ruby">                       stolen_bases: 1,</code>
+          <code class="ruby">                       games: 28,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="195">
           
           
-          <code class="ruby">                       caught_stealing: 2,</code>
+          <code class="ruby">                       at_bats: 33,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="196">
           
           
-          <code class="ruby">                       batting_average: 0.250</code>
+          <code class="ruby">                       runs: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="197">
           
           
-          <code class="ruby">                       })</code>
+          <code class="ruby">                       hits: 2,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="198">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">                       doubles: 1,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="199">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">                       triples: 0,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="200">
+          
+          
+          <code class="ruby">                       home_runs: 0,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="201">
+          
+          
+          <code class="ruby">                       runs_batted_in: 1,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="202">
+          
+          
+          <code class="ruby">                       stolen_bases: 0,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="203">
+          
+          
+          <code class="ruby">                       caught_stealing: 0,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="204">
+          
+          
+          <code class="ruby">                       batting_average: 0.061</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="205">
+          
+          
+          <code class="ruby">                     })</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="206">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="207">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      spec_stats_for(&quot;Josh Wilson 2011 stats&quot;, &quot;wilson_2011_stats&quot;, {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="208">
+          
+          
+          <code class="ruby">                       games: 60,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="209">
+          
+          
+          <code class="ruby">                       at_bats: 85,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="210">
+          
+          
+          <code class="ruby">                       runs: 13,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="211">
+          
+          
+          <code class="ruby">                       hits: 19,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="212">
+          
+          
+          <code class="ruby">                       doubles: 5,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="213">
+          
+          
+          <code class="ruby">                       triples: 0,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="214">
+          
+          
+          <code class="ruby">                       home_runs: 2,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="215">
+          
+          
+          <code class="ruby">                       runs_batted_in: 5,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="216">
+          
+          
+          <code class="ruby">                       stolen_bases: 1,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="217">
+          
+          
+          <code class="ruby">                       caught_stealing: 0,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="218">
+          
+          
+          <code class="ruby">                       batting_average: 0.224</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="219">
+          
+          
+          <code class="ruby">                     })</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="220">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="221">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      context &quot;with empty year&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="222">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        let(:empty_stats) { wilson.stats_for_year(1966) }</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="223">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        it &quot;returns nil&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="224">
+          
+          
+          <code class="ruby">          # HATE returning nil, but I&#39;ve designed West-facing code,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="225">
+          
+          
+          <code class="ruby">          # so it&#39;s unavoidable until I repent :&#39;-(</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="226">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          empty_stats.should be_nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="227">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="228">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="229">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="230">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="231">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &quot;#stats_for_league_and_year&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="232">
+          <span class="hits">12</span>
+          
+          <code class="ruby">      let(:wilson_al_2009_stats) { wilson.stats_for_league_and_year(&quot;AL&quot;, 2009) }</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="233">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      spec_stats_for(&quot;Josh Wilson 2009 AL stats&quot;, &quot;wilson_al_2009_stats&quot;, {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="234">
+          
+          
+          <code class="ruby">                       games: 45,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="235">
+          
+          
+          <code class="ruby">                       at_bats: 128,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="236">
+          
+          
+          <code class="ruby">                       runs: 16,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="237">
+          
+          
+          <code class="ruby">                       hits: 32,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="238">
+          
+          
+          <code class="ruby">                       doubles: 8,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="239">
+          
+          
+          <code class="ruby">                       triples: 1,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="240">
+          
+          
+          <code class="ruby">                       home_runs: 3,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="241">
+          
+          
+          <code class="ruby">                       runs_batted_in: 10,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="242">
+          
+          
+          <code class="ruby">                       stolen_bases: 1,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="243">
+          
+          
+          <code class="ruby">                       caught_stealing: 2,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="244">
+          
+          
+          <code class="ruby">                       batting_average: 0.250</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="245">
+          
+          
+          <code class="ruby">                       })</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="246">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="247">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="248">
           
           
           <code class="ruby">end</code>
@@ -5177,8 +5447,8 @@
     <h3>spec/lib/batting_data_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>36</b> relevant lines. 
+      <span class="green"><b>36</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5216,14 +5486,14 @@
           <code class="ruby">  before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="6">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="6">
+          <span class="hits">3</span>
           
           <code class="ruby">    batter = double(&quot;Batter&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="7">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="7">
+          <span class="hits">3</span>
           
           <code class="ruby">    Batter.stub(:find_by_id).and_return(batter)</code>
         </li>
@@ -5243,88 +5513,304 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;#batting_average&quot; do</code>
+          <code class="ruby">  context &quot;with test batter double&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="11">
           
-          <code class="ruby">    let(:batting_data) { BattingData.new player_id: &quot;test&quot;, at_bats: 100, hits: 20 }</code>
+          
+          <code class="ruby">    # This context and the next 4 lines of code are the first whiff of</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">    it &quot;calculates hits / at_bats&quot; do</code>
+          
+          <code class="ruby">    # a testing smell caused by BattingData being able to talk</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="13">
           
-          <code class="ruby">      batting_data.batting_average.should be_within(0.0005).of(0.200)</code>
+          
+          <code class="ruby">    # directly to Batter. In a much larger application, I would inject</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    # a connection service that we could mock and stub to our heart&#39;s</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    # content. For now, it&#39;s only 3 tests that do this, so... eh. Put</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    # &#39;em in a crappy &quot;with test double&quot; context and call it good</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">    # enough for now</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="18">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    let(:batter) { Batter.new(id: &quot;test&quot;, last_name: &quot;Tester&quot;, first_name: &quot;Testy&quot;) }</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;#slugging_percentage&quot; do</code>
+          <code class="ruby">    before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="18">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="20">
+          <span class="hits">3</span>
           
-          <code class="ruby">    let(:batting_data) { BattingData.new player_id: &quot;test&quot;, at_bats: 100, hits: 20, doubles: 6, triples: 2, home_runs: 1 }</code>
+          <code class="ruby">      Batter.stub(:find).with(id: &quot;test&quot;).and_return batter</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;calculates slugging percentage&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      batting_data.slugging_percentage.should be_within(0.0005).of(0.330)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &quot;#batting_average&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="24">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      let(:batting_data) { BattingData.new player_id: &quot;test&quot;, at_bats: 100, hits: 20 }</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &quot;calculates hits / at_bats&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        batting_data.batting_average.should be_within(0.0005).of(0.200)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &quot;#slugging_percentage&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="31">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      let(:batting_data) { BattingData.new player_id: &quot;test&quot;, at_bats: 100, hits: 20, doubles: 6, triples: 2, home_runs: 1 }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &quot;calculates slugging percentage&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        batting_data.slugging_percentage.should be_within(0.0005).of(0.330)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &quot;#+&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="39">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      let(:one) { BattingData.new Hash.new(1).merge({player_id: &quot;test&quot;}) }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="40">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      let(:two) { BattingData.new Hash.new(2).merge({player_id: &quot;test&quot;}) }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="41">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      let(:three) { one + two }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &quot;sums the BattingData data&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.player_id.should == &quot;test&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.year.should == 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.league.should == 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.games.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.at_bats.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.runs.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.hits.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.doubles.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.triples.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.home_runs.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.runs_batted_in.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.stolen_bases.should == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        three.caught_stealing.should == 3</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">end</code>
@@ -5429,7 +5915,7 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;asks Batter to find_all_by_team_and_year&quot; do</code>
+          <code class="ruby">    it &quot;asks Batter to find_all by team and year&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">
@@ -5441,13 +5927,13 @@
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">      Batter.should_receive(:find_all_by_team_and_year).and_return(team)</code>
+          <code class="ruby">      Batter.should_receive(:find_all).with(team: &quot;SEA&quot;, year: 2008).and_return(team)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">      stats_grinder.team_members_for_year(&#39;SEA&#39;, 2008)</code>
+          <code class="ruby">      stats_grinder.team_members_for_year(&quot;SEA&quot;, 2008)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
@@ -5507,7 +5993,7 @@
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">        Batter.should_receive(:find_all_by_league_and_year).with(&quot;NL&quot;, 2009).and_return [winner]</code>
+          <code class="ruby">        Batter.should_receive(:find_all).with(league: &quot;NL&quot;, year: 2009).and_return [winner]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="28">
@@ -5537,7 +6023,7 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">        Batter.should_receive(:find_all_by_league_and_year).with(&quot;NL&quot;, 2009).and_return [not_enough_plate_appearances, winner]</code>
+          <code class="ruby">        Batter.should_receive(:find_all).with(league: &quot;NL&quot;, year: 2009).and_return [not_enough_plate_appearances, winner]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
@@ -5609,7 +6095,7 @@
         <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
-          <code class="ruby">        Batter.should_receive(:find_all_by_league_and_year).with(&quot;NL&quot;, 2009).and_return(players)</code>
+          <code class="ruby">        Batter.should_receive(:find_all).with(league: &quot;NL&quot;, year: 2009).and_return(players)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="45">

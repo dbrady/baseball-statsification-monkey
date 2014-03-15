@@ -32,7 +32,7 @@ class Batter
   end
 
   def self.find(id:)
-    batter_data[id]
+    batter_data.fetch id
   end
 
   def self.find_all(year: nil, league: nil, team: nil)
@@ -191,11 +191,7 @@ class Batter
         data[new_key] = row[old_key]
       end
 
-      if batter = Batter.find(id: data[:player_id])
-        batter.add_batting_data(BattingData.new(data))
-      else
-        raise "Unable to find batter by id '%s'; all batters should be loaded" % row["playerID"]
-      end
+      Batter.find(id: data[:player_id]).add_batting_data(BattingData.new(data))
     }
   end
 

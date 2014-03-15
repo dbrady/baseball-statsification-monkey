@@ -62,7 +62,8 @@ class Batter
   end
 
   def stats_for_league_and_year(league, year)
-    return nil unless batting_data.key?(year) && batting_data[year] && batting_data[year].key?(league)
+    return nil unless batting_data.key?(year) &&
+      batting_data[year] && batting_data[year].key?(league)
     # FIXME: dis nasty. Have to pass in a key with the hash, which
     # means having to lump on the league key again here. Mai ow--do
     # not want. Is it really necessary? Need to revisit the method
@@ -70,20 +71,10 @@ class Batter
     all_batting_data_for_year({ league => batting_data[year][league] })
   end
 
-  def played_any_games_in?(year)
-    years.include? year
-  end
-
-  def played_any_games_for_team_in?(team, year)
-    played_any_games_in?(year) && batting_data[year].any? {|league, team_data|
-      team_data.keys.include?(team)
-    }
-  end
-
-  def played_any_games_in_league_in_year?(league, year)
-    played_any_games_in?(year) && batting_data[year].any? {|league_name, team_data|
-      league == league_name
-    }
+  def played_any_games?(year:, league: nil, team: nil)
+    return played_any_games_in_year?(year) unless league || team
+    return played_any_games_in_league_in_year?(league, year) unless team
+    played_any_games_for_team_in_year?(team, year)
   end
 
   # I hate methods like this, but whatchagonnado. Basically this
@@ -107,18 +98,20 @@ class Batter
 
   # Private Finders
   private_class_method def self.find_all_by_year(year)
-    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&:last)
+    batter_data.reject {|id, batter|
+      !batter.played_any_games?(year: year)
+    }.map(&:last)
   end
 
   private_class_method def self.find_all_by_team_and_year(team, year)
     batter_data.reject {|id, batter|
-      !batter.played_any_games_for_team_in?(team, year)
+      !batter.played_any_games?(year: year, team: team)
     }.map(&:last)
   end
 
   private_class_method def self.find_all_by_league_and_year(league, year)
     batter_data.reject {|id, batter|
-      !batter.played_any_games_in_league_in_year?(league, year)
+      !batter.played_any_games?(year: year, league: league)
     }.map(&:last)
   end
 
@@ -133,13 +126,17 @@ class Batter
   # refactor."
   private_class_method def self.load_batter_data
     # Refactor me: hardcodey much? [SPIKE]
-    batters = CsvReader.new("./data/Master-small.csv").
-      all.
-      reject {|row| row["playerID"].nil? }.
-      map {|row|
-      Batter.new(id: row["playerID"], last_name: row["nameLast"], first_name: row["nameFirst"])
-    }.
-      each_with_object({}) {|batter, hash| hash[batter.id] = batter }
+    batters = CsvReader.new("./data/Master-small.csv")
+      .all
+      .reject {|row| row["playerID"].nil? }
+      .map {|row|
+        Batter.new(
+                   id: row["playerID"],
+                   last_name: row["nameLast"],
+                   first_name: row["nameFirst"]
+                   )
+      }
+      .each_with_object({}) {|batter, hash| hash[batter.id] = batter }
 
 
     @@batter_data = batters
@@ -194,6 +191,22 @@ class Batter
       end
 
       Batter.find(id: data[:player_id]).add_batting_data(BattingData.new(data))
+    }
+  end
+
+  def played_any_games_in_year?(year)
+    years.include? year
+  end
+
+  def played_any_games_for_team_in_year?(team, year)
+    played_any_games?(year: year) && batting_data[year].any? {|_, team_data|
+      team_data.keys.include?(team)
+    }
+  end
+
+  def played_any_games_in_league_in_year?(league, year)
+    played_any_games?(year: year) && batting_data[year].any? {|league_name, _|
+      league == league_name
     }
   end
 

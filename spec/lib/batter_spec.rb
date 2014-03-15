@@ -85,7 +85,9 @@ describe Batter do
 
         it "finds batters by league and year" do
           al_2008.size.should == 624
-          al_2008.all? {|batter| batter.played_any_games_in_league_in_year?("AL", 2008) }.should be_true
+          al_2008.all? { |batter|
+            batter.played_any_games?(year: 2008, league: "AL")
+          }.should be_true
           al_2008.first.name.should == "David Aardsma"
           al_2008.last.name.should == "Joel Zumaya"
         end
@@ -116,10 +118,26 @@ describe Batter do
     end
 
 
-    describe "#played_any_games_in?(year)" do
-      it "returns truthy if batter played that year" do
-        kimby.played_any_games_in?(2007).should be_true
-        kimby.played_any_games_in?(2008).should be_false
+    describe "#played_any_games?(year)" do
+      context "with just a year" do
+        it "returns truthy if batter played that year" do
+          kimby.played_any_games?(year: 2007).should be_true
+          kimby.played_any_games?(year: 2008).should be_false
+        end
+      end
+
+      context "with year and team" do
+        it "returns truthy if batter played for that team that year" do
+          kimby.played_any_games?(year: 2007, team: "FLO").should be_true
+          kimby.played_any_games?(year: 2007, team: "XYZ").should be_false
+        end
+      end
+
+      context "with year and league" do
+        it "returns truthy if batter played for that league that year" do
+          kimby.played_any_games?(year: 2007, league: "NL").should be_true
+          kimby.played_any_games?(year: 2007, league: "AL").should be_false
+        end
       end
     end
 

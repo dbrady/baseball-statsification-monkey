@@ -67,7 +67,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span>require_relative <span class="string"><span class="delimiter">'</span><span class="content">patches</span><span class="delimiter">'</span></span>
 </pre></div>
 </div>
 
@@ -83,7 +83,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span><span class="keyword">class</span> <span class="class">BattingData</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span>
 </pre></div>
 </div>
 
@@ -99,7 +99,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span>  attr_reader <span class="symbol">:player_id</span>, <span class="symbol">:player</span>, <span class="symbol">:year</span>, <span class="symbol">:league</span>, <span class="symbol">:team</span>, <span class="symbol">:games</span>, <span class="symbol">:at_bats</span>, <span class="symbol">:runs</span>, <span class="symbol">:hits</span>, <span class="symbol">:doubles</span>, <span class="symbol">:triples</span>, <span class="symbol">:home_runs</span>, <span class="symbol">:runs_batted_in</span>, <span class="symbol">:stolen_bases</span>, <span class="symbol">:caught_stealing</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span><span class="comment"># Stats aggregation/integration class</span>
 </pre></div>
 </div>
 
@@ -115,7 +115,55 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span><span class="keyword">class</span> <span class="class">BattingData</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span>  attr_reader <span class="symbol">:player_id</span>, <span class="symbol">:player</span>, <span class="symbol">:year</span>, <span class="symbol">:league</span>, <span class="symbol">:team</span>, <span class="symbol">:games</span>, <span class="symbol">:at_bats</span>, <span class="symbol">:runs</span>, <span class="symbol">:hits</span>, <span class="symbol">:doubles</span>, <span class="symbol">:triples</span>, <span class="symbol">:home_runs</span>, <span class="symbol">:runs_batted_in</span>, <span class="symbol">:stolen_bases</span>, <span class="symbol">:caught_stealing</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span>  private_attr_writer <span class="symbol">:player_id</span>, <span class="symbol">:player</span>, <span class="symbol">:year</span>, <span class="symbol">:league</span>, <span class="symbol">:team</span>, <span class="symbol">:games</span>, <span class="symbol">:at_bats</span>, <span class="symbol">:runs</span>, <span class="symbol">:hits</span>, <span class="symbol">:doubles</span>, <span class="symbol">:triples</span>, <span class="symbol">:home_runs</span>, <span class="symbol">:runs_batted_in</span>, <span class="symbol">:stolen_bases</span>, <span class="symbol">:caught_stealing</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n8" name="n8">8</a></span>
 </pre></div>
 </div>
 
@@ -128,18 +176,16 @@
            
              <ul>
                
-                 <li>DuplicateMethodCall - calls data.fetch(:player_id) twice &raquo; reek</li>
+                 <li>Score of 14.98 &raquo; flog</li>
                
-                 <li>Score of 37.72 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
+                 <li>Complexity 2 &raquo; saikuro</li>
                
             </ul>
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span>  <span class="keyword">def</span> <span class="function">initialize</span>(data={})
+  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  <span class="keyword">def</span> <span class="function">initialize</span>(data={})
 </pre></div>
 </div>
 
@@ -155,7 +201,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span>    <span class="instance-variable">@player_id</span> = data.fetch(<span class="symbol">:player_id</span>)
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>    <span class="instance-variable">@player_id</span> = data.fetch(<span class="symbol">:player_id</span>)
 </pre></div>
 </div>
 
@@ -171,7 +217,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n8" name="n8">8</a></span>    <span class="instance-variable">@player</span> = <span class="constant">Batter</span>.find_by_id(data.fetch(<span class="symbol">:player_id</span>))
+  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span>    <span class="instance-variable">@player</span> = <span class="constant">Batter</span>.find_by_id(player_id)
 </pre></div>
 </div>
 
@@ -187,7 +233,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>
 </pre></div>
 </div>
 
@@ -203,55 +249,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>    <span class="instance-variable">@year</span>, <span class="instance-variable">@league</span>, <span class="instance-variable">@team</span> = data[<span class="symbol">:year</span>].to_i, data[<span class="symbol">:league</span>], data[<span class="symbol">:team</span>]
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>    <span class="instance-variable">@games</span>, <span class="instance-variable">@at_bats</span>, <span class="instance-variable">@runs</span>, <span class="instance-variable">@hits</span>, <span class="instance-variable">@doubles</span>, <span class="instance-variable">@triples</span>, <span class="instance-variable">@home_runs</span>, <span class="instance-variable">@runs_batted_in</span>, <span class="instance-variable">@stolen_bases</span>, <span class="instance-variable">@caught_stealing</span> = data[<span class="symbol">:games</span>].to_i, data[<span class="symbol">:at_bats</span>].to_i, data[<span class="symbol">:runs</span>].to_i, data[<span class="symbol">:hits</span>].to_i, data[<span class="symbol">:doubles</span>].to_i, data[<span class="symbol">:triples</span>].to_i, data[<span class="symbol">:home_runs</span>].to_i, data[<span class="symbol">:runs_batted_in</span>].to_i, data[<span class="symbol">:stolen_bases</span>].to_i, data[<span class="symbol">:caught_stealing</span>].to_i
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>    <span class="instance-variable">@league</span>, <span class="instance-variable">@team</span> = data[<span class="symbol">:league</span>], data[<span class="symbol">:team</span>]
 </pre></div>
 </div>
 
@@ -278,216 +276,12 @@
         <tr>
           <td valign='top'>
            
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
+              &nbsp;
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span>  <span class="keyword">def</span> <span class="function">games</span>; <span class="instance-variable">@games</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span>  <span class="keyword">def</span> <span class="function">at_bats</span>; <span class="instance-variable">@at_bats</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>  <span class="keyword">def</span> <span class="function">runs</span>; <span class="instance-variable">@runs</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n18" name="n18">18</a></span>  <span class="keyword">def</span> <span class="function">hits</span>; <span class="instance-variable">@hits</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n19" name="n19">19</a></span>  <span class="keyword">def</span> <span class="function">doubles</span>; <span class="instance-variable">@doubles</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>  <span class="keyword">def</span> <span class="function">triples</span>; <span class="instance-variable">@triples</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n21" name="n21">21</a></span>  <span class="keyword">def</span> <span class="function">home_runs</span>; <span class="instance-variable">@home_runs</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n22" name="n22">22</a></span>  <span class="keyword">def</span> <span class="function">runs_batted_in</span>; <span class="instance-variable">@runs_batted_in</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n23" name="n23">23</a></span>  <span class="keyword">def</span> <span class="function">stolen_bases</span>; <span class="instance-variable">@stolen_bases</span> || <span class="integer">0</span>; <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-             <ul>
-               
-                 <li>Score of 1.10 &raquo; flog</li>
-               
-                 <li>Complexity 1 &raquo; saikuro</li>
-               
-            </ul>
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n24" name="n24">24</a></span>  <span class="keyword">def</span> <span class="function">caught_stealing</span>; <span class="instance-variable">@caught_stealing</span> || <span class="integer">0</span>; <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span>    <span class="symbol"><span class="delimiter">%i(</span><span class="content">year games at_bats runs hits doubles triples home_runs runs_batted_in stolen_bases caught_stealing</span><span class="delimiter">)</span></span>.each {|key| send <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">#{</span>key<span class="inline-delimiter">}</span></span><span class="content">=</span><span class="delimiter">&quot;</span></span>, data[key].to_i }
 </pre></div>
 </div>
 
@@ -503,7 +297,23 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n25" name="n25">25</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>
 </pre></div>
 </div>
 
@@ -525,7 +335,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n26" name="n26">26</a></span>  <span class="keyword">def</span> <span class="function">batting_average</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n18" name="n18">18</a></span>  <span class="keyword">def</span> <span class="function">batting_average</span>
 </pre></div>
 </div>
 
@@ -541,7 +351,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n27" name="n27">27</a></span>    <span class="keyword">return</span> <span class="float">0.0</span> <span class="keyword">unless</span> at_bats &gt; <span class="integer">0</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n19" name="n19">19</a></span>    <span class="keyword">return</span> <span class="float">0.0</span> <span class="keyword">unless</span> at_bats &gt; <span class="integer">0</span>
 </pre></div>
 </div>
 
@@ -557,7 +367,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n28" name="n28">28</a></span>    hits / at_bats.to_f
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>    hits / at_bats.to_f
 </pre></div>
 </div>
 
@@ -573,7 +383,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n29" name="n29">29</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n21" name="n21">21</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -589,7 +399,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n22" name="n22">22</a></span>
 </pre></div>
 </div>
 
@@ -602,7 +412,7 @@
            
              <ul>
                
-                 <li>Score of 38.74 &raquo; flog</li>
+                 <li>Score of 22.33 &raquo; flog</li>
                
                  <li>Complexity 2 &raquo; saikuro</li>
                
@@ -611,7 +421,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n31" name="n31">31</a></span>  <span class="keyword">def</span> <span class="function">slugging_percentage</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n23" name="n23">23</a></span>  <span class="keyword">def</span> <span class="function">slugging_percentage</span>
 </pre></div>
 </div>
 
@@ -627,7 +437,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n32" name="n32">32</a></span>    <span class="keyword">return</span> <span class="float">0.0</span> <span class="keyword">unless</span> at_bats &gt; <span class="integer">0</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n24" name="n24">24</a></span>    <span class="keyword">return</span> <span class="float">0.0</span> <span class="keyword">unless</span> at_bats &gt; <span class="integer">0</span>
 </pre></div>
 </div>
 
@@ -643,7 +453,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n33" name="n33">33</a></span>    ((hits - (doubles+triples+home_runs)) + <span class="integer">2</span>*doubles + <span class="integer">3</span>*triples + <span class="integer">4</span>*home_runs) / at_bats.to_f
+  <div class="code"><pre><span class="line-numbers"><a href="#n25" name="n25">25</a></span>    (hits + doubles + <span class="integer">2</span>*triples + <span class="integer">3</span>*home_runs) / at_bats.to_f
 </pre></div>
 </div>
 
@@ -659,7 +469,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n34" name="n34">34</a></span>  <span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n26" name="n26">26</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -675,7 +485,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n35" name="n35">35</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n27" name="n27">27</a></span>
 </pre></div>
 </div>
 
@@ -691,7 +501,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n36" name="n36">36</a></span>  <span class="comment"># Add BattingData to another and return a new BattingData containing</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n28" name="n28">28</a></span>  <span class="comment"># Add BattingData to another and return a new BattingData containing</span>
 </pre></div>
 </div>
 
@@ -707,7 +517,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n37" name="n37">37</a></span>  <span class="comment"># the sums of the stats.</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n29" name="n29">29</a></span>  <span class="comment"># the sums of the stats.</span>
 </pre></div>
 </div>
 
@@ -720,16 +530,20 @@
            
              <ul>
                
-                 <li>Score of 58.46 &raquo; flog</li>
+                 <li>DuplicateMethodCall - calls other.send(key) twice &raquo; reek</li>
                
-                 <li>Complexity 1 &raquo; saikuro</li>
+                 <li>DuplicateMethodCall - calls send(key) twice &raquo; reek</li>
+               
+                 <li>Score of 22.73 &raquo; flog</li>
+               
+                 <li>Complexity 3 &raquo; saikuro</li>
                
             </ul>
           
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n38" name="n38">38</a></span>  <span class="keyword">def</span> <span class="function">+</span>(other)
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>  <span class="keyword">def</span> <span class="function">+</span>(other)
 </pre></div>
 </div>
 
@@ -745,7 +559,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n39" name="n39">39</a></span>    <span class="comment"># It may seem odd to init player, year, league and team here, but we may</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n31" name="n31">31</a></span>    <span class="comment"># It may seem odd to init player, year, league and team here, but we may</span>
 </pre></div>
 </div>
 
@@ -761,7 +575,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>    <span class="comment"># be adding a valid BattingData to a player's empty BattingData,</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n32" name="n32">32</a></span>    <span class="comment"># be adding a valid BattingData to a player's empty BattingData,</span>
 </pre></div>
 </div>
 
@@ -777,7 +591,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>    <span class="comment"># and if so we want to return the valid one.</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n33" name="n33">33</a></span>    <span class="comment"># and if so we want to return the valid one.</span>
 </pre></div>
 </div>
 
@@ -793,7 +607,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n42" name="n42">42</a></span>    <span class="constant">BattingData</span>.new({
+  <div class="code"><pre><span class="line-numbers"><a href="#n34" name="n34">34</a></span>    ors = <span class="symbol"><span class="delimiter">%i(</span><span class="content">player_id player year league</span><span class="delimiter">)</span></span>.each_with_object({}) {|key, hash|
 </pre></div>
 </div>
 
@@ -809,7 +623,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n43" name="n43">43</a></span>                      <span class="key">player_id</span>: player_id || other.player_id,
+  <div class="code"><pre><span class="line-numbers"><a href="#n35" name="n35">35</a></span>      hash[key] = send(key) || other.send(key)
 </pre></div>
 </div>
 
@@ -825,7 +639,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n44" name="n44">44</a></span>                      <span class="key">player</span>: player || other.player,
+  <div class="code"><pre><span class="line-numbers"><a href="#n36" name="n36">36</a></span>    }
 </pre></div>
 </div>
 
@@ -841,7 +655,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n45" name="n45">45</a></span>                      <span class="key">year</span>: year || other.year,
+  <div class="code"><pre><span class="line-numbers"><a href="#n37" name="n37">37</a></span>    sums = <span class="symbol"><span class="delimiter">%i(</span><span class="content">games at_bats runs hits doubles triples home_runs runs_batted_in stolen_bases caught_stealing</span><span class="delimiter">)</span></span>.each_with_object({}) {|key, hash|
 </pre></div>
 </div>
 
@@ -857,7 +671,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n46" name="n46">46</a></span>                      <span class="key">league</span>: league || other.league,
+  <div class="code"><pre><span class="line-numbers"><a href="#n38" name="n38">38</a></span>      hash[key] = send(key) + other.send(key)
 </pre></div>
 </div>
 
@@ -873,7 +687,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n47" name="n47">47</a></span>                      <span class="key">team</span>: team || other.team,
+  <div class="code"><pre><span class="line-numbers"><a href="#n39" name="n39">39</a></span>    }
 </pre></div>
 </div>
 
@@ -889,7 +703,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n48" name="n48">48</a></span>                      <span class="key">games</span>: games + other.games,
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>
 </pre></div>
 </div>
 
@@ -905,7 +719,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n49" name="n49">49</a></span>                      <span class="key">at_bats</span>: at_bats + other.at_bats,
+  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>    <span class="constant">BattingData</span>.new(ors.merge sums)
 </pre></div>
 </div>
 
@@ -921,7 +735,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>                      <span class="key">runs</span>: runs + other.runs,
+  <div class="code"><pre><span class="line-numbers"><a href="#n42" name="n42">42</a></span>  <span class="keyword">end</span>
 </pre></div>
 </div>
 
@@ -937,151 +751,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n51" name="n51">51</a></span>                      <span class="key">hits</span>: hits + other.hits,
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n52" name="n52">52</a></span>                      <span class="key">doubles</span>: doubles + other.doubles,
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n53" name="n53">53</a></span>                      <span class="key">triples</span>: triples + other.triples,
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n54" name="n54">54</a></span>                      <span class="key">home_runs</span>: home_runs + other.home_runs,
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n55" name="n55">55</a></span>                      <span class="key">runs_batted_in</span>: runs_batted_in + other.runs_batted_in,
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n56" name="n56">56</a></span>                      <span class="key">stolen_bases</span>: stolen_bases + other.stolen_bases,
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n57" name="n57">57</a></span>                      <span class="key">caught_stealing</span>: caught_stealing + other.caught_stealing
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n58" name="n58">58</a></span>                    })
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n59" name="n59">59</a></span>  <span class="keyword">end</span>
-</pre></div>
-</div>
-
-          </td>
-         </tr>
-         
-        
-        <tr>
-          <td valign='top'>
-           
-              &nbsp;
-          
-          </td>
-          <td valign='top'>
-            <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span><span class="keyword">end</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n43" name="n43">43</a></span><span class="keyword">end</span>
 </pre></div>
 </div>
 

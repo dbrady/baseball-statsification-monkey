@@ -531,15 +531,15 @@ table td.score {
     </tr>
     
     <tr>
-      <td>Batter#self.load_batting_data</td>
-      <td>4</td>
-      <td>13</td>
-    </tr>
-    
-    <tr>
       <td>Batter#self.load_batter_data</td>
       <td>4</td>
       <td>14</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.load_batting_data</td>
+      <td>4</td>
+      <td>13</td>
     </tr>
     
     <tr>
@@ -549,21 +549,21 @@ table td.score {
     </tr>
     
     <tr>
+      <td>BattingData#+</td>
+      <td>3</td>
+      <td>12</td>
+    </tr>
+    
+    <tr>
       <td>Batboy#report_slugging_percentage_roster_for</td>
       <td>3</td>
       <td>8</td>
     </tr>
     
     <tr>
-      <td>Batter#stats_for_league_and_year</td>
+      <td>BattingData#slugging_percentage</td>
       <td>2</td>
-      <td>7</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#played_any_games_for_team_in?</td>
-      <td>2</td>
-      <td>4</td>
+      <td>3</td>
     </tr>
     
     <tr>
@@ -585,7 +585,31 @@ table td.score {
     </tr>
     
     <tr>
+      <td>Batter#played_any_games_for_team_in?</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
       <td>Batboy#report_triple_crown_winner_in_league_for</td>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+    
+    <tr>
+      <td>BattingData#batting_average</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    
+    <tr>
+      <td>BattingData#initialize</td>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#stats_for_league_and_year</td>
       <td>2</td>
       <td>7</td>
     </tr>
@@ -621,93 +645,9 @@ table td.score {
     </tr>
     
     <tr>
-      <td>BattingData#batting_average</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#slugging_percentage</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#doubles</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
       <td>StatsGrinder#most_improved_batter</td>
       <td>1</td>
       <td>9</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#caught_stealing</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#stolen_bases</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#runs_batted_in</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#home_runs</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#triples</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#+</td>
-      <td>1</td>
-      <td>21</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#hits</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#runs</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#at_bats</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#games</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#initialize</td>
-      <td>1</td>
-      <td>7</td>
     </tr>
     
     <tr>
@@ -855,15 +795,15 @@ table td.score {
     </tr>
     
     <tr>
-      <td>BattingData</td>
-      <td>16</td>
-      <td>57</td>
-    </tr>
-    
-    <tr>
       <td>StatsGrinder</td>
       <td>16</td>
       <td>95</td>
+    </tr>
+    
+    <tr>
+      <td>BattingData</td>
+      <td>9</td>
+      <td>38</td>
     </tr>
     
     <tr>
@@ -882,6 +822,12 @@ table td.score {
       <td>BattingCsvReader</td>
       <td>3</td>
       <td>12</td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     
     <tr>
@@ -1172,191 +1118,6 @@ table td.score {
 
   
       
-        <h3>lib/batting_data.rb</h3>
-        <h4>Class : BattingData</h4>
-        <h5>Total complexity : 16</h5>
-        <h5>Total lines : 57</h5>
-        <table>
-            <tr>
-              <th>Method</th>
-              <th>Complexity</th>
-              <th># Lines</th>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#batting_average
-              </td>
-              <td>
-                2
-              </td>
-              <td>
-                3
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#slugging_percentage
-              </td>
-              <td>
-                2
-              </td>
-              <td>
-                3
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#home_runs
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#caught_stealing
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#stolen_bases
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#runs_batted_in
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#+
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                21
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#triples
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#doubles
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#hits
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#runs
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#at_bats
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#games
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#initialize
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                7
-              </td>
-            </tr>
-          
-        </table>
-      
-  
-
-  
-      
   
       
         <h3>lib/stats_grinder.rb</h3>
@@ -1451,6 +1212,73 @@ table td.score {
               </td>
               <td>
                 9
+              </td>
+            </tr>
+          
+        </table>
+      
+  
+
+  
+      
+  
+      
+        <h3>lib/batting_data.rb</h3>
+        <h4>Class : BattingData</h4>
+        <h5>Total complexity : 9</h5>
+        <h5>Total lines : 38</h5>
+        <table>
+            <tr>
+              <th>Method</th>
+              <th>Complexity</th>
+              <th># Lines</th>
+            </tr>
+          
+            <tr>
+              <td>
+                BattingData#+
+              </td>
+              <td>
+                3
+              </td>
+              <td>
+                12
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                BattingData#slugging_percentage
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                3
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                BattingData#batting_average
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                3
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                BattingData#initialize
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                7
               </td>
             </tr>
           
@@ -1644,7 +1472,7 @@ table td.score {
   
 
 
-<p>Generated on 2014-03-14 16:22:38 -0600</p>
+<p>Generated on 2014-03-15 01:38:32 -0600</p>
 
     </div>
   </body>

@@ -11,10 +11,10 @@ describe StatsGrinder do
   end
 
   describe "#team_members_for_year(team, year)" do
-    it "asks Batter to find_all_by_team_and_year" do
+    it "asks Batter to find_all by team and year" do
       team = []
-      Batter.should_receive(:find_all_by_team_and_year).and_return(team)
-      stats_grinder.team_members_for_year('SEA', 2008)
+      Batter.should_receive(:find_all).with(team: "SEA", year: 2008).and_return(team)
+      stats_grinder.team_members_for_year("SEA", 2008)
     end
   end
 
@@ -24,12 +24,12 @@ describe StatsGrinder do
       let(:not_enough_plate_appearances) { double("Batter", stats_for_league_and_year: double("BattingData", at_bats: 200, hits: 200, home_runs: 200, runs_batted_in: 600, batting_average: 1.000)) }
 
       it "reports winner" do
-        Batter.should_receive(:find_all_by_league_and_year).with("NL", 2009).and_return [winner]
+        Batter.should_receive(:find_all).with(league: "NL", year: 2009).and_return [winner]
         stats_grinder.triple_crown_winner_in_league_for("NL", 2009).should == winner
       end
 
       it "ignores batters with fewer than 400 at_bats" do
-        Batter.should_receive(:find_all_by_league_and_year).with("NL", 2009).and_return [not_enough_plate_appearances, winner]
+        Batter.should_receive(:find_all).with(league: "NL", year: 2009).and_return [not_enough_plate_appearances, winner]
         stats_grinder.triple_crown_winner_in_league_for("NL", 2009).should == winner
       end
     end
@@ -41,7 +41,7 @@ describe StatsGrinder do
 
       it "returns no winner" do
         players = [best_hitter, best_slugger, best_rbier]
-        Batter.should_receive(:find_all_by_league_and_year).with("NL", 2009).and_return(players)
+        Batter.should_receive(:find_all).with(league: "NL", year: 2009).and_return(players)
         stats_grinder.triple_crown_winner_in_league_for("NL", 2009).should be_nil
       end
     end

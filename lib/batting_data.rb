@@ -8,7 +8,7 @@ class BattingData
 
   def initialize(data={})
     @player_id = data.fetch(:player_id)
-    @player = Batter.find_by_id(player_id)
+    @player = Batter.find(id: player_id)
 
     @league, @team = data[:league], data[:team]
 

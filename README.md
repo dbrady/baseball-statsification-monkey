@@ -4,8 +4,8 @@
 
 [![Code Climate](https://codeclimate.com/github/dbrady/baseball-statsification-monkey.png)](https://codeclimate.com/github/dbrady/baseball-statsification-monkey)
 
-If you're cloning this repo and you have a recent ruby (2.1.1 or
-later), you should be able to just do
+If you're cloning this repo and you have a recent ruby (2.1 or later),
+you should be able to just do
 
     bundle
     bundle exec bin/stats
@@ -199,12 +199,18 @@ You should see the output:
 
 ## Step 2: Get The Right Ruby
 
+You need Ruby 2.1 or later. Hey, the exercise left versioning up to
+me. We can argue about the merits and drawbacks of deploying the
+latest version of Ruby later.
+
 I did this exercise using ruby 2.1.1 with rvm2 as my ruby manager and
 Bundler as my gemset manager. Install rvm2 at http://rvm.io, or update
 it by typing `rvm get head`, then install ruby with `rvm install
 ruby-2.1.1`. If rvm does not automagically create the gemset for you,
-you can do it manually with `rvm gemset create baseball_stats; rvm
-gemset use baseball_stats`.
+you can do it manually with
+
+    rvm gemset create baseball_stats
+    rvm gemset use baseball_stats
 
 ## Step 3: Bundle Up, It's Cold Out There
 

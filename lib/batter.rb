@@ -9,7 +9,7 @@ class Batter
   attr_reader :id, :last_name, :first_name
   private_attr_reader :batting_data
 
-  def initialize(id, last_name, first_name)
+  def initialize(id:, last_name:, first_name:)
     @id, @last_name, @first_name = id, last_name, first_name
     @batting_data = Hash.new do |hash, year|
       hash[year] = Hash.new do |hash2, league_id|
@@ -31,34 +31,24 @@ class Batter
     batter_data.first.last
   end
 
-  def self.find_by_id(id)
+  def self.find(id:)
     batter_data[id]
   end
 
-  def self.find_all_by_year(year)
-    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&:last)
-  end
-
-  def self.find_all_by_team_and_year(team, year)
-    batter_data.reject {|id, batter|
-      !batter.played_any_games_for_team_in?(team, year)
-    }.map(&:last)
-  end
-
-  def self.find_all_by_league_and_year(league, year)
-    batter_data.reject {|id, batter|
-      !batter.played_any_games_in_league_in_year?(league, year)
-    }.map(&:last)
-  end
-
-  # Internal caching method so we only ever load batter data once per
-  # program run
-  def self.batter_data
-    @@batter_data ||= load_batter_data
+  def self.find_all(year: nil, league: nil, team: nil)
+    return batter_data.map(&:last) unless year
+    return find_all_by_year(year) unless league || team
+    # subtle: if you supply both league and team, ignore league
+    return find_all_by_league_and_year(league, year) unless team
+    find_all_by_team_and_year(team, year)
   end
 
   def name
     "%s %s" % [first_name, last_name]
+  end
+
+  def sortable_name
+    "%s, %s" % [last_name, first_name]
   end
 
   def years
@@ -94,17 +84,59 @@ class Batter
     }
   end
 
+  # I hate methods like this, but whatchagonnado. Basically this
+  # method lets us cram a line of data from the CSV file into the
+  # Batter and the Batter will init a new record with it, or add it to
+  # any existing stats for that year/league/team (the data file has
+  # over 550 entries that are same player/year, and often same
+  # player/year/league/team. And often same player/year but different
+  # team, and occasionally different league. The fact is this data is
+  # SUPER messy and we gotta live with it, because the reality it's
+  # tracking is also super messy
+  def add_batting_data(bd)
+    @batting_data[bd.year][bd.league][bd.team] += bd
+  end
+
+  #
+  # END OF PUBLIC API
+  #
+
+  private
+
+  # Private Finders
+  private_class_method def self.find_all_by_year(year)
+    batter_data.reject {|id, batter| !batter.played_any_games_in?(year) }.map(&:last)
+  end
+
+  private_class_method def self.find_all_by_team_and_year(team, year)
+    batter_data.reject {|id, batter|
+      !batter.played_any_games_for_team_in?(team, year)
+    }.map(&:last)
+  end
+
+  private_class_method def self.find_all_by_league_and_year(league, year)
+    batter_data.reject {|id, batter|
+      !batter.played_any_games_in_league_in_year?(league, year)
+    }.map(&:last)
+  end
+
+  # Internal caching method so we only ever load batter data once per
+  # program run
+  private_class_method def self.batter_data
+    @@batter_data ||= load_batter_data
+  end
+
   # Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please
   # give me a reason other than "I suck". Okay, fine: "I suck until I
   # refactor."
-  def self.load_batter_data
+  private_class_method def self.load_batter_data
     # Refactor me: hardcodey much? [SPIKE]
     batters = BatterCsvReader.new("./data/Master-small.csv").
       all.
       reject {|row| row["playerID"].nil? }.
       map {|row|
-        Batter.new(row["playerID"], row["nameLast"], row["nameFirst"])
-      }.
+      Batter.new(id: row["playerID"], last_name: row["nameLast"], first_name: row["nameFirst"])
+    }.
       each_with_object({}) {|batter, hash| hash[batter.id] = batter }
 
 
@@ -131,7 +163,7 @@ class Batter
   # NO WAY BACK.
   #
   # I did try to warn you.
-  def self.batting_data_keys
+  private_class_method def self.batting_data_keys
     { player_id: "playerID",
       year: "yearID",
       league: "league",
@@ -149,37 +181,23 @@ class Batter
     }
   end
 
+
   # Internal caching method. See earlier note about the technical
   # depth and temporal breadth within which I suck.
-  def self.load_batting_data
+  private_class_method def self.load_batting_data
     BattingCsvReader.new("./data/Batting-07-12.csv").all.map {|row|
       data = {}
       batting_data_keys.each_pair do |new_key, old_key|
         data[new_key] = row[old_key]
       end
 
-      if batter = Batter.find_by_id(data[:player_id])
+      if batter = Batter.find(id: data[:player_id])
         batter.add_batting_data(BattingData.new(data))
       else
         raise "Unable to find batter by id '%s'; all batters should be loaded" % row["playerID"]
       end
     }
   end
-
-  # I hate methods like this, but whatchagonnado. Basically this
-  # method lets us cram a line of data from the CSV file into the
-  # Batter and the Batter will init a new record with it, or add it to
-  # any existing stats for that year/league/team (the data file has
-  # over 550 entries that are same player/year, and often same
-  # player/year/league/team. And often same player/year but different
-  # team, and occasionally different league. The fact is this data is
-  # SUPER messy and we gotta live with it, because the reality it's
-  # tracking is also super messy
-  def add_batting_data(bd)
-    @batting_data[bd.year][bd.league][bd.team] += bd
-  end
-
-  private
 
   # Consolidate all my batting data across all years, leagues, teams,
   # etc.

@@ -14,9 +14,9 @@ require_relative "batter"
 # a given report)
 class StatsGrinder
   def most_improved_batter(from, to)
-    batters1 = Batter.find_all_by_year from
+    batters1 = Batter.find_all year: from
     batters1 = with_at_least_200_at_bats(batters1, from)
-    batters2 = Batter.find_all_by_year to
+    batters2 = Batter.find_all year: to
     batters2 = with_at_least_200_at_bats(batters2, to)
 
     batters = common_batters(batters1, batters2)
@@ -28,7 +28,7 @@ class StatsGrinder
   # need for it to talk directly to Batter just yet--let's proxy this
   # for now and get an intention-revealing name in the bargain.
   def team_members_for_year(team, year)
-    Batter.find_all_by_team_and_year(team, year)
+    Batter.find_all(team: team, year: year)
   end
 
   def triple_crown_winner_in_league_for(league, year)
@@ -38,7 +38,7 @@ class StatsGrinder
     # batter for stats_for_league_and_year, and see if the max_by
     # :home_runs, :runs_batted_in, and :batting_average are all the
     # same person.
-    contenders = Batter.find_all_by_league_and_year(league, year)
+    contenders = Batter.find_all league: league, year: year
     contenders.reject! {|batter|
       # FIXME: there's code below to filter batters with fewer than
       # 200 at bats. Seems like a good potential re-use case

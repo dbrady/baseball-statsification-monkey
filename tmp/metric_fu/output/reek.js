@@ -8,7 +8,7 @@
         g.title = 'Reek: code smells';
         g.data('DuplicateMethodCall', [7,6]);
 g.data('ClassVariable', [1]);
-g.data('IrresponsibleModule', [4,2]);
+g.data('IrresponsibleModule', [4]);
 g.data('FeatureEnvy', [11,9]);
 g.data('UtilityFunction', [5,4]);
 g.data('NestedIterators', [2]);

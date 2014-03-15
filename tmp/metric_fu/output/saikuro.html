@@ -531,21 +531,27 @@ table td.score {
     </tr>
     
     <tr>
-      <td>Batter#initialize</td>
-      <td>4</td>
-      <td>9</td>
-    </tr>
-    
-    <tr>
       <td>Batter#self.load_batter_data</td>
       <td>4</td>
       <td>14</td>
     </tr>
     
     <tr>
+      <td>Batter#initialize</td>
+      <td>4</td>
+      <td>9</td>
+    </tr>
+    
+    <tr>
       <td>Batter#self.load_batting_data</td>
       <td>3</td>
       <td>9</td>
+    </tr>
+    
+    <tr>
+      <td>Batboy#report_slugging_percentage_roster_for</td>
+      <td>3</td>
+      <td>8</td>
     </tr>
     
     <tr>
@@ -561,39 +567,15 @@ table td.score {
     </tr>
     
     <tr>
-      <td>Batboy#report_slugging_percentage_roster_for</td>
-      <td>3</td>
-      <td>8</td>
+      <td>Batter#all_batting_data_for_year</td>
+      <td>2</td>
+      <td>4</td>
     </tr>
     
     <tr>
       <td>BattingData#slugging_percentage</td>
       <td>2</td>
       <td>3</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#self.find_all_by_league_and_year</td>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#played_any_games_for_team_in?</td>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-    
-    <tr>
-      <td>Batboy#report_triple_crown_winner_in_league_for</td>
-      <td>2</td>
-      <td>7</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#self.find_all_by_team_and_year</td>
-      <td>2</td>
-      <td>4</td>
     </tr>
     
     <tr>
@@ -609,9 +591,9 @@ table td.score {
     </tr>
     
     <tr>
-      <td>Batter#self.find_all_by_year</td>
+      <td>Batter#stats_for_league_and_year</td>
       <td>2</td>
-      <td>2</td>
+      <td>7</td>
     </tr>
     
     <tr>
@@ -627,13 +609,37 @@ table td.score {
     </tr>
     
     <tr>
+      <td>Batter#played_any_games_for_team_in?</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
       <td>Batter#played_any_games_in_league_in_year?</td>
       <td>2</td>
       <td>4</td>
     </tr>
     
     <tr>
-      <td>Batter#stats_for_league_and_year</td>
+      <td>Batter#self.find_all_by_year</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.find_all_by_team_and_year</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.find_all_by_league_and_year</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
+      <td>Batboy#report_triple_crown_winner_in_league_for</td>
       <td>2</td>
       <td>7</td>
     </tr>
@@ -645,9 +651,27 @@ table td.score {
     </tr>
     
     <tr>
-      <td>Batter#all_batting_data_for_year</td>
+      <td>Batter#self.batter_data</td>
+      <td>1</td>
       <td>2</td>
-      <td>4</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.batting_data_keys</td>
+      <td>1</td>
+      <td>16</td>
+    </tr>
+    
+    <tr>
+      <td>CsvReader#initialize</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
+      <td>Batboy#initialize</td>
+      <td>1</td>
+      <td>3</td>
     </tr>
     
     <tr>
@@ -669,31 +693,7 @@ table td.score {
     </tr>
     
     <tr>
-      <td>StatsGrinder#batter_improvement</td>
-      <td>1</td>
-      <td>5</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#self.batting_data_keys</td>
-      <td>1</td>
-      <td>16</td>
-    </tr>
-    
-    <tr>
-      <td>Batboy#initialize</td>
-      <td>1</td>
-      <td>3</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#self.batter_data</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>Batboy#report_all_done</td>
+      <td>Batter#add_batting_data</td>
       <td>1</td>
       <td>2</td>
     </tr>
@@ -705,27 +705,9 @@ table td.score {
     </tr>
     
     <tr>
-      <td>BattingCsvReader#initialize</td>
+      <td>StatsGrinder#batter_improvement</td>
       <td>1</td>
-      <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#add_batting_data</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>BattingCsvReader#all</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>BattingCsvReader#data</td>
-      <td>1</td>
-      <td>2</td>
+      <td>5</td>
     </tr>
     
     <tr>
@@ -735,7 +717,7 @@ table td.score {
     </tr>
     
     <tr>
-      <td>BatterCsvReader#initialize</td>
+      <td>Batboy#report_all_done</td>
       <td>1</td>
       <td>2</td>
     </tr>
@@ -765,7 +747,7 @@ table td.score {
     </tr>
     
     <tr>
-      <td>BatterCsvReader#all</td>
+      <td>CsvReader#all</td>
       <td>1</td>
       <td>2</td>
     </tr>
@@ -783,7 +765,7 @@ table td.score {
     </tr>
     
     <tr>
-      <td>BatterCsvReader#data</td>
+      <td>CsvReader#data</td>
       <td>1</td>
       <td>2</td>
     </tr>
@@ -825,15 +807,21 @@ table td.score {
     </tr>
     
     <tr>
-      <td>BatterCsvReader</td>
+      <td>CsvReader</td>
       <td>3</td>
       <td>12</td>
     </tr>
     
     <tr>
-      <td>BattingCsvReader</td>
-      <td>3</td>
-      <td>12</td>
+      <td></td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     
     <tr>
@@ -859,6 +847,8 @@ table td.score {
 
 <h2>Analyzed Files</h2>
 
+  
+      
   
       
         <h3>lib/batter.rb</h3>
@@ -1403,8 +1393,10 @@ table td.score {
 
   
       
-        <h3>lib/batting_csv_reader.rb</h3>
-        <h4>Class : BattingCsvReader</h4>
+  
+      
+        <h3>lib/csv_reader.rb</h3>
+        <h4>Class : CsvReader</h4>
         <h5>Total complexity : 3</h5>
         <h5>Total lines : 12</h5>
         <table>
@@ -1416,7 +1408,7 @@ table td.score {
           
             <tr>
               <td>
-                BattingCsvReader#data
+                CsvReader#data
               </td>
               <td>
                 1
@@ -1428,7 +1420,7 @@ table td.score {
           
             <tr>
               <td>
-                BattingCsvReader#all
+                CsvReader#all
               </td>
               <td>
                 1
@@ -1440,60 +1432,7 @@ table td.score {
           
             <tr>
               <td>
-                BattingCsvReader#initialize
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                2
-              </td>
-            </tr>
-          
-        </table>
-      
-  
-
-  
-      
-        <h3>lib/batter_csv_reader.rb</h3>
-        <h4>Class : BatterCsvReader</h4>
-        <h5>Total complexity : 3</h5>
-        <h5>Total lines : 12</h5>
-        <table>
-            <tr>
-              <th>Method</th>
-              <th>Complexity</th>
-              <th># Lines</th>
-            </tr>
-          
-            <tr>
-              <td>
-                BatterCsvReader#data
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                2
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BatterCsvReader#all
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                2
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BatterCsvReader#initialize
+                CsvReader#initialize
               </td>
               <td>
                 1
@@ -1508,7 +1447,7 @@ table td.score {
   
 
 
-<p>Generated on 2014-03-15 15:01:04 -0600</p>
+<p>Generated on 2014-03-15 15:09:37 -0600</p>
 
     </div>
   </body>

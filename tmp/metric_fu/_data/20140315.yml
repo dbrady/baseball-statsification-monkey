@@ -9,16 +9,6 @@
     - :method: Batboy#report_slugging_percentage_roster_for
       :message: calls batter.stats_for_year(year).slugging_percentage twice
       :type: DuplicateMethodCall
-  - :file_path: lib/batter_csv_reader.rb
-    :code_smells:
-    - :method: BatterCsvReader
-      :message: has no descriptive comment
-      :type: IrresponsibleModule
-  - :file_path: lib/batting_csv_reader.rb
-    :code_smells:
-    - :method: BattingCsvReader
-      :message: has no descriptive comment
-      :type: IrresponsibleModule
   - :file_path: lib/batting_data.rb
     :code_smells:
     - :method: BattingData#+
@@ -96,8 +86,8 @@
       :message: refers to batters more than self
       :type: FeatureEnvy
 :flog:
-  :total: 202.6257450367409
-  :average: 7.793297886028497
+  :total: 197.77011011813048
+  :average: 8.598700439918716
   :method_containers:
   - :name: Batboy
     :path: lib/batboy.rb
@@ -309,63 +299,47 @@
         :path: 
   - :name: main
     :path: ''
-    :total_score: 8.700000000000001
-    :highest_score: 8.700000000000001
-    :average_score: 8.700000000000001
+    :total_score: 7.600000000000001
+    :highest_score: 7.600000000000001
+    :average_score: 7.600000000000001
     :methods:
       main#none:
         :operators:
           :require_relative: 6.500000000000001
-          :require: 2.2
-        :score: 8.700000000000001
+          :require: 1.1000000000000003
+        :score: 7.600000000000001
         :path: 
-  - :name: BatterCsvReader
-    :path: lib/batter_csv_reader.rb
-    :total_score: 3.7556349186104048
-    :highest_score: 1.5556349186104046
-    :average_score: 1.2518783062034682
+  - :name: CsvReader
+    :path: lib/csv_reader.rb
+    :total_score: 3.755634918610406
+    :highest_score: 1.5556349186104053
+    :average_score: 1.2518783062034686
     :methods:
-      BatterCsvReader#data:
+      CsvReader#data:
         :operators:
-          :assignment: 1.1
-          :read: 1.1
-        :score: 1.5556349186104046
-        :path: lib/batter_csv_reader.rb:12
-      BatterCsvReader#all:
+          :assignment: 1.1000000000000005
+          :read: 1.1000000000000005
+        :score: 1.5556349186104053
+        :path: lib/csv_reader.rb:13
+      CsvReader#initialize:
         :operators:
-          :data: 1.1
-        :score: 1.1
-        :path: lib/batter_csv_reader.rb:8
-      BatterCsvReader#initialize:
+          :assignment: 1.1000000000000005
+        :score: 1.1000000000000005
+        :path: lib/csv_reader.rb:5
+      CsvReader#all:
         :operators:
-          :assignment: 1.1
-        :score: 1.1
-        :path: lib/batter_csv_reader.rb:4
-  - :name: BattingCsvReader
-    :path: lib/batting_csv_reader.rb
-    :total_score: 3.7556349186104048
-    :highest_score: 1.5556349186104046
-    :average_score: 1.2518783062034682
-    :methods:
-      BattingCsvReader#data:
-        :operators:
-          :assignment: 1.1
-          :read: 1.1
-        :score: 1.5556349186104046
-        :path: lib/batting_csv_reader.rb:12
-      BattingCsvReader#initialize:
-        :operators:
-          :assignment: 1.1
-        :score: 1.1
-        :path: lib/batting_csv_reader.rb:4
-      BattingCsvReader#all:
-        :operators:
-          :data: 1.1
-        :score: 1.1
-        :path: lib/batting_csv_reader.rb:8
+          :data: 1.1000000000000005
+        :score: 1.1000000000000005
+        :path: lib/csv_reader.rb:9
 :churn:
-  :changes: []
+  :changes:
+  - :file_path: lib/batter.rb
+    :times_changed: 10
   :class_churn:
+  - klass: &1
+      file: lib/batboy.rb
+      klass: Batboy
+    times_changed: 1
   - klass:
       file: lib/batting_data.rb
       klass: BattingData
@@ -392,16 +366,41 @@
       method: BattingData#+
     times_changed: 1
   :changed_files:
-  - coverage/.last_run.json
-  - coverage/.resultset.json
-  - coverage/index.html
+  - lib/batboy.rb
   - lib/batter.rb
-  - spec/lib/batting_data_spec.rb
-  :changed_classes: []
+  - lib/batter_csv_reader.rb
+  - lib/batting_csv_reader.rb
+  - lib/csv_reader.rb
+  - tmp/metric_fu/_data/20140315.yml
+  - tmp/metric_fu/output/cane.html
+  - tmp/metric_fu/output/cane.js
+  - tmp/metric_fu/output/churn.html
+  - tmp/metric_fu/output/flay.html
+  - tmp/metric_fu/output/flog.html
+  - tmp/metric_fu/output/flog.js
+  - tmp/metric_fu/output/hotspots.html
+  - tmp/metric_fu/output/index.html
+  - tmp/metric_fu/output/lib_batter.rb.html
+  - tmp/metric_fu/output/lib_batting_data.rb.html
+  - tmp/metric_fu/output/lib_stats_grinder.rb.html
+  - tmp/metric_fu/output/reek.html
+  - tmp/metric_fu/output/reek.js
+  - tmp/metric_fu/output/roodi.html
+  - tmp/metric_fu/output/saikuro.html
+  - tmp/metric_fu/output/stats.html
+  - tmp/metric_fu/output/stats.js
+  - tmp/metric_fu/report.yml
+  - tmp/metric_fu/scratch/churn/56d7c81d6383304c147bfc046bf43bc61533a356.json
+  :changed_classes:
+  - *1
   :changed_methods: []
 :saikuro:
   :files:
   - :classes:
+    - :class_name: ''
+      :complexity: 0
+      :lines: 1
+      :methods: []
     - :class_name: Batter
       :complexity: 42
       :lines: 218
@@ -555,35 +554,24 @@
         :lines: 3
     :filename: lib/batboy.rb
   - :classes:
-    - :class_name: BattingCsvReader
+    - :class_name: ''
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: CsvReader
       :complexity: 3
       :lines: 12
       :methods:
-      - :name: BattingCsvReader#data
+      - :name: CsvReader#data
         :complexity: 1
         :lines: 2
-      - :name: BattingCsvReader#all
+      - :name: CsvReader#all
         :complexity: 1
         :lines: 2
-      - :name: BattingCsvReader#initialize
+      - :name: CsvReader#initialize
         :complexity: 1
         :lines: 2
-    :filename: lib/batting_csv_reader.rb
-  - :classes:
-    - :class_name: BatterCsvReader
-      :complexity: 3
-      :lines: 12
-      :methods:
-      - :name: BatterCsvReader#data
-        :complexity: 1
-        :lines: 2
-      - :name: BatterCsvReader#all
-        :complexity: 1
-        :lines: 2
-      - :name: BatterCsvReader#initialize
-        :complexity: 1
-        :lines: 2
-    :filename: lib/batter_csv_reader.rb
+    :filename: lib/csv_reader.rb
   :classes:
   - :name: Batter
     :complexity: 42
@@ -718,32 +706,25 @@
     - :name: Batboy#report_triple_crown_winner_in_league_for
       :complexity: 2
       :lines: 7
-  - :name: BatterCsvReader
+  - :name: CsvReader
     :complexity: 3
     :lines: 12
     :defs:
-    - :name: BatterCsvReader#initialize
+    - :name: CsvReader#initialize
       :complexity: 1
       :lines: 2
-    - :name: BatterCsvReader#all
+    - :name: CsvReader#all
       :complexity: 1
       :lines: 2
-    - :name: BatterCsvReader#data
+    - :name: CsvReader#data
       :complexity: 1
       :lines: 2
-  - :name: BattingCsvReader
-    :complexity: 3
-    :lines: 12
-    :defs:
-    - :name: BattingCsvReader#initialize
-      :complexity: 1
-      :lines: 2
-    - :name: BattingCsvReader#all
-      :complexity: 1
-      :lines: 2
-    - :name: BattingCsvReader#data
-      :complexity: 1
-      :lines: 2
+  - :name: ''
+    :complexity: 0
+    :lines: 1
+  - :name: ''
+    :complexity: 0
+    :lines: 1
   - :name: ''
     :complexity: 0
     :lines: 1
@@ -760,66 +741,78 @@
   - :name: Batter#self.find_all
     :complexity: 4
     :lines: 6
-  - :name: Batter#initialize
-    :complexity: 4
-    :lines: 9
   - :name: Batter#self.load_batter_data
     :complexity: 4
     :lines: 14
+  - :name: Batter#initialize
+    :complexity: 4
+    :lines: 9
   - :name: Batter#self.load_batting_data
     :complexity: 3
     :lines: 9
+  - :name: Batboy#report_slugging_percentage_roster_for
+    :complexity: 3
+    :lines: 8
   - :name: StatsGrinder#most_improved
     :complexity: 3
     :lines: 4
   - :name: BattingData#+
     :complexity: 3
     :lines: 12
-  - :name: Batboy#report_slugging_percentage_roster_for
-    :complexity: 3
-    :lines: 8
+  - :name: Batter#all_batting_data_for_year
+    :complexity: 2
+    :lines: 4
   - :name: BattingData#slugging_percentage
     :complexity: 2
     :lines: 3
-  - :name: Batter#self.find_all_by_league_and_year
-    :complexity: 2
-    :lines: 4
-  - :name: Batter#played_any_games_for_team_in?
-    :complexity: 2
-    :lines: 4
-  - :name: Batboy#report_triple_crown_winner_in_league_for
-    :complexity: 2
-    :lines: 7
-  - :name: Batter#self.find_all_by_team_and_year
-    :complexity: 2
-    :lines: 4
   - :name: BattingData#batting_average
     :complexity: 2
     :lines: 3
   - :name: BattingData#initialize
     :complexity: 2
     :lines: 7
-  - :name: Batter#self.find_all_by_year
+  - :name: Batter#stats_for_league_and_year
     :complexity: 2
-    :lines: 2
+    :lines: 7
   - :name: StatsGrinder#common_batters
     :complexity: 2
     :lines: 3
   - :name: StatsGrinder#with_at_least_200_at_bats
     :complexity: 2
     :lines: 2
+  - :name: Batter#played_any_games_for_team_in?
+    :complexity: 2
+    :lines: 4
   - :name: Batter#played_any_games_in_league_in_year?
     :complexity: 2
     :lines: 4
-  - :name: Batter#stats_for_league_and_year
+  - :name: Batter#self.find_all_by_year
+    :complexity: 2
+    :lines: 2
+  - :name: Batter#self.find_all_by_team_and_year
+    :complexity: 2
+    :lines: 4
+  - :name: Batter#self.find_all_by_league_and_year
+    :complexity: 2
+    :lines: 4
+  - :name: Batboy#report_triple_crown_winner_in_league_for
     :complexity: 2
     :lines: 7
   - :name: Batter#all_batting_data_ever
     :complexity: 2
     :lines: 4
-  - :name: Batter#all_batting_data_for_year
-    :complexity: 2
-    :lines: 4
+  - :name: Batter#self.batter_data
+    :complexity: 1
+    :lines: 2
+  - :name: Batter#self.batting_data_keys
+    :complexity: 1
+    :lines: 16
+  - :name: CsvReader#initialize
+    :complexity: 1
+    :lines: 2
+  - :name: Batboy#initialize
+    :complexity: 1
+    :lines: 3
   - :name: Batter#all_batting_data_for_league
     :complexity: 1
     :lines: 5
@@ -829,40 +822,19 @@
   - :name: StatsGrinder#team_members_for_year
     :complexity: 1
     :lines: 2
-  - :name: StatsGrinder#batter_improvement
-    :complexity: 1
-    :lines: 5
-  - :name: Batter#self.batting_data_keys
-    :complexity: 1
-    :lines: 16
-  - :name: Batboy#initialize
-    :complexity: 1
-    :lines: 3
-  - :name: Batter#self.batter_data
-    :complexity: 1
-    :lines: 2
-  - :name: Batboy#report_all_done
+  - :name: Batter#add_batting_data
     :complexity: 1
     :lines: 2
   - :name: Batboy#report_most_improved_batter_in
     :complexity: 1
     :lines: 6
-  - :name: BattingCsvReader#initialize
+  - :name: StatsGrinder#batter_improvement
     :complexity: 1
-    :lines: 2
-  - :name: Batter#add_batting_data
-    :complexity: 1
-    :lines: 2
-  - :name: BattingCsvReader#all
-    :complexity: 1
-    :lines: 2
-  - :name: BattingCsvReader#data
-    :complexity: 1
-    :lines: 2
+    :lines: 5
   - :name: Batter#played_any_games_in?
     :complexity: 1
     :lines: 2
-  - :name: BatterCsvReader#initialize
+  - :name: Batboy#report_all_done
     :complexity: 1
     :lines: 2
   - :name: Batter#stats_for_year
@@ -877,7 +849,7 @@
   - :name: Batter#name
     :complexity: 1
     :lines: 2
-  - :name: BatterCsvReader#all
+  - :name: CsvReader#all
     :complexity: 1
     :lines: 2
   - :name: Batter#self.find
@@ -886,19 +858,19 @@
   - :name: Batter#self.first
     :complexity: 1
     :lines: 2
-  - :name: BatterCsvReader#data
+  - :name: CsvReader#data
     :complexity: 1
     :lines: 2
 :stats:
-  :codeLOC: 277
+  :codeLOC: 264
   :testLOC: 409
   :code_to_test_ratio: 1.5
   :lines:
   - :name: Libraries
-    :lines: 470
-    :loc: 277
-    :classes: 6
-    :methods: 37
+    :lines: 458
+    :loc: 264
+    :classes: 5
+    :methods: 34
     :methods_per_class: 6
     :loc_per_method: 5
   - :name: Bin specs
@@ -916,22 +888,16 @@
     :methods_per_class: 0
     :loc_per_method: 368
   - :name: Total
-    :lines: 1005
-    :loc: 686
-    :classes: 6
-    :methods: 38
-    :methods_per_class: 6
-    :loc_per_method: 16
+    :lines: 993
+    :loc: 673
+    :classes: 5
+    :methods: 35
+    :methods_per_class: 7
+    :loc_per_method: 17
 :flay:
-  :total_score: '70'
+  :total_score: '32'
   :matches:
-  - :reason: 1) Similar code found in :class (mass = 38)
-    :matches:
-    - :name: lib/batter_csv_reader.rb
-      :line: '3'
-    - :name: lib/batting_csv_reader.rb
-      :line: '3'
-  - :reason: 2) Similar code found in :call (mass = 32)
+  - :reason: 1) Similar code found in :call (mass = 32)
     :matches:
     - :name: lib/batting_data.rb
       :line: '6'
@@ -939,14 +905,14 @@
       :line: '7'
 :roodi:
   :total:
-  - Checked 7 files
+  - Checked 6 files
   :problems:
   - :file: lib/stats_grinder.rb
     :line: '34'
     :problem: Method "triple_crown_winner_in_league_for" has 32 lines.  It should
       have 20 or less.
 :cane:
-  :total_violations: 45
+  :total_violations: 41
   :violations:
     :abc_complexity:
     - :file: lib/stats_grinder.rb
@@ -965,13 +931,13 @@
       :description: Line is >80 characters (90)
     - :line: lib/batboy.rb:49
       :description: Line is >80 characters (97)
-    - :line: lib/batter.rb:63
+    - :line: lib/batter.rb:65
       :description: Line is >80 characters (102)
-    - :line: lib/batter.rb:82
+    - :line: lib/batter.rb:84
       :description: Line is >80 characters (83)
-    - :line: lib/batter.rb:108
+    - :line: lib/batter.rb:110
       :description: Line is >80 characters (85)
-    - :line: lib/batter.rb:138
+    - :line: lib/batter.rb:140
       :description: Line is >80 characters (95)
     - :line: spec/bin/stats_spec.rb:26
       :description: Line is >80 characters (83)
@@ -1033,15 +999,6 @@
       :description: Line is >80 characters (91)
     - :line: spec/lib/stats_grinder_spec.rb:45
       :description: Line is >80 characters (81)
-    :comment:
-    - :line: lib/batting_csv_reader.rb:3
-      :class_name: BattingCsvReader
-    - :line: lib/batter_csv_reader.rb:3
-      :class_name: BatterCsvReader
-    - :line: lib/batboy.rb:7
-      :class_name: Batboy
-    - :line: lib/batter.rb:6
-      :class_name: Batter
 :hotspots:
   files:
   - location:
@@ -1179,17 +1136,6 @@
   - location:
       class_name: 
       method_name: 
-      file_path: lib/batting_data.rb
-      file_name: lib/batting_data.rb
-      line_number: 
-      hash_key: '["lib/batting_data.rb", nil, nil]'
-    details:
-      reek: found 2 code smells
-      saikuro: complexity is 3.0
-      flay: found 1 code duplications
-  - location:
-      class_name: 
-      method_name: 
       file_path: lib/batboy.rb:22
       file_name: lib/batboy.rb
       line_number: '22'
@@ -1200,13 +1146,14 @@
   - location:
       class_name: 
       method_name: 
-      file_path: lib/batboy.rb
-      file_name: lib/batboy.rb
+      file_path: lib/batting_data.rb
+      file_name: lib/batting_data.rb
       line_number: 
-      hash_key: '["lib/batboy.rb", nil, nil]'
+      hash_key: '["lib/batting_data.rb", nil, nil]'
     details:
       reek: found 2 code smells
       saikuro: complexity is 3.0
+      flay: found 1 code duplications
   - location:
       class_name: 
       method_name: 
@@ -1221,22 +1168,52 @@
   - location:
       class_name: 
       method_name: 
-      file_path: lib/batting_csv_reader.rb:12
-      file_name: lib/batting_csv_reader.rb
-      line_number: '12'
-      hash_key: '["lib/batting_csv_reader.rb:12", nil, nil]'
+      file_path: lib/batboy.rb
+      file_name: lib/batboy.rb
+      line_number: 
+      hash_key: '["lib/batboy.rb", nil, nil]'
+    details:
+      reek: found 2 code smells
+      saikuro: complexity is 3.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/csv_reader.rb:13
+      file_name: lib/csv_reader.rb
+      line_number: '13'
+      hash_key: '["lib/csv_reader.rb:13", nil, nil]'
     details:
       flog: complexity is 1.6
       saikuro: complexity is 1.0
   - location:
       class_name: 
       method_name: 
-      file_path: lib/batter_csv_reader.rb:12
-      file_name: lib/batter_csv_reader.rb
-      line_number: '12'
-      hash_key: '["lib/batter_csv_reader.rb:12", nil, nil]'
+      file_path: lib/batter.rb
+      file_name: lib/batter.rb
+      line_number: 
+      hash_key: '["lib/batter.rb", nil, nil]'
     details:
-      flog: complexity is 1.6
+      churn: detected high level of churn (changed 10 times)
+      saikuro: average complexity is 1.8
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/csv_reader.rb:5
+      file_name: lib/csv_reader.rb
+      line_number: '5'
+      hash_key: '["lib/csv_reader.rb:5", nil, nil]'
+    details:
+      flog: complexity is 1.1
+      saikuro: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/csv_reader.rb:9
+      file_name: lib/csv_reader.rb
+      line_number: '9'
+      hash_key: '["lib/csv_reader.rb:9", nil, nil]'
+    details:
+      flog: complexity is 1.1
       saikuro: complexity is 1.0
   - location:
       class_name: 
@@ -1248,75 +1225,6 @@
     details:
       flog: complexity is 1.1
       saikuro: complexity is 1.0
-  - location:
-      class_name: 
-      method_name: 
-      file_path: lib/batting_csv_reader.rb:4
-      file_name: lib/batting_csv_reader.rb
-      line_number: '4'
-      hash_key: '["lib/batting_csv_reader.rb:4", nil, nil]'
-    details:
-      flog: complexity is 1.1
-      saikuro: complexity is 1.0
-  - location:
-      class_name: 
-      method_name: 
-      file_path: lib/batting_csv_reader.rb:8
-      file_name: lib/batting_csv_reader.rb
-      line_number: '8'
-      hash_key: '["lib/batting_csv_reader.rb:8", nil, nil]'
-    details:
-      flog: complexity is 1.1
-      saikuro: complexity is 1.0
-  - location:
-      class_name: 
-      method_name: 
-      file_path: lib/batter_csv_reader.rb:4
-      file_name: lib/batter_csv_reader.rb
-      line_number: '4'
-      hash_key: '["lib/batter_csv_reader.rb:4", nil, nil]'
-    details:
-      flog: complexity is 1.1
-      saikuro: complexity is 1.0
-  - location:
-      class_name: 
-      method_name: 
-      file_path: lib/batter_csv_reader.rb:8
-      file_name: lib/batter_csv_reader.rb
-      line_number: '8'
-      hash_key: '["lib/batter_csv_reader.rb:8", nil, nil]'
-    details:
-      flog: complexity is 1.1
-      saikuro: complexity is 1.0
-  - location:
-      class_name: 
-      method_name: 
-      file_path: lib/batter.rb
-      file_name: lib/batter.rb
-      line_number: 
-      hash_key: '["lib/batter.rb", nil, nil]'
-    details:
-      saikuro: average complexity is 1.8
-  - location:
-      class_name: 
-      method_name: 
-      file_path: lib/batter_csv_reader.rb
-      file_name: lib/batter_csv_reader.rb
-      line_number: 
-      hash_key: '["lib/batter_csv_reader.rb", nil, nil]'
-    details:
-      reek: found 1 code smells
-      flay: found 1 code duplications
-  - location:
-      class_name: 
-      method_name: 
-      file_path: lib/batting_csv_reader.rb
-      file_name: lib/batting_csv_reader.rb
-      line_number: 
-      hash_key: '["lib/batting_csv_reader.rb", nil, nil]'
-    details:
-      reek: found 1 code smells
-      flay: found 1 code duplications
   classes:
   - location:
       class_name: BattingData
@@ -1359,27 +1267,15 @@
       line_number: 
       hash_key: '[nil, "main", nil]'
     details:
-      flog: complexity is 8.7
+      flog: complexity is 7.6
   - location:
-      class_name: BatterCsvReader
+      class_name: CsvReader
       method_name: 
-      file_path: lib/batter_csv_reader.rb
-      file_name: lib/batter_csv_reader.rb
-      line_number: 
-      hash_key: '["lib/batter_csv_reader.rb", "BatterCsvReader", nil]'
+      file_path: lib/csv_reader.rb:13
+      file_name: lib/csv_reader.rb
+      line_number: '13'
+      hash_key: '["lib/csv_reader.rb:13", "CsvReader", nil]'
     details:
-      reek: found 1 code smells
-      flog: average complexity is 1.3
-      saikuro: average complexity is 1.0
-  - location:
-      class_name: BattingCsvReader
-      method_name: 
-      file_path: lib/batting_csv_reader.rb
-      file_name: lib/batting_csv_reader.rb
-      line_number: 
-      hash_key: '["lib/batting_csv_reader.rb", "BattingCsvReader", nil]'
-    details:
-      reek: found 1 code smells
       flog: average complexity is 1.3
       saikuro: average complexity is 1.0
   - location:
@@ -1405,18 +1301,6 @@
       flog: complexity is 21.7
       saikuro: complexity is 6.0
   - location:
-      class_name: Batboy
-      method_name: Batboy#report_slugging_percentage_roster_for
-      file_path: lib/batboy.rb
-      file_name: lib/batboy.rb
-      line_number: 
-      hash_key: '["lib/batboy.rb", "Batboy", "Batboy#report_slugging_percentage_roster_for"]'
-      simple_method_name: "#report_slugging_percentage_roster_for"
-    details:
-      reek: found 2 code smells
-      flog: complexity is 22.8
-      saikuro: complexity is 3.0
-  - location:
       class_name: BattingData
       method_name: BattingData#+
       file_path: lib/batting_data.rb
@@ -1427,6 +1311,18 @@
     details:
       reek: found 2 code smells
       flog: complexity is 22.7
+      saikuro: complexity is 3.0
+  - location:
+      class_name: Batboy
+      method_name: Batboy#report_slugging_percentage_roster_for
+      file_path: lib/batboy.rb
+      file_name: lib/batboy.rb
+      line_number: 
+      hash_key: '["lib/batboy.rb", "Batboy", "Batboy#report_slugging_percentage_roster_for"]'
+      simple_method_name: "#report_slugging_percentage_roster_for"
+    details:
+      reek: found 2 code smells
+      flog: complexity is 22.8
       saikuro: complexity is 3.0
   - location:
       class_name: BattingData
@@ -1532,16 +1428,6 @@
       flog: complexity is 7.4
       saikuro: complexity is 1.0
   - location:
-      class_name: main
-      method_name: main#none
-      file_path: 
-      file_name: 
-      line_number: 
-      hash_key: '[nil, "main", "main#none"]'
-      simple_method_name: "#none"
-    details:
-      flog: complexity is 8.7
-  - location:
       class_name: StatsGrinder
       method_name: StatsGrinder#with_at_least_200_at_bats
       file_path: lib/stats_grinder.rb
@@ -1553,6 +1439,16 @@
       reek: found 3 code smells
       flog: complexity is 5.8
       saikuro: complexity is 2.0
+  - location:
+      class_name: main
+      method_name: main#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "main", "main#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 7.6
   - location:
       class_name: Batboy
       method_name: Batboy#initialize
@@ -1616,23 +1512,12 @@
     details:
       saikuro: complexity is 3.0
   - location:
-      class_name: BatterCsvReader
-      method_name: BatterCsvReader#data
-      file_path: lib/batter_csv_reader.rb:12
-      file_name: lib/batter_csv_reader.rb
-      line_number: '12'
-      hash_key: '["lib/batter_csv_reader.rb:12", "BatterCsvReader", "BatterCsvReader#data"]'
-      simple_method_name: "#data"
-    details:
-      flog: complexity is 1.6
-      saikuro: complexity is 1.0
-  - location:
-      class_name: BattingCsvReader
-      method_name: BattingCsvReader#data
-      file_path: lib/batting_csv_reader.rb:12
-      file_name: lib/batting_csv_reader.rb
-      line_number: '12'
-      hash_key: '["lib/batting_csv_reader.rb:12", "BattingCsvReader", "BattingCsvReader#data"]'
+      class_name: CsvReader
+      method_name: CsvReader#data
+      file_path: lib/csv_reader.rb:13
+      file_name: lib/csv_reader.rb
+      line_number: '13'
+      hash_key: '["lib/csv_reader.rb:13", "CsvReader", "CsvReader#data"]'
       simple_method_name: "#data"
     details:
       flog: complexity is 1.6
@@ -1648,6 +1533,17 @@
     details:
       flog: complexity is 2.2
   - location:
+      class_name: CsvReader
+      method_name: CsvReader#all
+      file_path: lib/csv_reader.rb:9
+      file_name: lib/csv_reader.rb
+      line_number: '9'
+      hash_key: '["lib/csv_reader.rb:9", "CsvReader", "CsvReader#all"]'
+      simple_method_name: "#all"
+    details:
+      flog: complexity is 1.1
+      saikuro: complexity is 1.0
+  - location:
       class_name: StatsGrinder
       method_name: StatsGrinder#team_members_for_year
       file_path: lib/stats_grinder.rb:30
@@ -1659,49 +1555,26 @@
       flog: complexity is 1.1
       saikuro: complexity is 1.0
   - location:
-      class_name: BatterCsvReader
-      method_name: BatterCsvReader#all
-      file_path: lib/batter_csv_reader.rb:8
-      file_name: lib/batter_csv_reader.rb
-      line_number: '8'
-      hash_key: '["lib/batter_csv_reader.rb:8", "BatterCsvReader", "BatterCsvReader#all"]'
-      simple_method_name: "#all"
-    details:
-      flog: complexity is 1.1
-      saikuro: complexity is 1.0
-  - location:
-      class_name: BattingCsvReader
-      method_name: BattingCsvReader#all
-      file_path: lib/batting_csv_reader.rb:8
-      file_name: lib/batting_csv_reader.rb
-      line_number: '8'
-      hash_key: '["lib/batting_csv_reader.rb:8", "BattingCsvReader", "BattingCsvReader#all"]'
-      simple_method_name: "#all"
-    details:
-      flog: complexity is 1.1
-      saikuro: complexity is 1.0
-  - location:
-      class_name: BatterCsvReader
-      method_name: BatterCsvReader#initialize
-      file_path: lib/batter_csv_reader.rb:4
-      file_name: lib/batter_csv_reader.rb
-      line_number: '4'
-      hash_key: '["lib/batter_csv_reader.rb:4", "BatterCsvReader", "BatterCsvReader#initialize"]'
+      class_name: CsvReader
+      method_name: CsvReader#initialize
+      file_path: lib/csv_reader.rb:5
+      file_name: lib/csv_reader.rb
+      line_number: '5'
+      hash_key: '["lib/csv_reader.rb:5", "CsvReader", "CsvReader#initialize"]'
       simple_method_name: "#initialize"
     details:
       flog: complexity is 1.1
       saikuro: complexity is 1.0
   - location:
-      class_name: BattingCsvReader
-      method_name: BattingCsvReader#initialize
-      file_path: lib/batting_csv_reader.rb:4
-      file_name: lib/batting_csv_reader.rb
-      line_number: '4'
-      hash_key: '["lib/batting_csv_reader.rb:4", "BattingCsvReader", "BattingCsvReader#initialize"]'
-      simple_method_name: "#initialize"
+      class_name: Batter
+      method_name: Batter#self.find_all_by_year
+      file_path: lib/batter.rb
+      file_name: lib/batter.rb
+      line_number: 
+      hash_key: '["lib/batter.rb", "Batter", "Batter#self.find_all_by_year"]'
+      simple_method_name: "#self.find_all_by_year"
     details:
-      flog: complexity is 1.1
-      saikuro: complexity is 1.0
+      saikuro: complexity is 2.0
   - location:
       class_name: Batter
       method_name: Batter#played_any_games_for_team_in?
@@ -1710,16 +1583,6 @@
       line_number: 
       hash_key: '["lib/batter.rb", "Batter", "Batter#played_any_games_for_team_in?"]'
       simple_method_name: "#played_any_games_for_team_in?"
-    details:
-      saikuro: complexity is 2.0
-  - location:
-      class_name: Batter
-      method_name: Batter#stats_for_league_and_year
-      file_path: lib/batter.rb
-      file_name: lib/batter.rb
-      line_number: 
-      hash_key: '["lib/batter.rb", "Batter", "Batter#stats_for_league_and_year"]'
-      simple_method_name: "#stats_for_league_and_year"
     details:
       saikuro: complexity is 2.0
   - location:
@@ -1754,12 +1617,12 @@
       saikuro: complexity is 2.0
   - location:
       class_name: Batter
-      method_name: Batter#self.find_all_by_year
+      method_name: Batter#self.find_all_by_league_and_year
       file_path: lib/batter.rb
       file_name: lib/batter.rb
       line_number: 
-      hash_key: '["lib/batter.rb", "Batter", "Batter#self.find_all_by_year"]'
-      simple_method_name: "#self.find_all_by_year"
+      hash_key: '["lib/batter.rb", "Batter", "Batter#self.find_all_by_league_and_year"]'
+      simple_method_name: "#self.find_all_by_league_and_year"
     details:
       saikuro: complexity is 2.0
   - location:
@@ -1774,12 +1637,12 @@
       saikuro: complexity is 2.0
   - location:
       class_name: Batter
-      method_name: Batter#self.find_all_by_league_and_year
+      method_name: Batter#stats_for_league_and_year
       file_path: lib/batter.rb
       file_name: lib/batter.rb
       line_number: 
-      hash_key: '["lib/batter.rb", "Batter", "Batter#self.find_all_by_league_and_year"]'
-      simple_method_name: "#self.find_all_by_league_and_year"
+      hash_key: '["lib/batter.rb", "Batter", "Batter#stats_for_league_and_year"]'
+      simple_method_name: "#stats_for_league_and_year"
     details:
       saikuro: complexity is 2.0
   - location:
@@ -1804,12 +1667,12 @@
       flog: complexity is 1.1
   - location:
       class_name: Batter
-      method_name: Batter#played_any_games_in?
+      method_name: Batter#sortable_name
       file_path: lib/batter.rb
       file_name: lib/batter.rb
       line_number: 
-      hash_key: '["lib/batter.rb", "Batter", "Batter#played_any_games_in?"]'
-      simple_method_name: "#played_any_games_in?"
+      hash_key: '["lib/batter.rb", "Batter", "Batter#sortable_name"]'
+      simple_method_name: "#sortable_name"
     details:
       saikuro: complexity is 1.0
   - location:
@@ -1854,12 +1717,12 @@
       saikuro: complexity is 1.0
   - location:
       class_name: Batter
-      method_name: Batter#sortable_name
+      method_name: Batter#played_any_games_in?
       file_path: lib/batter.rb
       file_name: lib/batter.rb
       line_number: 
-      hash_key: '["lib/batter.rb", "Batter", "Batter#sortable_name"]'
-      simple_method_name: "#sortable_name"
+      hash_key: '["lib/batter.rb", "Batter", "Batter#played_any_games_in?"]'
+      simple_method_name: "#played_any_games_in?"
     details:
       saikuro: complexity is 1.0
   - location:

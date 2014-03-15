@@ -39,13 +39,7 @@ class StatsGrinder
     # :home_runs, :runs_batted_in, and :batting_average are all the
     # same person.
     contenders = Batter.find_all league: league, year: year
-    contenders.reject! {|batter|
-      # FIXME: there's code below to filter batters with fewer than
-      # 200 at bats. Seems like a good potential re-use case
-      #
-      # I'm not sayin', I'm just sayin'
-      batter.stats_for_league_and_year(league, year).at_bats < 400
-    }
+    contenders = with_at_least_400_at_bats_in_league(contenders, year, league)
 
     homer = contenders.max_by {|batter|
       batter.stats_for_league_and_year(league, year).home_runs
@@ -53,12 +47,6 @@ class StatsGrinder
     run_batter_inner = contenders.max_by {|batter|
       batter.stats_for_league_and_year(league, year).runs_batted_in
     }
-    # optimization: return nil early here unless homer ==
-    # run_batter_inner because BA doesn't matter--we do not have a
-    # triple crown winner this year in this league. Not doing any
-    # optimization until/unless the program gets too slow, however,
-    # because optimizing correct code is easy, but correcting
-    # optimized code is a bear.
     best_hitter = contenders.max_by {|batter|
       batter.stats_for_league_and_year(league, year).batting_average
     }
@@ -91,6 +79,12 @@ class StatsGrinder
 
   def with_at_least_200_at_bats(batters, year)
     batters.reject {|batter| batter.stats_for_year(year).at_bats < 200 }
+  end
+
+  def with_at_least_400_at_bats_in_league(batters, year, league)
+    batters.reject {|batter|
+      batter.stats_for_league_and_year(league, year).at_bats < 400
+    }
   end
 
   # reject batters not present in both years

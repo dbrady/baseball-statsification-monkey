@@ -3,16 +3,31 @@ require_relative 'patches'
 
 # Stats aggregation/integration class
 class BattingData
-  attr_reader :player_id, :player, :year, :league, :team, :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :runs_batted_in, :stolen_bases, :caught_stealing
-  private_attr_writer :player_id, :player, :year, :league, :team, :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :runs_batted_in, :stolen_bases, :caught_stealing
+
+  attr_reader :player_id, :player, :year, :league, :team, :games,
+              :at_bats, :runs, :hits, :doubles, :triples, :home_runs,
+              :runs_batted_in, :stolen_bases, :caught_stealing
+
+
+  private_attr_writer :player_id, :player, :year, :league, :team,
+                      :games, :at_bats, :runs, :hits, :doubles,
+                      :triples, :home_runs, :runs_batted_in,
+                      :stolen_bases, :caught_stealing
 
   def initialize(data={})
     @player_id = data.fetch(:player_id)
     @player = Batter.find(id: player_id)
-
+    @year = data[:year].to_i
     @league, @team = data[:league], data[:team]
 
-    %i(year games at_bats runs hits doubles triples home_runs runs_batted_in stolen_bases caught_stealing).each {|key| send "#{key}=", data[key].to_i }
+    integrable_stats.each {|key| send "#{key}=", data[key].to_i }
+  end
+
+  def integrable_stats
+    [
+     :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs,
+     :runs_batted_in, :stolen_bases, :caught_stealing
+    ]
   end
 
   def batting_average
@@ -34,7 +49,7 @@ class BattingData
     ors = %i(player_id player year league).each_with_object({}) {|key, hash|
       hash[key] = send(key) || other.send(key)
     }
-    sums = %i(games at_bats runs hits doubles triples home_runs runs_batted_in stolen_bases caught_stealing).each_with_object({}) {|key, hash|
+    sums = integrable_stats.each_with_object({}) {|key, hash|
       hash[key] = send(key) + other.send(key)
     }
 

@@ -44,9 +44,12 @@ class Batboy
   def report_slugging_percentage_roster_for(team, year)
     ostream.puts "#{year} Slugging percentages for #{team}:"
     batters = stats_grinder.team_members_for_year(team, year)
-    batters = batters.sort_by {|batter| -batter.stats_for_year(year).slugging_percentage }
-    batters.each do |batter|
-      ostream.puts "%20s: %6.3f" % [batter.name, batter.stats_for_year(year).slugging_percentage]
+    batters_with_stats = batters.map {|batter|
+      [batter, batter.stats_for_year(year).slugging_percentage]
+    }
+    batters_with_stats.sort_by(&:last).reverse
+    batters_with_stats.each do |batter, slugging_percentage|
+      ostream.puts "%20s: %6.3f" % [batter.name, slugging_percentage]
     end
     ostream.puts
   end

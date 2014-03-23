@@ -8,7 +8,6 @@ class BattingData
               :at_bats, :runs, :hits, :doubles, :triples, :home_runs,
               :runs_batted_in, :stolen_bases, :caught_stealing
 
-
   private_attr_writer :player_id, :player, :year, :league, :team,
                       :games, :at_bats, :runs, :hits, :doubles,
                       :triples, :home_runs, :runs_batted_in,
@@ -37,7 +36,7 @@ class BattingData
 
   def slugging_percentage
     return 0.0 unless at_bats > 0
-    (hits + doubles + 2*triples + 3*home_runs) / at_bats.to_f
+    bases_advanced / at_bats.to_f
   end
 
   # Add BattingData to another and return a new BattingData containing
@@ -54,5 +53,15 @@ class BattingData
     }
 
     BattingData.new(ors.merge sums)
+  end
+
+  private
+
+  def bases_advanced
+    singles + 2*doubles + 3*triples + 4*home_runs
+  end
+
+  def singles
+    hits - (doubles + triples + home_runs)
   end
 end

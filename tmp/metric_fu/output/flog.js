@@ -1,12 +1,3 @@
-              var g = new Bluff.Line('graph', "1000x600");
-      g.theme_37signals();
-      g.tooltips = true;
-      g.title_font_size = "24px"
-      g.legend_font_size = "12px"
-      g.marker_font_size = "10px"
-
-        g.title = 'Flog: code complexity';
-        g.data('average', [7.827261466972356,8.598700439918716]);
-g.data('top 5% average', [44.97282263394328,22.772315037583766]);
-        g.labels = {"0":"3/14","1":"3/15"};
-        g.draw();
+        var graph_title = 'Flog: code complexity';
+        var graph_series = [{name: 'average', data: [7.827261466972356,8.598700439918716,8.293393895249306]},{name: 'top 5% average', data: [44.97282263394328,22.772315037583766,23.27286816650584]}];
+        var graph_labels = {"0":"3/14","1":"3/15","2":"5/8"};

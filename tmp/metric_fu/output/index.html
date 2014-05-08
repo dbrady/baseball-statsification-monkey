@@ -410,6 +410,9 @@ a {
     display: block;
     margin-top: 1em;
     margin-left: 2em; }
+  #content div#graph {
+    width: 100%;
+    height: 600px; }
 
 a.success {
   color: #bbf8aa; }
@@ -476,50 +479,44 @@ table td.score {
 }
 
     .bluff-tooltip {
-	background: #fff;
-	border: 1px solid #d1edf5;
-	padding: 8px 8px 6px;
+  background: #fff;
+  border: 1px solid #d1edf5;
+  padding: 8px 8px 6px;
 }
 .bluff-tooltip .color {
-	display: block;
-	height: 4px;
-	width: 30px;
-	margin: 0 0 4px;
-	overflow: hidden;
+  display: block;
+  height: 4px;
+  width: 30px;
+  margin: 0 0 4px;
+  overflow: hidden;
 }
 .bluff-tooltip .data {
-	font-weight: bold;
+  font-weight: bold;
 }
-
-    
     </style>
     <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+    <script language="javascript" src="utils.js" type="text/javascript"></script>
     <script language="javascript" src="js-class.js" type="text/javascript"></script>
     <script language="javascript" src="bluff-min.js" type="text/javascript"></script>
     <script language="javascript" src="excanvas.js" type="text/javascript"></script>
+    <script language="javascript" src="standalone-framework.js" type="text/javascript"></script>
+    <script language="javascript" src="highcharts.js" type="text/javascript"></script>
   </head>
   <body>
     <div id='header'>
-      <h1><a href="/">metrics</a> | <a href="index.html">baseball_stats</a></h1>
+      <h1><a href="/">metrics</a> | <a href="index.html">baseball-statsification-monkey</a></h1>
       <address class='watermark'>
         built with
-        <a href='http://metric-fu.rubyforge.org/'>metric-fu</a>
+        <a href='https://github.com/metricfu/metric_fu'>MetricFu</a>
       </address>
     </div>
     <div id='content'>
-      <h3>Metric Fu Results</h3>
+      <h3>MetricFu Results</h3>
 <ul id='projects'>
 
   <li class='even failure'>
-          <a href="reek.html">
-        Reek
-      </a>
-
-  </li>
-
-  <li class='even failure'>
-          <a href="flog.html">
-        Flog
+          <a href="cane.html">
+        Cane
       </a>
 
   </li>
@@ -532,8 +529,15 @@ table td.score {
   </li>
 
   <li class='even failure'>
-          <a href="saikuro.html">
-        Saikuro
+          <a href="flay.html">
+        Flay
+      </a>
+
+  </li>
+
+  <li class='even failure'>
+          <a href="flog.html">
+        Flog
       </a>
 
   </li>
@@ -546,8 +550,15 @@ table td.score {
   </li>
 
   <li class='even failure'>
-          <a href="flay.html">
-        Flay
+          <a href="saikuro.html">
+        Saikuro
+      </a>
+
+  </li>
+
+  <li class='even failure'>
+          <a href="reek.html">
+        Reek
       </a>
 
   </li>
@@ -560,8 +571,8 @@ table td.score {
   </li>
 
   <li class='even failure'>
-          <a href="cane.html">
-        Cane
+          <a href="rcov.html">
+        Rcov
       </a>
 
   </li>
@@ -574,8 +585,12 @@ table td.score {
   </li>
 
 </ul>
-<p>Generated on 2014-03-15 15:09:37 -0600</p>
+
+<p>Generated on 2014-05-08 15:14:00 -0500</p>
 
     </div>
+
+    
+    <script language="javascript" src="bluff_graph.js" type="text/javascript"></script>
   </body>
 </html>

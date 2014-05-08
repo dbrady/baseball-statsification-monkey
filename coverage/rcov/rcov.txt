@@ -1,0 +1,1041 @@
+metric_fu shift the first line
+================================================================================
+ ./lib/batboy.rb
+================================================================================
+   require_relative "../patches/scoped_attr_accessors"
+   require_relative "stats_grinder"
+-- 
+-- # Main Batboy Stats Reporting App
+-- # This is the app-loading and startup lib file. You should be able to
+-- # require 'batboy' and then do Batboy.new and get what you want.
+   class Batboy
+     private_attr_reader :ostream, :stats_grinder
+-- 
+     def initialize(ostream=$stdout, stats_grinder=StatsGrinder.new)
+       @ostream = ostream
+       @stats_grinder = stats_grinder
+--   end
+-- 
+--   # Refactor me: do we want a factory here?
+--   # e.g.:
+--   # def self.build_batboy
+--   #   new($stdout,
+--   # StatsGrinder.new(StatsData.parse_csv("./data/Master-small.csv")))
+--   # etc
+-- 
+     def report_all_done
+       ostream.puts "All done."
+--   end
+-- 
+--   # refactor me: these will all have the same basic structure: display
+--   # caption, get answer, display answer or default
+--   # Note: StatsGrinder gives back nil or a batter name. There's no
+--   # reason for Batboy to have access to Batter objects yet.
+--   #
+--   # Refactor me: I don't like Batboy knowing that Batter has a
+--   # name, but the alternative is to have Batter know how to write its
+--   # name to a stream, e.g. batter.write_name_to(ostream). This is very
+--   # Smalltalk-y, and might improve testability. Will think some on
+--   # this.
+     def report_most_improved_batter_in(year)
+       from, to = year-1, year
+       ostream.puts "Most improved batter #{from}->#{to}:"
+       batter = stats_grinder.most_improved_batter(from, to)
+       ostream.puts batter.name
+       ostream.puts
+--   end
+-- 
+     def report_slugging_percentage_roster_for(team, year)
+       ostream.puts "#{year} Slugging percentages for #{team}:"
+       batters = stats_grinder.team_members_for_year(team, year)
+       batters_with_stats = batters.map {|batter|
+         [batter, batter.stats_for_year(year).slugging_percentage]
+--     }
+       batters_with_stats.sort_by(&:last).reverse
+       batters_with_stats.each do |batter, slugging_percentage|
+         ostream.puts "%20s: %6.3f" % [batter.name, slugging_percentage]
+--     end
+       ostream.puts
+--   end
+-- 
+     def report_triple_crown_winner_in_league_for(league, year)
+       ostream.puts "#{year} #{league} Triple Crown Winner:"
+       if winner = stats_grinder.triple_crown_winner_in_league_for(league, year)
+         ostream.puts winner.name
+--     else
+         ostream.puts "(No winner)"
+--     end
+--   end
+-- end
+
+================================================================================
+ ./lib/batter.rb
+================================================================================
+   require_relative "csv_reader"
+   require_relative "batting_data"
+   require_relative "patches"
+-- 
+-- # Representation of a player. Class-level finders search the dataset
+-- # while instance methods provide stats and convenience lookup into
+-- # player demographic data
+   class Batter
+     extend Forwardable
+-- 
+     attr_reader :id, :last_name, :first_name
+     private_attr_reader :batting_data
+-- 
+     def initialize(id:, last_name:, first_name:)
+       @id, @last_name, @first_name = id, last_name, first_name
+       @batting_data = Hash.new do |hash, year|
+         hash[year] = Hash.new do |hash2, league_id|
+           hash2[league_id] = Hash.new do |hash3, team_id|
+             hash3[team_id] = BattingData.new player_id: id
+--         end
+--       end
+--     end
+--   end
+-- 
+     def_delegators :all_batting_data_ever, :games, :at_bats, :runs,
+--                  :hits, :doubles, :triples, :home_runs,
+--                  :runs_batted_in, :stolen_bases, :caught_stealing,
+--                  :batting_average
+-- 
+--   # Selectors -- similar to ActiveRecord, we can find the first batter
+--   # or find by id.
+     def self.first
+       batter_data.first.last
+--   end
+-- 
+     def self.find(id:)
+       batter_data.fetch id
+--   end
+-- 
+     def self.find_all(year: nil, league: nil, team: nil)
+       return batter_data.map(&:last) unless year
+       return find_all_by_year(year) unless league || team
+--     # subtle: if you supply both league and team, ignore league
+       return find_all_by_league_and_year(league, year) unless team
+       find_all_by_team_and_year(team, year)
+--   end
+-- 
+     def name
+       "%s %s" % [first_name, last_name]
+--   end
+-- 
+     def sortable_name
+       "%s, %s" % [last_name, first_name]
+--   end
+-- 
+     def years
+       batting_data.keys
+--   end
+-- 
+     def stats_for_year(year)
+       all_batting_data_for_year batting_data[year]
+--   end
+-- 
+     def stats_for_league_and_year(league, year)
+--     return nil unless batting_data.key?(year) &&
+         batting_data[year] && batting_data[year].key?(league)
+--     # FIXME: dis nasty. Have to pass in a key with the hash, which
+--     # means having to lump on the league key again here. Mai ow--do
+--     # not want. Is it really necessary? Need to revisit the method
+--     # breakdown and see if it can't be cleaned up
+       all_batting_data_for_year({ league => batting_data[year][league] })
+--   end
+-- 
+     def played_any_games?(year:, league: nil, team: nil)
+       return played_any_games_in_year?(year) unless league || team
+       return played_any_games_in_league_in_year?(league, year) unless team
+       played_any_games_for_team_in_year?(team, year)
+--   end
+-- 
+--   # I hate methods like this, but whatchagonnado. Basically this
+--   # method lets us cram a line of data from the CSV file into the
+--   # Batter and the Batter will init a new record with it, or add it to
+--   # any existing stats for that year/league/team (the data file has
+--   # over 550 entries that are same player/year, and often same
+--   # player/year/league/team. And often same player/year but different
+--   # team, and occasionally different league. The fact is this data is
+--   # SUPER messy and we gotta live with it, because the reality it's
+--   # tracking is also super messy
+     def add_batting_data(bd)
+       @batting_data[bd.year][bd.league][bd.team] += bd
+--   end
+-- 
+--   #
+--   # END OF PUBLIC API
+--   #
+-- 
+     private
+-- 
+--   # Private Finders
+     private_class_method def self.find_all_by_year(year)
+--     batter_data.reject {|id, batter|
+         !batter.played_any_games?(year: year)
+       }.map(&:last)
+--   end
+-- 
+     private_class_method def self.find_all_by_team_and_year(team, year)
+--     batter_data.reject {|id, batter|
+         !batter.played_any_games?(year: year, team: team)
+       }.map(&:last)
+--   end
+-- 
+     private_class_method def self.find_all_by_league_and_year(league, year)
+--     batter_data.reject {|id, batter|
+         !batter.played_any_games?(year: year, league: league)
+       }.map(&:last)
+--   end
+-- 
+--   # Internal caching method so we only ever load batter data once per
+--   # program run
+     private_class_method def self.batter_data
+       @@batter_data ||= load_batter_data
+--   end
+-- 
+--   # Internal caching method, ugh, WHY IS THIS ON THIS CLASS--please
+--   # give me a reason other than "I suck". Okay, fine: "I suck until I
+--   # refactor."
+     private_class_method def self.load_batter_data
+--     # Refactor me: hardcodey much? [SPIKE]
+       batters = CsvReader.new("./data/Master-small.csv")
+--       .all
+         .reject {|row| row["playerID"].nil? }
+--       .map {|row|
+           Batter.new(
+--                    id: row["playerID"],
+--                    last_name: row["nameLast"],
+--                    first_name: row["nameFirst"]
+--                    )
+--       }
+         .each_with_object({}) {|batter, hash| hash[batter.id] = batter }
+-- 
+-- 
+       @@batter_data = batters
+       load_batting_data
+       batters
+--   end
+-- 
+--   # FIXME: I *REALLY* belong in a data conversion class!!!! These are
+--   # the CSV header identifiers keyed by our internal data columns. Why
+--   # not use what's in the CSV, you ask? Let me answer that question by
+--   # stating authoritatively that if you are asking that question you
+--   # obviously have no clue what's IN that frickin' CSV file. You wanna
+--   # know what's in that file? Do you? DO YOU REALLY? MADNESS! MADNESS
+--   # I SAY! MADNESS IS WHAT IS IN THAT FILE! When Nietzche famously
+--   # wrote "If you gaze long into the Abyss, the Abyss gazes also into
+--   # you," HE WAS TALKING ABOUT THIS CSV FILE. IT'S BAT-POO CRAZY IS
+--   # WHAT I AM TRYING TO TELL YOU--NO, DON'T LOOK, DON'T LOOK IN THE
+--   # FILE, DON'T OPEN THE...
+--   #
+--   # You looked, didn't you.
+--   #
+--   # Well. Welcome to my madness. Make yourself comfortable; THERE IS
+--   # NO WAY BACK.
+--   #
+--   # I did try to warn you.
+     private_class_method def self.batting_data_keys
+--     { player_id: "playerID",
+--       year: "yearID",
+--       league: "league",
+--       team: "teamID",
+--       games: "G",
+--       at_bats: "AB",
+--       runs: "R",
+--       hits: "H",
+--       doubles: "2B",
+--       triples: "3B",
+--       home_runs: "HR",
+--       runs_batted_in: "RBI",
+--       stolen_bases: "SB",
+--       caught_stealing: "CS"
+       }
+--   end
+-- 
+-- 
+--   # Internal caching method. See earlier note about the technical
+--   # depth and temporal breadth within which I suck.
+     private_class_method def self.load_batting_data
+       CsvReader.new("./data/Batting-07-12.csv").all.map {|row|
+         data = {}
+         batting_data_keys.each_pair do |new_key, old_key|
+           data[new_key] = row[old_key]
+--       end
+-- 
+         Batter.find(id: data[:player_id]).add_batting_data(BattingData.new(data))
+--     }
+--   end
+-- 
+     def played_any_games_in_year?(year)
+       years.include? year
+--   end
+-- 
+     def played_any_games_for_team_in_year?(team, year)
+--     played_any_games?(year: year) && batting_data[year].any? {|_, team_data|
+         team_data.keys.include?(team)
+       }
+--   end
+-- 
+     def played_any_games_in_league_in_year?(league, year)
+--     played_any_games?(year: year) && batting_data[year].any? {|league_name, _|
+         league == league_name
+       }
+--   end
+-- 
+--   # Consolidate all my batting data across all years, leagues, teams,
+--   # etc.
+     def all_batting_data_ever
+       batting_data.map {|year, league_data|
+         all_batting_data_for_year league_data
+--     }.reduce :+
+--   end
+-- 
+--   # Helper: given a subtree of BattingDatas for a given year, dive
+--   # into each league. Private method because it accepts a subtree of
+--   # the batting_data structure. Knows too much about our internals.
+     def all_batting_data_for_year(data)
+       data.map {|league, team_data|
+         all_batting_data_for_league team_data
+--     }.reduce :+
+--   end
+-- 
+--   # Helper: given a subtree of BattingDatas for a given league, dive
+--   # into each team. Private method because it accepts a subtree of the
+--   # batting_data structure. Knows too much about our internals.
+     def all_batting_data_for_league(data)
+--     # We could extract all_batting_data_for_team here, but Hash#values
+--     # gives us the same thing at this point. Private methods FTW--no
+--     # using this method, you public-API-using knuckledraggers!
+       data.values.reduce :+
+--   end
+-- end
+
+================================================================================
+ ./lib/batting_data.rb
+================================================================================
+   require_relative 'batter'
+   require_relative 'patches'
+-- 
+-- # Stats aggregation/integration class
+   class BattingData
+-- 
+     attr_reader :player_id, :player, :year, :league, :team, :games,
+--               :at_bats, :runs, :hits, :doubles, :triples, :home_runs,
+--               :runs_batted_in, :stolen_bases, :caught_stealing
+-- 
+     private_attr_writer :player_id, :player, :year, :league, :team,
+--                       :games, :at_bats, :runs, :hits, :doubles,
+--                       :triples, :home_runs, :runs_batted_in,
+--                       :stolen_bases, :caught_stealing
+-- 
+     def initialize(data={})
+       @player_id = data.fetch(:player_id)
+       @player = Batter.find(id: player_id)
+       @year = data[:year].to_i
+       @league, @team = data[:league], data[:team]
+-- 
+       integrable_stats.each {|key| send "#{key}=", data[key].to_i }
+--   end
+-- 
+     def integrable_stats
+--     [
+        :games, :at_bats, :runs, :hits, :doubles, :triples, :home_runs,
+--      :runs_batted_in, :stolen_bases, :caught_stealing
+--     ]
+--   end
+-- 
+     def batting_average
+       return 0.0 unless at_bats > 0
+       hits / at_bats.to_f
+--   end
+-- 
+     def slugging_percentage
+       return 0.0 unless at_bats > 0
+       bases_advanced / at_bats.to_f
+--   end
+-- 
+--   # Add BattingData to another and return a new BattingData containing
+--   # the sums of the stats.
+     def +(other)
+--     # It may seem odd to init player, year, league and team here, but we may
+--     # be adding a valid BattingData to a player's empty BattingData,
+--     # and if so we want to return the valid one.
+       ors = %i(player_id player year league).each_with_object({}) {|key, hash|
+         hash[key] = send(key) || other.send(key)
+--     }
+       sums = integrable_stats.each_with_object({}) {|key, hash|
+         hash[key] = send(key) + other.send(key)
+--     }
+-- 
+       BattingData.new(ors.merge sums)
+--   end
+-- 
+     private
+-- 
+     def bases_advanced
+       singles + 2*doubles + 3*triples + 4*home_runs
+--   end
+-- 
+     def singles
+       hits - (doubles + triples + home_runs)
+--   end
+-- end
+
+================================================================================
+ ./lib/csv_reader.rb
+================================================================================
+   require 'csv'
+-- 
+-- # Load CSV file and read it
+   class CsvReader
+     def initialize(filename)
+       @filename = filename
+--   end
+-- 
+     def all
+       data
+--   end
+-- 
+     def data
+       @data ||= CSV.read(@filename, headers: true)
+--   end
+-- end
+
+================================================================================
+ ./lib/patches.rb
+================================================================================
+   require_relative "../patches/scoped_attr_accessors"
+
+================================================================================
+ ./lib/stats_grinder.rb
+================================================================================
+   require_relative "batter"
+-- 
+-- # StatsGrinder is a class that is aware of BattingData from a higher
+-- # level than BattingData itself; specifically it is able to compare
+-- # BattingData objects to each other to determine improvement, identify
+-- # triple crown winners, etc. It also knows how to search for relevant
+-- # Batters to satisfy a given query.
+-- #
+-- # It may be possible to offload some of the stats to BattingData. For
+-- # example, BattingData#batting_average_improvement(other_batting_data)
+-- # but for now the purpose of StatsGrinder is to satisfy our curiosity
+-- # about various baseball statistics that are fussy and hand-tweaked
+-- # (like only considering batters with a certain number of at-bats for
+-- # a given report)
+   class StatsGrinder
+     def most_improved_batter(from, to)
+       batters1 = Batter.find_all year: from
+       batters1 = with_at_least_200_at_bats(batters1, from)
+       batters2 = Batter.find_all year: to
+       batters2 = with_at_least_200_at_bats(batters2, to)
+-- 
+       batters = common_batters(batters1, batters2)
+-- 
+       most_improved(batters, from, to)
+--   end
+-- 
+--   # So far Batboy has only ever needed to talk to StatsGrinder. No
+--   # need for it to talk directly to Batter just yet--let's proxy this
+--   # for now and get an intention-revealing name in the bargain.
+     def team_members_for_year(team, year)
+       Batter.find_all(team: team, year: year)
+--   end
+-- 
+     def triple_crown_winner_in_league_for(league, year)
+--     # BattingData already has everything we need here -- just need to
+--     # teach Batter to cobble up and return BattingDatas that only
+--     # include data from the desired league and year. Then ask each
+--     # batter for stats_for_league_and_year, and see if the max_by
+--     # :home_runs, :runs_batted_in, and :batting_average are all the
+--     # same person.
+       contenders = Batter.find_all league: league, year: year
+       contenders = with_at_least_400_at_bats_in_league(contenders, year, league)
+-- 
+       homer = contenders.max_by {|batter|
+         batter.stats_for_league_and_year(league, year).home_runs
+--     }
+       run_batter_inner = contenders.max_by {|batter|
+         batter.stats_for_league_and_year(league, year).runs_batted_in
+--     }
+       best_hitter = contenders.max_by {|batter|
+         batter.stats_for_league_and_year(league, year).batting_average
+--     }
+       if homer == run_batter_inner && homer == best_hitter
+         homer
+--     else
+--       nil # ;-)
+--     end
+--   end
+-- 
+     private
+-- 
+--   # Isolating this method because the coding exercise does not
+--   # adequately explain how to calculate improvement -- do we want
+--   # percentage improvement, or raw points gained? Fortunately, for
+--   # the year in question the most improved batter wins by a wide
+--   # enough margin to take both raw points AND percentage, so here
+--   # endeth my pondering--it's isolated and I'm done. :-) [Update: this
+--   # was bugging me so I called my baseball-stats-loving friend, and he
+--   # informed me that it's preferred to calculate based on raw points,
+--   # not percentage, because batting average is already a percentage,
+--   # and grinding out "percentages of percentages" becomes
+--   # statistically problematic.]
+     def batter_improvement(batter, from, to)
+       tba, fba = batter.stats_for_year(to).batting_average,
+--          batter.stats_for_year(from).batting_average
+       improvement = tba - fba
+--     # improvement_percent = improvement / fba
+--   end
+-- 
+     def with_at_least_200_at_bats(batters, year)
+       batters.reject {|batter| batter.stats_for_year(year).at_bats < 200 }
+--   end
+-- 
+     def with_at_least_400_at_bats_in_league(batters, year, league)
+       batters.reject {|batter|
+         batter.stats_for_league_and_year(league, year).at_bats < 400
+--     }
+--   end
+-- 
+--   # reject batters not present in both years
+     def common_batters(batters1, batters2)
+       batter2_ids = batters2.map(&:id)
+       batters1.reject {|batter| !batter2_ids.include?(batter.id) }
+--   end
+-- 
+--   # return most-improved batter in set for the 2 years in
+--   # question. This could be extracted into a sort_by / first method
+--   # pair but ruby already gives us max_by.
+     def most_improved(batters, from, to)
+       batters_with_improvements = batters.map {|batter|
+         [batter, batter_improvement(batter, from, to)]
+       }.max_by {|b, bwi| bwi }.first
+--   end
+-- end
+
+================================================================================
+ ./patches/scoped_attr_accessors.rb
+================================================================================
+   require "scoped_attr_accessor"
+-- 
+-- # Monkeypatch all classes to allow private_attr_reader, protected_attr_accessor, etc.
+   class Object
+     extend ScopedAttrAccessor
+-- end
+
+================================================================================
+ ./spec/lib/batboy_spec.rb
+================================================================================
+   require 'spec_helper'
+   require_relative '../../lib/batboy'
+   require 'stringio'
+-- 
+   describe Batboy do
+     let(:buffer) { StringIO.new }
+     let(:output) { buffer.string }
+     let(:stats_grinder) { double("StatsGrinder") }
+     let(:batboy) { Batboy.new buffer, stats_grinder }
+-- 
+     describe "initialize" do
+       context "with no arguments" do
+         before(:each) do
+           $stdout = buffer
+--       end
+-- 
+         after(:each) do
+           $stdout = STDOUT
+--       end
+-- 
+         it "assumes writing to $stdout" do
+           Batboy.new.report_all_done
+           output.should include("All done.\n")
+--       end
+--     end
+-- 
+       context "with target buffer" do
+         it "accepts buffer to display to" do
+           Batboy.new(buffer).report_all_done
+           output.should include("All done.\n")
+--       end
+--     end
+--   end
+-- 
+     describe "#report_all_done" do
+       it "writes 'All done.' to buffer" do
+         batboy.report_all_done
+         output.should include("All done.\n")
+--     end
+--   end
+-- 
+     describe "#report_most_improved_batter_in(year)" do
+       before(:each) do
+         batter = double("Batter", name: "Hank Aaron")
+         stats_grinder.stub(:most_improved_batter).and_return batter
+--     end
+-- 
+       it "emits 'Most improved batter [year-1]->[year]:'" do
+--       # Refactor me: this will need something it can get the answer from
+         batboy.report_most_improved_batter_in 1999
+         output.should include("Most improved batter 1998->1999:")
+--     end
+-- 
+       it "asks StatsGrinder to find most improved batter" do
+         batter = double("Batter", name: "Hank Aaron")
+         stats_grinder.should_receive(:most_improved_batter).with(1998, 1999).and_return batter
+         batboy.report_most_improved_batter_in 1999
+         output.should include("Most improved batter 1998->1999:")
+         output.should include("Hank Aaron")
+--     end
+-- 
+--     # TODO: As I move forward with slugging percentages, I see a
+--     # distinct need for "display a Batter with slugging percentage";
+--     # did I gloss over the need to display a Batter with batting
+--     # average improvement? Maybe. Circle back to this later -- what we
+--     # have now is pretty and shippable.
+-- 
+       describe "#report_slugging_percentage_roster_for('SEA', 2008)" do
+         it "asks StatsGrinder for 2008 Seattle team roster" do
+           batting_data = double("BattingData", slugging_percentage: 0.5)
+           batter1 = double("Batter", name: "Sluggo McLongball",
+--                          stats_for_year: batting_data)
+           batter2 = double("Batter", name: "Ballsmack O'Hittem",
+--                          stats_for_year: batting_data)
+           team = [batter1, batter2]
+-- 
+           stats_grinder.should_receive(:team_members_for_year).with('SEA', 2008).and_return team
+-- 
+           batboy.report_slugging_percentage_roster_for("SEA", 2008)
+-- 
+           output.should include("2008 Slugging percentages for SEA:")
+           output.should include("Sluggo McLongball:  0.500")
+           output.should include("Ballsmack O'Hittem:  0.500")
+--       end
+--     end
+-- 
+       describe "#report_triple_crown_winner_in(league, year)" do
+         it "asks StatsGrinder for 2011 NL triple crown winner" do
+           stats_grinder.should_receive(:triple_crown_winner_in_league_for).at_least(:once).with("NL", 2011).and_return nil
+           batboy.report_triple_crown_winner_in_league_for("NL", 2011)
+           output.should include("2011 NL Triple Crown Winner:\n(No winner)")
+--       end
+-- 
+         it "asks StatsGrinder for 2012 AL triple crown winner" do
+           batter = double("Batter", name: "Sluggo McLongball")
+           stats_grinder.should_receive(:triple_crown_winner_in_league_for).at_least(:once).with("AL", 2012).and_return batter
+           batboy.report_triple_crown_winner_in_league_for("AL", 2012)
+           output.should include("2012 AL Triple Crown Winner:\nSluggo McLongball")
+--       end
+--     end
+-- 
+--     # it "emits 'Slugging percentage for all players on the Oakland A's in 2007:'" do
+--     #   program_output.should include("2007 Slugging percentages for Oakland A's:")
+--     # end
+-- 
+--     # it "emits AL triple-crown winner for 2011" do
+--     #   program_output.should include("2011 AL Triple Crown Winner:")
+--     # end
+-- 
+--     # it "emits NL triple-crown winner for 2011" do
+--     #   program_output.should include("2011 NL Triple Crown Winner:")
+--     # end
+-- 
+--     # it "emits AL triple-crown winner for 2012" do
+--     #   program_output.should include("2012 AL Triple Crown Winner:")
+--     # end
+-- 
+--     # it "emits NL triple-crown winner for 2012" do
+--     #   program_output.should include("2012 NL Triple Crown Winner:")
+--     # end
+--   end
+-- end
+
+================================================================================
+ ./spec/lib/batter_spec.rb
+================================================================================
+   require 'spec_helper'
+   require_relative '../../lib/batter'
+-- 
+   def spec_stats_for(description, varname, stats)
+     context "#{description}" do
+       let(:subject) { instance_eval "#{varname}" }
+-- 
+       its(:games) { should == stats[:games] }
+       its(:at_bats) { should == stats[:at_bats] }
+       its(:runs) { should == stats[:runs] }
+       its(:hits) { should == stats[:hits] }
+       its(:doubles) { should == stats[:doubles] }
+       its(:triples) { should == stats[:triples] }
+       its(:home_runs) { should == stats[:home_runs] }
+       its(:runs_batted_in) { should == stats[:runs_batted_in] }
+       its(:stolen_bases) { should == stats[:stolen_bases] }
+       its(:caught_stealing) { should == stats[:caught_stealing] }
+       its(:batting_average) { should be_within(0.0005).of(stats[:batting_average]) }
+--   end
+-- end
+-- 
+   describe Batter do
+     context "with autoloaded data" do
+--     # Josh Wilson played 345 games for 6 teams in both leagues. He
+--     # played 45 games in 2009 and 108 games in 2010 for SEA; the other
+--     # teams (ARI, MIL, SDN, WAS, TBA) were all in the NL.
+       let(:wilson) { Batter.find id: "wilsojo03" }
+-- 
+--     # Kim Byung-Hyun played 28 games for three teams in both leagues
+--     # in 2007. He's interesting because he's the only player with four
+--     # entries for a single year--and it's the only year he played.
+       let(:kimby) { Batter.find id: "kimby01" }
+-- 
+--     # Jeremy Accardo is interesting because he's got a few records
+--     # listed as 0,0,0,0,0,0,0,0,0,0 and a few records listed as
+--     # ,,,,,,,,,. He's also interesting because he's played a total of
+--     # 134 games from 2007 to 2012 and he's never had a single at-bat.
+       let(:accardo) { Batter.find id: "accarje01" }
+-- 
+       describe ".first" do
+         it "returns Hank Aaron" do
+           Batter.first.name.should == "Hank Aaron"
+--       end
+--     end
+-- 
+       describe ".find" do
+         it "finds batter" do
+           wilson.name.should == "Josh Wilson"
+--       end
+--     end
+-- 
+       describe ".find_all" do
+         context "with no arguments" do
+           let(:batters) { Batter.find_all.sort_by(&:sortable_name) }
+-- 
+           it "finds all batters" do
+             batters.size.should == 17945
+             batters.first.name.should == "David Aardsma"
+             batters.last.name.should == "Miguel del Toro"
+--         end
+--       end
+-- 
+         context "with year only" do
+           let(:batters_2010) { Batter.find_all(year: 2010).sort_by(&:sortable_name) }
+-- 
+           it "finds batters by year" do
+             batters_2010.size.should == 1157
+             batters_2010.first.name.should == "David Aardsma"
+             batters_2010.last.name.should == "Jorge de la Rosa"
+--         end
+--       end
+-- 
+         context "with team and year" do
+           let(:seattle_2008) { Batter.find_all(team: "SEA", year: 2008).sort_by(&:sortable_name) }
+-- 
+           it "finds batters by team and year" do
+             seattle_2008.size.should == 44
+             seattle_2008.first.name.should == "Cha Seung Baek"
+             seattle_2008.last.name.should == "Jake Woods"
+--         end
+--       end
+-- 
+         context "with league and year" do
+           let(:al_2008) { Batter.find_all(league: "AL", year: 2008).sort_by(&:sortable_name) }
+-- 
+           it "finds batters by league and year" do
+             al_2008.size.should == 624
+             al_2008.all? { |batter|
+               batter.played_any_games?(year: 2008, league: "AL")
+--           }.should be_true
+             al_2008.first.name.should == "David Aardsma"
+             al_2008.last.name.should == "Joel Zumaya"
+--         end
+--       end
+--     end
+-- 
+--     # This spec is fairly transient; the API started out totally
+--     # public and I want to assert that I have locked it down
+--     # completely
+       describe "private class API" do
+--       %i(
+--          find_all_by_year
+--          find_all_by_team_and_year
+--          find_all_by_league_and_year
+--          batter_data
+--          load_batter_data
+--          batting_data_keys
+--          load_batting_data
+            ).each do |private_method|
+           describe private_method do
+             it "should be private" do
+               expect {
+                 Batter.public_send(private_method)
+--             }.to raise_error(NoMethodError, /private method/)
+--           end
+--         end
+--       end
+--     end
+-- 
+-- 
+       describe "#played_any_games?(year)" do
+         context "with just a year" do
+           it "returns truthy if batter played that year" do
+             kimby.played_any_games?(year: 2007).should be_true
+             kimby.played_any_games?(year: 2008).should be_false
+--         end
+--       end
+-- 
+         context "with year and team" do
+           it "returns truthy if batter played for that team that year" do
+             kimby.played_any_games?(year: 2007, team: "FLO").should be_true
+             kimby.played_any_games?(year: 2007, team: "XYZ").should be_false
+--         end
+--       end
+-- 
+         context "with year and league" do
+           it "returns truthy if batter played for that league that year" do
+             kimby.played_any_games?(year: 2007, league: "NL").should be_true
+             kimby.played_any_games?(year: 2007, league: "AL").should be_false
+--         end
+--       end
+--     end
+-- 
+       describe "#years" do
+         it "returns years played" do
+           kimby.years.should == [2007]
+--       end
+--     end
+-- 
+       describe "#name" do
+         it "returns first_name-space-last_name" do
+           kimby.name.should == "Byung-Hyun Kim"
+--       end
+--     end
+-- 
+       describe "#sortable_name" do
+         it "returns Schwartzian-sortable version of name" do
+           kimby.sortable_name.should == "Kim, Byung-Hyun"
+--       end
+--     end
+-- 
+       describe "BattingData interface" do
+         spec_stats_for("Josh Wilson lifetime stats", "wilson", {
+--                        games: 345,
+--                        at_bats: 920,
+--                        runs: 82,
+--                        hits: 210,
+--                        doubles: 45,
+--                        triples: 6,
+--                        home_runs: 9,
+--                        runs_batted_in: 67,
+--                        stolen_bases: 13,
+--                        caught_stealing: 4,
+--                        batting_average: 0.228
+--                      })
+-- 
+         spec_stats_for("Jeremy Accardo lifetime stats", "accardo", {
+--                        games: 134,
+--                        at_bats: 0,
+--                        runs: 0,
+--                        hits: 0,
+--                        doubles: 0,
+--                        triples: 0,
+--                        home_runs: 0,
+--                        runs_batted_in: 0,
+--                        stolen_bases: 0,
+--                        caught_stealing: 0,
+--                        batting_average: 0.0
+--                      })
+-- 
+         spec_stats_for("Kim Byung-Hyun lifetime stats", "kimby", {
+--                        games: 28,
+--                        at_bats: 33,
+--                        runs: 0,
+--                        hits: 2,
+--                        doubles: 1,
+--                        triples: 0,
+--                        home_runs: 0,
+--                        runs_batted_in: 1,
+--                        stolen_bases: 0,
+--                        caught_stealing: 0,
+--                        batting_average: 0.061
+--                      })
+-- 
+--     end
+-- 
+       describe "#stats_for_year" do
+         let(:kimby_2007_stats) { kimby.stats_for_year(2007) }
+         let(:wilson_2011_stats) { wilson.stats_for_year(2011) }
+-- 
+         spec_stats_for("Kim Byung-Hyun 2007 stats", "kimby_2007_stats", {
+--                        games: 28,
+--                        at_bats: 33,
+--                        runs: 0,
+--                        hits: 2,
+--                        doubles: 1,
+--                        triples: 0,
+--                        home_runs: 0,
+--                        runs_batted_in: 1,
+--                        stolen_bases: 0,
+--                        caught_stealing: 0,
+--                        batting_average: 0.061
+--                      })
+-- 
+         spec_stats_for("Josh Wilson 2011 stats", "wilson_2011_stats", {
+--                        games: 60,
+--                        at_bats: 85,
+--                        runs: 13,
+--                        hits: 19,
+--                        doubles: 5,
+--                        triples: 0,
+--                        home_runs: 2,
+--                        runs_batted_in: 5,
+--                        stolen_bases: 1,
+--                        caught_stealing: 0,
+--                        batting_average: 0.224
+--                      })
+-- 
+         context "with empty year" do
+           let(:empty_stats) { wilson.stats_for_year(1966) }
+           it "returns nil" do
+--           # HATE returning nil, but I've designed West-facing code,
+--           # so it's unavoidable until I repent :'-(
+             empty_stats.should be_nil
+--         end
+--       end
+--     end
+-- 
+       describe "#stats_for_league_and_year" do
+         let(:wilson_al_2009_stats) { wilson.stats_for_league_and_year("AL", 2009) }
+         spec_stats_for("Josh Wilson 2009 AL stats", "wilson_al_2009_stats", {
+--                        games: 45,
+--                        at_bats: 128,
+--                        runs: 16,
+--                        hits: 32,
+--                        doubles: 8,
+--                        triples: 1,
+--                        home_runs: 3,
+--                        runs_batted_in: 10,
+--                        stolen_bases: 1,
+--                        caught_stealing: 2,
+--                        batting_average: 0.250
+--                        })
+--     end
+--   end
+-- end
+
+================================================================================
+ ./spec/lib/batting_data_spec.rb
+================================================================================
+   require 'spec_helper'
+   require_relative '../../lib/batting_data'
+-- 
+   describe BattingData do
+     before(:each) do
+       batter = double("Batter")
+       Batter.stub(:find_by_id).and_return(batter)
+--   end
+-- 
+     context "with test batter double" do
+--     # This context and the next 4 lines of code are the first whiff of
+--     # a testing smell caused by BattingData being able to talk
+--     # directly to Batter. In a much larger application, I would inject
+--     # a connection service that we could mock and stub to our heart's
+--     # content. For now, it's only 3 tests that do this, so... eh. Put
+--     # 'em in a crappy "with test double" context and call it good
+--     # enough for now
+       let(:batter) { Batter.new(id: "test", last_name: "Tester", first_name: "Testy") }
+       before(:each) do
+         Batter.stub(:find).with(id: "test").and_return batter
+--     end
+-- 
+       describe "#batting_average" do
+         let(:batting_data) { BattingData.new player_id: "test", at_bats: 100, hits: 20 }
+         it "calculates hits / at_bats" do
+           batting_data.batting_average.should be_within(0.0005).of(0.200)
+--       end
+--     end
+-- 
+       describe "#slugging_percentage" do
+         let(:batting_data) { BattingData.new player_id: "test", at_bats: 100, hits: 20, doubles: 6, triples: 2, home_runs: 1 }
+-- 
+         it "calculates slugging percentage" do
+           batting_data.slugging_percentage.should be_within(0.0005).of(0.330)
+--       end
+--     end
+-- 
+       describe "#+" do
+         let(:one) { BattingData.new Hash.new(1).merge({player_id: "test"}) }
+         let(:two) { BattingData.new Hash.new(2).merge({player_id: "test"}) }
+         let(:three) { one + two }
+-- 
+         it "sums the BattingData data" do
+           three.player_id.should == "test"
+           three.year.should == 1
+           three.league.should == 1
+           three.games.should == 3
+           three.at_bats.should == 3
+           three.runs.should == 3
+           three.hits.should == 3
+           three.doubles.should == 3
+           three.triples.should == 3
+           three.home_runs.should == 3
+           three.runs_batted_in.should == 3
+           three.stolen_bases.should == 3
+           three.caught_stealing.should == 3
+--       end
+--     end
+--   end
+-- end
+
+================================================================================
+ ./spec/lib/stats_grinder_spec.rb
+================================================================================
+   require 'spec_helper'
+   require_relative '../../lib/stats_grinder'
+-- 
+   describe StatsGrinder do
+     let(:stats_grinder) { StatsGrinder.new }
+-- 
+     describe "#most_improved_batter" do
+       it "finds most improved batter between years" do
+         stats_grinder.most_improved_batter(2008, 2010).name.should == "Carlos Gonzalez"
+--     end
+--   end
+-- 
+     describe "#team_members_for_year(team, year)" do
+       it "asks Batter to find_all by team and year" do
+         team = []
+         Batter.should_receive(:find_all).with(team: "SEA", year: 2008).and_return(team)
+         stats_grinder.team_members_for_year("SEA", 2008)
+--     end
+--   end
+-- 
+     describe "#triple_crown_winner_in_league_for(team, year)" do
+       context "when a single batter leads the league for batting average, home runs and RBI" do
+         let(:winner) { double("Batter", stats_for_league_and_year: double("BattingData", at_bats: 1000, hits: 500, home_runs: 100, runs_batted_in: 100, batting_average: 0.500)) }
+         let(:not_enough_plate_appearances) { double("Batter", stats_for_league_and_year: double("BattingData", at_bats: 200, hits: 200, home_runs: 200, runs_batted_in: 600, batting_average: 1.000)) }
+-- 
+         it "reports winner" do
+           Batter.should_receive(:find_all).with(league: "NL", year: 2009).and_return [winner]
+           stats_grinder.triple_crown_winner_in_league_for("NL", 2009).should == winner
+--       end
+-- 
+         it "ignores batters with fewer than 400 at_bats" do
+           Batter.should_receive(:find_all).with(league: "NL", year: 2009).and_return [not_enough_plate_appearances, winner]
+           stats_grinder.triple_crown_winner_in_league_for("NL", 2009).should == winner
+--       end
+--     end
+-- 
+       context "when no single winner is found" do
+         let(:best_hitter) { double("Batter", stats_for_league_and_year: double("BattingData", at_bats: 500, hits: 500, home_runs: 0, runs_batted_in: 0, batting_average: 1.0)) }
+         let(:best_slugger) { double("Batter", stats_for_league_and_year: double("BattingData", at_bats: 1000, hits: 500, home_runs: 500, runs_batted_in: 0, batting_average: 0.500)) }
+         let(:best_rbier) { double("Batter", stats_for_league_and_year: double("BattingData", at_bats: 1000, hits: 500, home_runs: 0, runs_batted_in: 1500, batting_average: 0.5)) }
+-- 
+         it "returns no winner" do
+           players = [best_hitter, best_slugger, best_rbier]
+           Batter.should_receive(:find_all).with(league: "NL", year: 2009).and_return(players)
+           stats_grinder.triple_crown_winner_in_league_for("NL", 2009).should be_nil
+--       end
+--     end
+--   end
+-- 
+-- end
+

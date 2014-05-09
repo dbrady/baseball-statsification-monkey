@@ -1,21 +1,3 @@
-              var g = new Bluff.Line('graph', "1000x600");
-      g.theme_37signals();
-      g.tooltips = true;
-      g.title_font_size = "24px"
-      g.legend_font_size = "12px"
-      g.marker_font_size = "10px"
-
-        g.title = 'Reek: code smells';
-        g.data('DuplicateMethodCall', [7,6]);
-g.data('ClassVariable', [1]);
-g.data('IrresponsibleModule', [4]);
-g.data('FeatureEnvy', [11,9]);
-g.data('UtilityFunction', [5,4]);
-g.data('NestedIterators', [2]);
-g.data('UncommunicativeVariableName', [5,3]);
-g.data('NilCheck', [1]);
-g.data('TooManyInstanceVariables', [1]);
-g.data('UncommunicativeParameterName', [2,2]);
-g.data('TooManyStatements', [2,2]);
-        g.labels = {"0":"3/14","1":"3/15"};
-        g.draw();
+        var graph_title = 'Reek: code smells';
+        var graph_series = [{name: 'DuplicateMethodCall', data: [7,6,6]},{name: 'ClassVariable', data: [1,0,1]},{name: 'IrresponsibleModule', data: [4]},{name: 'FeatureEnvy', data: [11,9,13]},{name: 'UtilityFunction', data: [5,4,5]},{name: 'NestedIterators', data: [2,0,2]},{name: 'UncommunicativeVariableName', data: [5,3,5]},{name: 'NilCheck', data: [1,0,1]},{name: 'TooManyInstanceVariables', data: [1]},{name: 'UncommunicativeParameterName', data: [2,2,2]},{name: 'TooManyStatements', data: [2,2,4]}];
+        var graph_labels = {"0":"3/14","1":"3/15","2":"5/8"};

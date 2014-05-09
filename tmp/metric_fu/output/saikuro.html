@@ -410,6 +410,9 @@ a {
     display: block;
     margin-top: 1em;
     margin-left: 2em; }
+  #content div#graph {
+    width: 100%;
+    height: 600px; }
 
 a.success {
   color: #bbf8aa; }
@@ -476,34 +479,35 @@ table td.score {
 }
 
     .bluff-tooltip {
-	background: #fff;
-	border: 1px solid #d1edf5;
-	padding: 8px 8px 6px;
+  background: #fff;
+  border: 1px solid #d1edf5;
+  padding: 8px 8px 6px;
 }
 .bluff-tooltip .color {
-	display: block;
-	height: 4px;
-	width: 30px;
-	margin: 0 0 4px;
-	overflow: hidden;
+  display: block;
+  height: 4px;
+  width: 30px;
+  margin: 0 0 4px;
+  overflow: hidden;
 }
 .bluff-tooltip .data {
-	font-weight: bold;
+  font-weight: bold;
 }
-
-    
     </style>
     <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+    <script language="javascript" src="utils.js" type="text/javascript"></script>
     <script language="javascript" src="js-class.js" type="text/javascript"></script>
     <script language="javascript" src="bluff-min.js" type="text/javascript"></script>
     <script language="javascript" src="excanvas.js" type="text/javascript"></script>
+    <script language="javascript" src="standalone-framework.js" type="text/javascript"></script>
+    <script language="javascript" src="highcharts.js" type="text/javascript"></script>
   </head>
   <body>
     <div id='header'>
-      <h1><a href="/">metrics</a> | <a href="index.html">baseball_stats</a></h1>
+      <h1><a href="/">metrics</a> | <a href="index.html">baseball-statsification-monkey</a></h1>
       <address class='watermark'>
         built with
-        <a href='http://metric-fu.rubyforge.org/'>metric-fu</a>
+        <a href='https://github.com/metricfu/metric_fu'>MetricFu</a>
       </address>
     </div>
     <div id='content'>
@@ -520,8 +524,8 @@ table td.score {
     
     <tr>
       <td>StatsGrinder#triple_crown_winner_in_league_for</td>
-      <td>6</td>
-      <td>36</td>
+      <td>5</td>
+      <td>24</td>
     </tr>
     
     <tr>
@@ -531,27 +535,15 @@ table td.score {
     </tr>
     
     <tr>
-      <td>Batter#self.load_batter_data</td>
-      <td>4</td>
-      <td>14</td>
-    </tr>
-    
-    <tr>
       <td>Batter#initialize</td>
       <td>4</td>
       <td>9</td>
     </tr>
     
     <tr>
-      <td>Batter#self.load_batting_data</td>
-      <td>3</td>
-      <td>9</td>
-    </tr>
-    
-    <tr>
-      <td>Batboy#report_slugging_percentage_roster_for</td>
-      <td>3</td>
-      <td>8</td>
+      <td>Batter#self.load_batter_data</td>
+      <td>4</td>
+      <td>18</td>
     </tr>
     
     <tr>
@@ -561,69 +553,33 @@ table td.score {
     </tr>
     
     <tr>
+      <td>Batter#played_any_games?</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.load_batting_data</td>
+      <td>3</td>
+      <td>9</td>
+    </tr>
+    
+    <tr>
       <td>BattingData#+</td>
       <td>3</td>
       <td>12</td>
     </tr>
     
     <tr>
-      <td>Batter#all_batting_data_for_year</td>
-      <td>2</td>
-      <td>4</td>
+      <td>Batboy#report_slugging_percentage_roster_for</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     
     <tr>
       <td>BattingData#slugging_percentage</td>
       <td>2</td>
       <td>3</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#batting_average</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    
-    <tr>
-      <td>BattingData#initialize</td>
-      <td>2</td>
-      <td>7</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#stats_for_league_and_year</td>
-      <td>2</td>
-      <td>7</td>
-    </tr>
-    
-    <tr>
-      <td>StatsGrinder#common_batters</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    
-    <tr>
-      <td>StatsGrinder#with_at_least_200_at_bats</td>
-      <td>2</td>
-      <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#played_any_games_for_team_in?</td>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#played_any_games_in_league_in_year?</td>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#self.find_all_by_year</td>
-      <td>2</td>
-      <td>2</td>
     </tr>
     
     <tr>
@@ -639,9 +595,63 @@ table td.score {
     </tr>
     
     <tr>
+      <td>BattingData#batting_average</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.find_all_by_year</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
+      <td>BattingData#initialize</td>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+    
+    <tr>
       <td>Batboy#report_triple_crown_winner_in_league_for</td>
       <td>2</td>
       <td>7</td>
+    </tr>
+    
+    <tr>
+      <td>StatsGrinder#common_batters</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    
+    <tr>
+      <td>StatsGrinder#with_at_least_400_at_bats_in_league</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
+      <td>StatsGrinder#with_at_least_200_at_bats</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#played_any_games_for_team_in_year?</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#stats_for_league_and_year</td>
+      <td>2</td>
+      <td>8</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#played_any_games_in_league_in_year?</td>
+      <td>2</td>
+      <td>4</td>
     </tr>
     
     <tr>
@@ -651,27 +661,9 @@ table td.score {
     </tr>
     
     <tr>
-      <td>Batter#self.batter_data</td>
-      <td>1</td>
+      <td>Batter#all_batting_data_for_year</td>
       <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#self.batting_data_keys</td>
-      <td>1</td>
-      <td>16</td>
-    </tr>
-    
-    <tr>
-      <td>CsvReader#initialize</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>Batboy#initialize</td>
-      <td>1</td>
-      <td>3</td>
+      <td>4</td>
     </tr>
     
     <tr>
@@ -693,6 +685,60 @@ table td.score {
     </tr>
     
     <tr>
+      <td>StatsGrinder#batter_improvement</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#played_any_games_in_year?</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
+      <td>BattingData#integrable_stats</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.batting_data_keys</td>
+      <td>1</td>
+      <td>16</td>
+    </tr>
+    
+    <tr>
+      <td>BattingData#bases_advanced</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
+      <td>Batter#self.batter_data</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
+      <td>BattingData#singles</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
+      <td>Batboy#initialize</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    
+    <tr>
+      <td>Batboy#report_all_done</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    
+    <tr>
       <td>Batter#add_batting_data</td>
       <td>1</td>
       <td>2</td>
@@ -705,19 +751,7 @@ table td.score {
     </tr>
     
     <tr>
-      <td>StatsGrinder#batter_improvement</td>
-      <td>1</td>
-      <td>5</td>
-    </tr>
-    
-    <tr>
-      <td>Batter#played_any_games_in?</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    
-    <tr>
-      <td>Batboy#report_all_done</td>
+      <td>CsvReader#initialize</td>
       <td>1</td>
       <td>2</td>
     </tr>
@@ -784,26 +818,26 @@ table td.score {
     
     <tr>
       <td>Batter</td>
-      <td>42</td>
-      <td>218</td>
+      <td>45</td>
+      <td>231</td>
     </tr>
     
     <tr>
       <td>StatsGrinder</td>
-      <td>16</td>
-      <td>95</td>
+      <td>17</td>
+      <td>89</td>
     </tr>
     
     <tr>
       <td>BattingData</td>
-      <td>9</td>
-      <td>38</td>
+      <td>12</td>
+      <td>62</td>
     </tr>
     
     <tr>
       <td>Batboy</td>
       <td>8</td>
-      <td>55</td>
+      <td>58</td>
     </tr>
     
     <tr>
@@ -853,8 +887,8 @@ table td.score {
       
         <h3>lib/batter.rb</h3>
         <h4>Class : Batter</h4>
-        <h5>Total complexity : 42</h5>
-        <h5>Total lines : 218</h5>
+        <h5>Total complexity : 45</h5>
+        <h5>Total lines : 231</h5>
         <table>
             <tr>
               <th>Method</th>
@@ -876,18 +910,6 @@ table td.score {
           
             <tr>
               <td>
-                Batter#self.load_batter_data
-              </td>
-              <td>
-                4
-              </td>
-              <td>
-                14
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
                 Batter#self.find_all
               </td>
               <td>
@@ -895,6 +917,30 @@ table td.score {
               </td>
               <td>
                 6
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                Batter#self.load_batter_data
+              </td>
+              <td>
+                4
+              </td>
+              <td>
+                18
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                Batter#played_any_games?
+              </td>
+              <td>
+                3
+              </td>
+              <td>
+                4
               </td>
             </tr>
           
@@ -912,7 +958,7 @@ table td.score {
           
             <tr>
               <td>
-                Batter#played_any_games_in_league_in_year?
+                Batter#self.find_all_by_team_and_year
               </td>
               <td>
                 2
@@ -924,7 +970,7 @@ table td.score {
           
             <tr>
               <td>
-                Batter#all_batting_data_ever
+                Batter#played_any_games_for_team_in_year?
               </td>
               <td>
                 2
@@ -948,7 +994,7 @@ table td.score {
           
             <tr>
               <td>
-                Batter#self.find_all_by_league_and_year
+                Batter#played_any_games_in_league_in_year?
               </td>
               <td>
                 2
@@ -960,7 +1006,19 @@ table td.score {
           
             <tr>
               <td>
-                Batter#self.find_all_by_team_and_year
+                Batter#stats_for_league_and_year
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                8
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                Batter#self.find_all_by_league_and_year
               </td>
               <td>
                 2
@@ -978,25 +1036,13 @@ table td.score {
                 2
               </td>
               <td>
-                2
+                4
               </td>
             </tr>
           
             <tr>
               <td>
-                Batter#stats_for_league_and_year
-              </td>
-              <td>
-                2
-              </td>
-              <td>
-                7
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                Batter#played_any_games_for_team_in?
+                Batter#all_batting_data_ever
               </td>
               <td>
                 2
@@ -1008,7 +1054,7 @@ table td.score {
           
             <tr>
               <td>
-                Batter#played_any_games_in?
+                Batter#add_batting_data
               </td>
               <td>
                 1
@@ -1020,19 +1066,19 @@ table td.score {
           
             <tr>
               <td>
-                Batter#self.batting_data_keys
+                Batter#played_any_games_in_year?
               </td>
               <td>
                 1
               </td>
               <td>
-                16
+                2
               </td>
             </tr>
           
             <tr>
               <td>
-                Batter#add_batting_data
+                Batter#self.batter_data
               </td>
               <td>
                 1
@@ -1092,13 +1138,13 @@ table td.score {
           
             <tr>
               <td>
-                Batter#self.batter_data
+                Batter#self.batting_data_keys
               </td>
               <td>
                 1
               </td>
               <td>
-                2
+                16
               </td>
             </tr>
           
@@ -1148,8 +1194,8 @@ table td.score {
       
         <h3>lib/stats_grinder.rb</h3>
         <h4>Class : StatsGrinder</h4>
-        <h5>Total complexity : 16</h5>
-        <h5>Total lines : 95</h5>
+        <h5>Total complexity : 17</h5>
+        <h5>Total lines : 89</h5>
         <table>
             <tr>
               <th>Method</th>
@@ -1162,10 +1208,10 @@ table td.score {
                 StatsGrinder#triple_crown_winner_in_league_for
               </td>
               <td>
-                6
+                5
               </td>
               <td>
-                36
+                24
               </td>
             </tr>
           
@@ -1190,6 +1236,18 @@ table td.score {
               </td>
               <td>
                 2
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                StatsGrinder#with_at_least_400_at_bats_in_league
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                4
               </td>
             </tr>
           
@@ -1251,8 +1309,8 @@ table td.score {
       
         <h3>lib/batting_data.rb</h3>
         <h4>Class : BattingData</h4>
-        <h5>Total complexity : 9</h5>
-        <h5>Total lines : 38</h5>
+        <h5>Total complexity : 12</h5>
+        <h5>Total lines : 62</h5>
         <table>
             <tr>
               <th>Method</th>
@@ -1269,18 +1327,6 @@ table td.score {
               </td>
               <td>
                 12
-              </td>
-            </tr>
-          
-            <tr>
-              <td>
-                BattingData#slugging_percentage
-              </td>
-              <td>
-                2
-              </td>
-              <td>
-                3
               </td>
             </tr>
           
@@ -1308,6 +1354,54 @@ table td.score {
               </td>
             </tr>
           
+            <tr>
+              <td>
+                BattingData#slugging_percentage
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                3
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                BattingData#bases_advanced
+              </td>
+              <td>
+                1
+              </td>
+              <td>
+                2
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                BattingData#integrable_stats
+              </td>
+              <td>
+                1
+              </td>
+              <td>
+                5
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+                BattingData#singles
+              </td>
+              <td>
+                1
+              </td>
+              <td>
+                2
+              </td>
+            </tr>
+          
         </table>
       
   
@@ -1319,7 +1413,7 @@ table td.score {
         <h3>lib/batboy.rb</h3>
         <h4>Class : Batboy</h4>
         <h5>Total complexity : 8</h5>
-        <h5>Total lines : 55</h5>
+        <h5>Total lines : 58</h5>
         <table>
             <tr>
               <th>Method</th>
@@ -1335,7 +1429,7 @@ table td.score {
                 3
               </td>
               <td>
-                8
+                11
               </td>
             </tr>
           
@@ -1447,8 +1541,11 @@ table td.score {
   
 
 
-<p>Generated on 2014-03-15 15:09:37 -0600</p>
+<p>Generated on 2014-05-08 15:14:00 -0500</p>
 
     </div>
+
+    
+    <script language="javascript" src="bluff_graph.js" type="text/javascript"></script>
   </body>
 </html>

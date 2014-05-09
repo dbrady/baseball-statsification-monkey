@@ -410,6 +410,9 @@ a {
     display: block;
     margin-top: 1em;
     margin-left: 2em; }
+  #content div#graph {
+    width: 100%;
+    height: 600px; }
 
 a.success {
   color: #bbf8aa; }
@@ -476,34 +479,35 @@ table td.score {
 }
 
     .bluff-tooltip {
-	background: #fff;
-	border: 1px solid #d1edf5;
-	padding: 8px 8px 6px;
+  background: #fff;
+  border: 1px solid #d1edf5;
+  padding: 8px 8px 6px;
 }
 .bluff-tooltip .color {
-	display: block;
-	height: 4px;
-	width: 30px;
-	margin: 0 0 4px;
-	overflow: hidden;
+  display: block;
+  height: 4px;
+  width: 30px;
+  margin: 0 0 4px;
+  overflow: hidden;
 }
 .bluff-tooltip .data {
-	font-weight: bold;
+  font-weight: bold;
 }
-
-    
     </style>
     <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+    <script language="javascript" src="utils.js" type="text/javascript"></script>
     <script language="javascript" src="js-class.js" type="text/javascript"></script>
     <script language="javascript" src="bluff-min.js" type="text/javascript"></script>
     <script language="javascript" src="excanvas.js" type="text/javascript"></script>
+    <script language="javascript" src="standalone-framework.js" type="text/javascript"></script>
+    <script language="javascript" src="highcharts.js" type="text/javascript"></script>
   </head>
   <body>
     <div id='header'>
-      <h1><a href="/">metrics</a> | <a href="index.html">baseball_stats</a></h1>
+      <h1><a href="/">metrics</a> | <a href="index.html">baseball-statsification-monkey</a></h1>
       <address class='watermark'>
         built with
-        <a href='http://metric-fu.rubyforge.org/'>metric-fu</a>
+        <a href='https://github.com/metricfu/metric_fu'>MetricFu</a>
       </address>
     </div>
     <div id='content'>
@@ -551,21 +555,21 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb:23</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:44</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html#line23">annotate</a></b>
+                <b><a href="lib_batting_data.rb.html#line44">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 22.3<br/>
+              Flog: complexity is 24.0<br/>
             
               <br/>
-              Saikuro: complexity is 2.0<br/>
+              Saikuro: complexity is 3.0<br/>
             
             </td>
           
@@ -576,24 +580,27 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb</a> : BattingData
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:127</a> : Batter
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line127">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Reek: found 2 code smells<br/>
+              Flog: average complexity is 8.1<br/>
             
               <br/>
-              Flog: average complexity is 14.0<br/>
+              Saikuro: average complexity is 1.9<br/>
             
               <br/>
-              Saikuro: average complexity is 2.2<br/>
+              Reek: found 8 code smells<br/>
+            
+              <br/>
+              Rcov: average uncovered code is 22.5%<br/>
             
             </td>
           
@@ -604,24 +611,14 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a> : StatsGrinder#triple_crown_winner_in_league_for
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>./lib/batter.rb</a> : Batter#batting_data_keys
             </b>
-            
-              <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
-               &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Reek: found 6 code smells<br/>
-            
-              <br/>
-              Flog: complexity is 21.7<br/>
-            
-              <br/>
-              Saikuro: complexity is 6.0<br/>
+              Rcov: uncovered code is 87.5%<br/>
             
             </td>
           
@@ -637,7 +634,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:44</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:44</a>
             </b>
             
               <small>&laquo;
@@ -648,63 +645,72 @@ table td.score {
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 22.8<br/>
-            
-            </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb</a> : Batboy
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batboy.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 2 code smells<br/>
-            
-              <br/>
-              Flog: average complexity is 9.2<br/>
-            
-              <br/>
-              Saikuro: average complexity is 1.6<br/>
-            
-            </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb</a> : BattingData#+
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batting_data.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 2 code smells<br/>
-            
-              <br/>
-              Flog: complexity is 22.7<br/>
+              Flog: complexity is 23.2<br/>
             
               <br/>
               Saikuro: complexity is 3.0<br/>
+            
+            </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:44</a> : BattingData
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line44">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: average complexity is 12.6<br/>
+            
+              <br/>
+              Saikuro: average complexity is 1.7<br/>
+            
+              <br/>
+              Reek: found 2 code smells<br/>
+            
+              <br/>
+              Rcov: average uncovered code is 15.1%<br/>
+            
+            </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:64</a> : Batter#stats_for_league_and_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line64">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 15.9<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Reek: found 1 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 62.5%<br/>
             
             </td>
           
@@ -720,18 +726,18 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb:30</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:127</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html#line30">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line127">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 22.7<br/>
+              Flog: complexity is 22.6<br/>
             
             </td>
           
@@ -742,68 +748,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a> : StatsGrinder
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 22 code smells<br/>
-            
-              <br/>
-              Flog: average complexity is 7.6<br/>
-            
-              <br/>
-              Saikuro: average complexity is 2.3<br/>
-            
-            </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb</a> : Batboy#report_slugging_percentage_roster_for
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batboy.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 2 code smells<br/>
-            
-              <br/>
-              Flog: complexity is 22.8<br/>
-            
-              <br/>
-              Saikuro: complexity is 3.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:34</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:34</a> : StatsGrinder
             </b>
             
               <small>&laquo;
@@ -814,7 +759,156 @@ table td.score {
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 21.7<br/>
+              Flog: average complexity is 7.0<br/>
+            
+              <br/>
+              Saikuro: average complexity is 2.1<br/>
+            
+              <br/>
+              Reek: found 24 code smells<br/>
+            
+              <br/>
+              Rcov: average uncovered code is 8.8%<br/>
+            
+            </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:44</a> : BattingData#+
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line44">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 24.0<br/>
+            
+              <br/>
+              Saikuro: complexity is 3.0<br/>
+            
+              <br/>
+              Reek: found 2 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 45.5%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:34</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line34">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 17.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 5.0<br/>
+            
+            </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:44</a> : Batboy
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batboy.rb.html#line44">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: average complexity is 9.3<br/>
+            
+              <br/>
+              Saikuro: average complexity is 1.6<br/>
+            
+              <br/>
+              Reek: found 1 code smells<br/>
+            
+              <br/>
+              Rcov: average uncovered code is 3.6%<br/>
+            
+            </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:127</a> : Batter#load_batter_data
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line127">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 22.6<br/>
+            
+              <br/>
+              Rcov: uncovered code is 50.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>./lib/batter.rb</a>
+            </b>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Rcov: average uncovered code is 22.5%<br/>
             
             </td>
           
@@ -832,7 +926,7 @@ table td.score {
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 7.6<br/>
+              Flog: complexity is 10.9<br/>
             
             </td>
           
@@ -843,21 +937,27 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb:23</a> : BattingData#slugging_percentage
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:34</a> : StatsGrinder#triple_crown_winner_in_league_for
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html#line23">annotate</a></b>
+                <b><a href="lib_stats_grinder.rb.html#line34">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 22.3<br/>
+              Flog: complexity is 17.5<br/>
             
               <br/>
-              Saikuro: complexity is 2.0<br/>
+              Saikuro: complexity is 5.0<br/>
+            
+              <br/>
+              Reek: found 5 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 45.0%<br/>
             
             </td>
           
@@ -873,18 +973,18 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb:9</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:16</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html#line9">annotate</a></b>
+                <b><a href="lib_batting_data.rb.html#line16">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 15.0<br/>
+              Flog: complexity is 18.8<br/>
             
               <br/>
               Saikuro: complexity is 2.0<br/>
@@ -898,7 +998,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/csv_reader.rb'>lib/csv_reader.rb:13</a> : CsvReader
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>lib/csv_reader.rb:13</a> : CsvReader
             </b>
             
               <small>&laquo;
@@ -914,6 +1014,9 @@ table td.score {
               <br/>
               Saikuro: average complexity is 1.0<br/>
             
+              <br/>
+              Rcov: average uncovered code is 0.0%<br/>
+            
             </td>
           
         
@@ -923,21 +1026,27 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb:9</a> : BattingData#initialize
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:233</a> : Batter#all_batting_data_for_league
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html#line9">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line233">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 15.0<br/>
+              Flog: complexity is 2.4<br/>
             
               <br/>
-              Saikuro: complexity is 2.0<br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Reek: found 2 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 60.0%<br/>
             
             </td>
           
@@ -953,21 +1062,21 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:36</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:64</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batboy.rb.html#line36">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line64">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 13.1<br/>
+              Flog: complexity is 15.9<br/>
             
               <br/>
-              Saikuro: complexity is 1.0<br/>
+              Saikuro: complexity is 2.0<br/>
             
             </td>
           
@@ -978,7 +1087,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self
             </b>
             
               <small>&laquo;
@@ -989,7 +1098,7 @@ table td.score {
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Saikuro: average complexity is 1.8<br/>
+              Reek: found 4 code smells<br/>
             
             </td>
           
@@ -1000,7 +1109,269 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:36</a> : Batboy#report_most_improved_batter_in
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:106</a> : Batter#find_all_by_team_and_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line106">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 11.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 50.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:60</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line60">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 16.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:100</a> : Batter#find_all_by_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line100">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 11.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 50.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:186</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line186">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 16.6<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:112</a> : Batter#find_all_by_league_and_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line112">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 11.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 50.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>./lib/batting_data.rb</a>
+            </b>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: average uncovered code is 15.1%<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>./lib/batting_data.rb</a> : BattingData#integrable_stats
+            </b>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 60.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:14</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line14">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 11.2<br/>
+            
+              <br/>
+              Saikuro: complexity is 4.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:201</a> : Batter#played_any_games_for_team_in_year?
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line201">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 8.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 40.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:36</a>
             </b>
             
               <small>&laquo;
@@ -1019,6 +1390,39 @@ table td.score {
             </td>
           
         
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:207</a> : Batter#played_any_games_in_league_in_year?
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line207">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 7.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 40.0%<br/>
+            
+            </td>
+          
+        
         
       </tr>
     
@@ -1030,11 +1434,11 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:54</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:57</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batboy.rb.html#line54">annotate</a></b>
+                <b><a href="lib_batboy.rb.html#line57">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
@@ -1060,21 +1464,27 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:54</a> : Batboy#report_triple_crown_winner_in_league_for
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:44</a> : Batboy#report_slugging_percentage_roster_for
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batboy.rb.html#line54">annotate</a></b>
+                <b><a href="lib_batboy.rb.html#line44">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 11.5<br/>
+              Flog: complexity is 23.2<br/>
             
               <br/>
-              Saikuro: complexity is 2.0<br/>
+              Saikuro: complexity is 3.0<br/>
+            
+              <br/>
+              Reek: found 1 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 18.2%<br/>
             
             </td>
           
@@ -1090,11 +1500,430 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb:18</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:91</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html#line18">annotate</a></b>
+                <b><a href="lib_stats_grinder.rb.html#line91">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 9.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:89</a> : Batter#add_batting_data
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line89">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 6.3<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Reek: found 1 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 33.3%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:64</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line64">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 10.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:73</a> : StatsGrinder#batter_improvement
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line73">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 7.4<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Reek: found 2 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 25.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:112</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line112">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 11.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:40</a> : Batter#find_all
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line40">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 9.9<br/>
+            
+              <br/>
+              Rcov: uncovered code is 16.7%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:106</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line106">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 11.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href=''></a> : Batter#none
+            </b>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 22.0<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:100</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line100">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 11.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:16</a> : BattingData#initialize
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line16">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 18.8<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:201</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line201">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 8.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:60</a> : BattingData#bases_advanced
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line60">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 16.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:40</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line40">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 9.9<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:186</a> : Batter#load_batting_data
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line186">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 16.6<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:37</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line37">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
@@ -1120,24 +1949,27 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a> : StatsGrinder#common_batters
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:14</a> : Batter#initialize
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line14">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Reek: found 7 code smells<br/>
+              Flog: complexity is 11.2<br/>
             
               <br/>
-              Flog: complexity is 9.1<br/>
+              Saikuro: complexity is 4.0<br/>
             
               <br/>
-              Saikuro: complexity is 2.0<br/>
+              Reek: found 3 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
             
             </td>
           
@@ -1153,18 +1985,21 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:97</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:32</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html#line97">annotate</a></b>
+                <b><a href="lib_batting_data.rb.html#line32">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 9.1<br/>
+              Flog: complexity is 7.7<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
             
             </td>
           
@@ -1180,24 +2015,24 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a> : StatsGrinder#most_improved_batter
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:36</a> : Batboy#report_most_improved_batter_in
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
+                <b><a href="lib_batboy.rb.html#line36">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Reek: found 3 code smells<br/>
-            
-              <br/>
-              Flog: complexity is 8.6<br/>
+              Flog: complexity is 13.1<br/>
             
               <br/>
               Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
             
             </td>
           
@@ -1213,7 +2048,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:16</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:16</a>
             </b>
             
               <small>&laquo;
@@ -1226,6 +2061,9 @@ table td.score {
               <br/>
               Flog: complexity is 8.6<br/>
             
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
             </td>
           
         
@@ -1240,21 +2078,24 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb:18</a> : BattingData#batting_average
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:57</a> : Batboy#report_triple_crown_winner_in_league_for
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batting_data.rb.html#line18">annotate</a></b>
+                <b><a href="lib_batboy.rb.html#line57">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 7.7<br/>
+              Flog: complexity is 11.5<br/>
             
               <br/>
               Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
             
             </td>
           
@@ -1270,45 +2111,15 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:85</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:99</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html#line85">annotate</a></b>
+                <b><a href="lib_stats_grinder.rb.html#line99">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Flog: complexity is 7.4<br/>
-            
-            </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a> : StatsGrinder#most_improved
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 1 code smells<br/>
             
               <br/>
               Flog: complexity is 6.3<br/>
@@ -1319,33 +2130,6 @@ table td.score {
             </td>
           
         
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:105</a>
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html#line105">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Flog: complexity is 6.3<br/>
-            
-            </td>
-          
-        
           
           
           <td> &nbsp; </td>
@@ -1357,24 +2141,27 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a> : StatsGrinder#batter_improvement
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:91</a> : StatsGrinder#common_batters
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
+                <b><a href="lib_stats_grinder.rb.html#line91">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Reek: found 2 code smells<br/>
+              Flog: complexity is 9.1<br/>
             
               <br/>
-              Flog: complexity is 7.4<br/>
+              Saikuro: complexity is 2.0<br/>
             
               <br/>
-              Saikuro: complexity is 1.0<br/>
+              Reek: found 7 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
             
             </td>
           
@@ -1390,48 +2177,18 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:92</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:207</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html#line92">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line207">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 5.8<br/>
-            
-            </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a> : StatsGrinder#with_at_least_200_at_bats
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 3 code smells<br/>
-            
-              <br/>
-              Flog: complexity is 5.8<br/>
+              Flog: complexity is 7.1<br/>
             
               <br/>
               Saikuro: complexity is 2.0<br/>
@@ -1439,6 +2196,39 @@ table td.score {
             </td>
           
         
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:64</a> : BattingData#singles
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line64">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 10.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
         
       </tr>
     
@@ -1450,21 +2240,14 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:10</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>./lib/stats_grinder.rb</a>
             </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batboy.rb.html#line10">annotate</a></b>
-               &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 4.5<br/>
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
+              Rcov: average uncovered code is 8.8%<br/>
             
             </td>
           
@@ -1487,7 +2270,7 @@ table td.score {
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 7.6<br/>
+              Flog: complexity is 10.9<br/>
             
             </td>
           
@@ -1503,18 +2286,18 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:22</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:73</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batboy.rb.html#line22">annotate</a></b>
+                <b><a href="lib_stats_grinder.rb.html#line73">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 2.4<br/>
+              Flog: complexity is 7.4<br/>
             
               <br/>
               Saikuro: complexity is 1.0<br/>
@@ -1533,7 +2316,430 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:10</a> : Batboy#initialize
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:16</a> : StatsGrinder#most_improved_batter
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line16">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 8.6<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Reek: found 3 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:74</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line74">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 4.8<br/>
+            
+              <br/>
+              Saikuro: complexity is 3.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:37</a> : BattingData#slugging_percentage
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line37">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 7.7<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:84</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line84">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 5.8<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb:32</a> : BattingData#batting_average
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html#line32">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 7.7<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:80</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line80">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 5.8<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:99</a> : StatsGrinder#most_improved
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line99">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 6.3<br/>
+            
+              <br/>
+              Saikuro: complexity is 3.0<br/>
+            
+              <br/>
+              Reek: found 1 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:215</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line215">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 5.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:84</a> : StatsGrinder#with_at_least_400_at_bats_in_league
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line84">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 5.8<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Reek: found 3 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:89</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line89">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 6.3<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:80</a> : StatsGrinder#with_at_least_200_at_bats
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line80">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 5.8<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Reek: found 3 code smells<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:224</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line224">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 4.0<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:74</a> : Batter#played_any_games?
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line74">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 4.8<br/>
+            
+              <br/>
+              Saikuro: complexity is 3.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:10</a>
             </b>
             
               <small>&laquo;
@@ -1552,39 +2758,6 @@ table td.score {
             </td>
           
         
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batting_data.rb'>lib/batting_data.rb</a>
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batting_data.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 2 code smells<br/>
-            
-              <br/>
-              Saikuro: complexity is 3.0<br/>
-            
-              <br/>
-              Flay: found 1 code duplications<br/>
-            
-            </td>
-          
-        
           
           
           <td> &nbsp; </td>
@@ -1596,18 +2769,24 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.load_batter_data
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:215</a> : Batter#all_batting_data_ever
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line215">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Saikuro: complexity is 4.0<br/>
+              Flog: complexity is 5.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
             
             </td>
           
@@ -1623,135 +2802,18 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:60</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line60">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Reek: found 22 code smells<br/>
-            
-              <br/>
-              Saikuro: average complexity is 2.5<br/>
-            
-              <br/>
-              Roodi: found 1 design problems<br/>
-            
-            </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 4.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb</a>
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batboy.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Reek: found 2 code smells<br/>
-            
-              <br/>
-              Saikuro: complexity is 3.0<br/>
-            
-            </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#initialize
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 4.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/csv_reader.rb'>lib/csv_reader.rb:13</a>
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_csv_reader.rb.html#line13">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Flog: complexity is 1.6<br/>
+              Flog: complexity is 3.9<br/>
             
               <br/>
               Saikuro: complexity is 1.0<br/>
@@ -1770,7 +2832,465 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batboy.rb'>lib/batboy.rb:22</a> : Batboy#report_all_done
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:224</a> : Batter#all_batting_data_for_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line224">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 4.0<br/>
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:52</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line52">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 3.7<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:10</a> : Batboy#initialize
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batboy.rb.html#line10">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 4.5<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:48</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line48">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 3.7<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:60</a> : Batter#stats_for_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line60">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 3.9<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:32</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line32">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 3.9<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:48</a> : Batter#name
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line48">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 3.7<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>./lib/batboy.rb</a>
+            </b>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Rcov: average uncovered code is 3.6%<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:52</a> : Batter#sortable_name
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line52">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 3.7<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Churn: detected high level of churn (changed 11 times)<br/>
+            
+              <br/>
+              Flay: found 1 code duplications<br/>
+            
+              <br/>
+              Saikuro: average complexity is 2.1<br/>
+            
+              <br/>
+              Reek: found 12 code smells<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.load_batter_data
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Saikuro: complexity is 4.0<br/>
+            
+              <br/>
+              Reek: found 3 code smells<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:197</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line197">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 2.4<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Saikuro: complexity is 4.0<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:233</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line233">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 2.4<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:32</a> : Batter#first
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line32">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 3.9<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:22</a>
             </b>
             
               <small>&laquo;
@@ -1789,36 +3309,6 @@ table td.score {
             </td>
           
         
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a>
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Churn: detected high level of churn (changed 10 times)<br/>
-            
-              <br/>
-              Saikuro: average complexity is 1.8<br/>
-            
-            </td>
-          
-        
           
           
           <td> &nbsp; </td>
@@ -1830,18 +3320,24 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.load_batting_data
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:197</a> : Batter#played_any_games_in_year?
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line197">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Saikuro: complexity is 3.0<br/>
+              Flog: complexity is 2.4<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
             
             </td>
           
@@ -1857,18 +3353,18 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/csv_reader.rb'>lib/csv_reader.rb:5</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:56</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_csv_reader.rb.html#line5">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line56">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 1.1<br/>
+              Flog: complexity is 2.4<br/>
             
               <br/>
               Saikuro: complexity is 1.0<br/>
@@ -1887,7 +3383,40 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/csv_reader.rb'>lib/csv_reader.rb:13</a> : CsvReader#data
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb:22</a> : Batboy#report_all_done
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batboy.rb.html#line22">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 2.4<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>lib/csv_reader.rb:13</a>
             </b>
             
               <small>&laquo;
@@ -1906,6 +3435,39 @@ table td.score {
             </td>
           
         
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:56</a> : Batter#years
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line56">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 2.4<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
         
       </tr>
     
@@ -1917,21 +3479,18 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/csv_reader.rb'>lib/csv_reader.rb:9</a>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:36</a>
             </b>
             
               <small>&laquo;
-                <b><a href="lib_csv_reader.rb.html#line9">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line36">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 1.1<br/>
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
+              Flog: complexity is 2.4<br/>
             
             </td>
           
@@ -1954,7 +3513,7 @@ table td.score {
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 2.2<br/>
+              Flog: complexity is 3.3<br/>
             
             </td>
           
@@ -1970,37 +3529,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:30</a>
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html#line30">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Flog: complexity is 1.1<br/>
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/csv_reader.rb'>lib/csv_reader.rb:9</a> : CsvReader#all
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>lib/csv_reader.rb:9</a>
             </b>
             
               <small>&laquo;
@@ -2019,16 +3548,6 @@ table td.score {
             </td>
           
         
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
           
           
           <td> &nbsp; </td>
@@ -2040,21 +3559,21 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/stats_grinder.rb'>lib/stats_grinder.rb:30</a> : StatsGrinder#team_members_for_year
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.load_batting_data
             </b>
             
               <small>&laquo;
-                <b><a href="lib_stats_grinder.rb.html#line30">annotate</a></b>
+                <b><a href="lib_batter.rb.html">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Flog: complexity is 1.1<br/>
+              Saikuro: complexity is 3.0<br/>
             
               <br/>
-              Saikuro: complexity is 1.0<br/>
+              Reek: found 1 code smells<br/>
             
             </td>
           
@@ -2066,21 +3585,11 @@ table td.score {
         
           
           
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
             
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/csv_reader.rb'>lib/csv_reader.rb:5</a> : CsvReader#initialize
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>lib/csv_reader.rb:5</a>
             </b>
             
               <small>&laquo;
@@ -2099,6 +3608,39 @@ table td.score {
             </td>
           
         
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>lib/csv_reader.rb:13</a> : CsvReader#data
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_csv_reader.rb.html#line13">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 1.6<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
         
       </tr>
     
@@ -2106,7 +3648,27 @@ table td.score {
         
           
           
-          <td> &nbsp; </td>
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:30</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line30">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 1.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+            </td>
           
         
           
@@ -2120,7 +3682,297 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all_by_year
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:36</a> : Batter#find
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line36">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 2.4<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:120</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html#line120">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 1.3<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>lib/csv_reader.rb:9</a> : CsvReader#all
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_csv_reader.rb.html#line9">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 1.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Reek: found 24 code smells<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/stats_grinder.rb'>lib/stats_grinder.rb:30</a> : StatsGrinder#team_members_for_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_stats_grinder.rb.html#line30">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 1.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batting_data.rb'>lib/batting_data.rb</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batting_data.rb.html">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flay: found 1 code duplications<br/>
+            
+              <br/>
+              Reek: found 2 code smells<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>lib/csv_reader.rb:5</a> : CsvReader#initialize
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_csv_reader.rb.html#line5">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Flog: complexity is 1.1<br/>
+            
+              <br/>
+              Saikuro: complexity is 1.0<br/>
+            
+              <br/>
+              Rcov: uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/csv_reader.rb'>./lib/csv_reader.rb</a>
+            </b>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Rcov: average uncovered code is 0.0%<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all_by_team_and_year
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batter.rb.html">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Saikuro: complexity is 2.0<br/>
+            
+            </td>
+          
+        
+        
+      </tr>
+    
+      <tr  valign="top">
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batboy.rb'>lib/batboy.rb</a>
+            </b>
+            
+              <small>&laquo;
+                <b><a href="lib_batboy.rb.html">annotate</a></b>
+               &raquo;</small>
+            
+            <br/><br/>
+            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+            
+              <br/>
+              Reek: found 1 code smells<br/>
+            
+            </td>
+          
+        
+          
+          
+          <td> &nbsp; </td>
+          
+        
+          
+          
+            
+            
+            <td>
+            <b>
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all_by_league_and_year
             </b>
             
               <small>&laquo;
@@ -2157,7 +4009,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#played_any_games_for_team_in?
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all_by_year
             </b>
             
               <small>&laquo;
@@ -2194,203 +4046,21 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#played_any_games_in_league_in_year?
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb:120</a> : Batter#batter_data
             </b>
             
               <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
+                <b><a href="lib_batter.rb.html#line120">annotate</a></b>
                &raquo;</small>
             
             <br/><br/>
             <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
             
               <br/>
-              Saikuro: complexity is 2.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#all_batting_data_ever
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+              Flog: complexity is 1.3<br/>
             
               <br/>
-              Saikuro: complexity is 2.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#all_batting_data_for_year
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 2.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all_by_league_and_year
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 2.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find_all_by_team_and_year
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 2.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#stats_for_league_and_year
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 2.0<br/>
+              Rcov: uncovered code is 0.0%<br/>
             
             </td>
           
@@ -2482,7 +4152,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#sortable_name
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.first
             </b>
             
               <small>&laquo;
@@ -2519,7 +4189,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.batting_data_keys
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.batter_data
             </b>
             
               <small>&laquo;
@@ -2556,7 +4226,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#add_batting_data
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.batting_data_keys
             </b>
             
               <small>&laquo;
@@ -2593,266 +4263,7 @@ table td.score {
             
             <td>
             <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#stats_for_year
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#years
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#played_any_games_in?
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#name
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.batter_data
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#self.first
-            </b>
-            
-              <small>&laquo;
-                <b><a href="lib_batter.rb.html">annotate</a></b>
-               &raquo;</small>
-            
-            <br/><br/>
-            <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
-            
-              <br/>
-              Saikuro: complexity is 1.0<br/>
-            
-            </td>
-          
-        
-        
-      </tr>
-    
-      <tr  valign="top">
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-          <td> &nbsp; </td>
-          
-        
-          
-          
-            
-            
-            <td>
-            <b>
-              <a href='file:///home/dbrady/shiny_systems/onlifehealth/dox/coding_exercises/baseball_stats/lib/batter.rb'>lib/batter.rb</a> : Batter#all_batting_data_for_league
+              <a href='file:///Users/benjamin/files/dev/repos/baseball-statsification-monkey/lib/batter.rb'>lib/batter.rb</a> : Batter#self.find
             </b>
             
               <small>&laquo;
@@ -2875,8 +4286,11 @@ table td.score {
   </table>
 
 
-<p>Generated on 2014-03-15 15:09:37 -0600</p>
+<p>Generated on 2014-05-08 15:14:00 -0500</p>
 
     </div>
+
+    
+    <script language="javascript" src="bluff_graph.js" type="text/javascript"></script>
   </body>
 </html>
